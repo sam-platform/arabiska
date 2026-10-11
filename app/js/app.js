@@ -14,6 +14,7 @@ const screens = {
   login: $("#screen-login"),
   checkEmail: $("#screen-check-email"),
   session: $("#screen-session"),
+  continue: $("#screen-continue"),
   done: $("#screen-done"),
 };
 
@@ -221,7 +222,7 @@ async function startSession(user) {
   state = { user, vocab, progressById, queue, dailyLog: { ...dailyLog }, current: null };
 
   if (queue.length === 0) {
-    renderDone();
+    renderContinuePrompt();
   } else {
     nextCard();
   }
@@ -270,7 +271,7 @@ function pickDistractors(item, count) {
 
 function nextCard() {
   if (state.queue.length === 0) {
-    renderDone();
+    renderContinuePrompt();
     return;
   }
   state.current = state.queue.shift();
@@ -311,9 +312,10 @@ function renderTeach(item) {
     <button class="btn-primary continue-btn" type="button" data-action="teach-continue">Got it</button>
   `;
   root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar_full));
+  // Teaching is just exposure, not a graded rep — the actual first rep is the
+  // quiz right after, so there's always something to answer, not just "ok".
   root.querySelector('[data-action="teach-continue"]').addEventListener("click", () => {
-    setMascotMood("happy", "happy");
-    submitRating("good");
+    renderMultipleChoice(item);
   });
 }
 
@@ -448,6 +450,33 @@ async function submitRating(rating) {
   if (result.requeue) state.queue.push(item);
   nextCard();
 }
+
+const EXTRA_REVIEW_BATCH = 10;
+
+// Today's assigned new words + due reviews are a fixed, paced batch — but
+// once that's done, there's no reason to force a stop. Anything already
+// learned (repetitions > 0, regardless of whether it's actually due yet) is
+// fair game for an extra round, repeated for as long as the user wants.
+function renderContinuePrompt() {
+  const learnedPool = state.vocab.filter((v) => state.progressById[v.id]);
+  if (learnedPool.length === 0) {
+    renderDone();
+    return;
+  }
+  $("#continue-reviewed").textContent = state.dailyLog.reviewed_items_count;
+  $("#continue-new").textContent = state.dailyLog.new_items_count;
+  mountMascot("slot-continue", "happy");
+  setMascotMood("happy", "happy");
+  show("continue");
+}
+
+$("#continue-more-btn").addEventListener("click", () => {
+  const pool = shuffle(state.vocab.filter((v) => state.progressById[v.id]));
+  state.queue = pool.slice(0, EXTRA_REVIEW_BATCH);
+  nextCard();
+});
+
+$("#continue-stop-btn").addEventListener("click", () => renderDone());
 
 function renderDone() {
   $("#done-reviewed").textContent = state.dailyLog.reviewed_items_count;
