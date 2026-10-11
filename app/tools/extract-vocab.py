@@ -16,11 +16,18 @@ OUT = Path(__file__).resolve().parent.parent / "data" / "vocab.json"
 ROW_RE = re.compile(
     r'<tr><td class="a">(.*?)</td><td class="t">(.*?)</td><td class="e">(.*?)</td></tr>'
 )
+BDI_RE = re.compile(r"<bdi>(.*?)</bdi>")
 TAG_RE = re.compile(r"<[^>]+>")
 TITLE_RE = re.compile(r"<title>(.*?)</title>")
 
-
+# U+2066 FIRST STRONG ISOLATE / U+2069 POP DIRECTIONAL ISOLATE. The source
+# HTML wraps embedded Arabic in English text with <bdi> for exactly this
+# reason (see arabiska/README.md) — stripping that tag without replacing it
+# lets the bidi algorithm reorder characters around the embedded run (e.g.
+# "<bdi>حابة</bdi> 7aabbe" rendering as the scrambled "7حابة aabbe").
+# Isolate marks preserve the same effect in plain text/JSON.
 def strip_tags(s: str) -> str:
+    s = BDI_RE.sub("⁦\\1⁩", s)
     return TAG_RE.sub("", s).replace("&amp;", "&").replace("&nbsp;", " ").strip()
 
 

@@ -15,7 +15,7 @@
     "ar": "ولد",
     "ar_full": "ولد",
     "translit": "walad",
-    "en": "boy · pl. ولاد wlaad"
+    "en": "boy · pl. ⁦ولاد⁩ wlaad"
   },
   {
     "id": "b1-003",
@@ -51,7 +51,7 @@
     "ar": "الصبح",
     "ar_full": "الصبح",
     "translit": "is-sob7",
-    "en": "the morning · بالصبح in the morning"
+    "en": "the morning · ⁦بالصبح⁩ in the morning"
   },
   {
     "id": "b1-007",
@@ -60,7 +60,7 @@
     "ar": "إمه",
     "ar_full": "إمه",
     "translit": "immo",
-    "en": "his mother · إمي immi my mother"
+    "en": "his mother · ⁦إمي⁩ immi my mother"
   },
   {
     "id": "b1-008",
@@ -69,7 +69,7 @@
     "ar": "بتقله",
     "ar_full": "بتقله",
     "translit": "bit2ello",
-    "en": "she says to him (قال + له run together)"
+    "en": "she says to him (⁦قال⁩ + ⁦له⁩ run together)"
   },
   {
     "id": "b1-009",
@@ -87,7 +87,7 @@
     "ar": "قوم",
     "ar_full": "قوم",
     "translit": "2oum",
-    "en": "get up! · f. قومي 2oumi"
+    "en": "get up! · f. ⁦قومي⁩ 2oumi"
   },
   {
     "id": "b1-011",
@@ -96,7 +96,7 @@
     "ar": "رح",
     "ar_full": "رح",
     "translit": "ra7",
-    "en": "will (future) · رح أروح I'll go"
+    "en": "will (future) · ⁦رح أروح⁩ I'll go"
   },
   {
     "id": "b1-012",
@@ -132,7 +132,7 @@
     "ar": "دقايق",
     "ar_full": "دقايق",
     "translit": "da2aaye2",
-    "en": "minutes · sg. دقيقة da2ee2a"
+    "en": "minutes · sg. ⁦دقيقة⁩ da2ee2a"
   },
   {
     "id": "b1-016",
@@ -141,7 +141,7 @@
     "ar": "ما في",
     "ar_full": "ما في",
     "translit": "maa fee",
-    "en": "there isn't · في fee there is"
+    "en": "there isn't · ⁦في⁩ fee there is"
   },
   {
     "id": "b1-017",
@@ -150,7 +150,7 @@
     "ar": "عطته",
     "ar_full": "عطته",
     "translit": "3atito",
-    "en": "she gave him · عطى 3ata to give"
+    "en": "she gave him · ⁦عطى⁩ 3ata to give"
   },
   {
     "id": "b1-018",
@@ -159,7 +159,7 @@
     "ar": "جبلنا",
     "ar_full": "جبلنا",
     "translit": "jiblna",
-    "en": "bring us! · جاب jaab to bring"
+    "en": "bring us! · ⁦جاب⁩ jaab to bring"
   },
   {
     "id": "b1-019",
@@ -177,7 +177,7 @@
     "ar": "نزل",
     "ar_full": "نزل",
     "translit": "nizil",
-    "en": "he went down · طلع tili3 he went up"
+    "en": "he went down · ⁦طلع⁩ tili3 he went up"
   },
   {
     "id": "b1-021",
@@ -222,7 +222,7 @@
     "ar": "بتحكي",
     "ar_full": "بتحكي",
     "translit": "bti7ki",
-    "en": "she talks · حكى 7aka to speak (not تكلم)"
+    "en": "she talks · ⁦حكى⁩ 7aka to speak (not ⁦تكلم⁩)"
   },
   {
     "id": "b1-026",
@@ -249,7 +249,7 @@
     "ar": "شو بدك؟",
     "ar_full": "شو بدك؟",
     "translit": "shou biddak?",
-    "en": "what do you want? · f. بدك biddek"
+    "en": "what do you want? · f. ⁦بدك⁩ biddek"
   },
   {
     "id": "b1-029",
@@ -267,7 +267,7 @@
     "ar": "خدهم",
     "ar_full": "خدهم",
     "translit": "5idhom",
-    "en": "take them · خد 5od take"
+    "en": "take them · ⁦خد⁩ 5od take"
   },
   {
     "id": "b1-031",
@@ -312,7 +312,7 @@
     "ar": "شافته",
     "ar_full": "شافته",
     "translit": "shaafto",
-    "en": "she saw him · شاف shaaf to see (not رأى)"
+    "en": "she saw him · ⁦شاف⁩ shaaf to see (not ⁦رأى⁩)"
   },
   {
     "id": "b1-036",
@@ -339,7 +339,7 @@
     "ar": "مش أنا",
     "ar_full": "مش أنا",
     "translit": "mish ana",
-    "en": "not me · مش = the all-purpose \"not\""
+    "en": "not me · ⁦مش⁩ = the all-purpose \"not\""
   },
   {
     "id": "b2-039",
@@ -357,7 +357,7 @@
     "ar": "قطة",
     "ar_full": "قطة",
     "translit": "2atta",
-    "en": "cat · pl. قطط 2tat"
+    "en": "cat · pl. ⁦قطط⁩ 2tat"
   },
   {
     "id": "b2-041",
@@ -366,7 +366,7 @@
     "ar": "اسمها",
     "ar_full": "اسمها",
     "translit": "ismha",
-    "en": "her name is · اسمه ismo his name is"
+    "en": "her name is · ⁦اسمه⁩ ismo his name is"
   },
   {
     "id": "b2-042",
@@ -384,7 +384,7 @@
     "ar": "بتحب تنام",
     "ar_full": "بتحب تنام",
     "translit": "bit7ibb tnaam",
-    "en": "she likes to sleep (2nd verb with no أن)"
+    "en": "she likes to sleep (2nd verb with no ⁦أن⁩)"
   },
   {
     "id": "b2-044",
@@ -393,7 +393,7 @@
     "ar": "الشباك",
     "ar_full": "الشباك",
     "translit": "ish-shibbaak",
-    "en": "the window · pl. شبابيك shababeek"
+    "en": "the window · pl. ⁦شبابيك⁩ shababeek"
   },
   {
     "id": "b2-045",
@@ -420,7 +420,7 @@
     "ar": "مفتوح",
     "ar_full": "مفتوح",
     "translit": "maftou7",
-    "en": "open · مسكر msakkar shut"
+    "en": "open · ⁦مسكر⁩ msakkar shut"
   },
   {
     "id": "b2-048",
@@ -447,7 +447,7 @@
     "ar": "نطت",
     "ar_full": "نطت",
     "translit": "nattat",
-    "en": "she jumped · نط natt to jump"
+    "en": "she jumped · ⁦نط⁩ natt to jump"
   },
   {
     "id": "b2-051",
@@ -456,7 +456,7 @@
     "ar": "برا",
     "ar_full": "برا",
     "translit": "barra",
-    "en": "outside · جوا juwwa inside"
+    "en": "outside · ⁦جوا⁩ juwwa inside"
   },
   {
     "id": "b2-052",
@@ -474,7 +474,7 @@
     "ar": "وينك؟",
     "ar_full": "وينك؟",
     "translit": "weenek?",
-    "en": "where are you? (f.) · m. وينك weenak"
+    "en": "where are you? (f.) · m. ⁦وينك⁩ weenak"
   },
   {
     "id": "b2-054",
@@ -483,7 +483,7 @@
     "ar": "دور",
     "ar_full": "دور",
     "translit": "dawwar",
-    "en": "he searched · دور على dawwar 3ala look for"
+    "en": "he searched · ⁦دور على⁩ dawwar 3ala look for"
   },
   {
     "id": "b2-055",
@@ -492,7 +492,7 @@
     "ar": "تحت",
     "ar_full": "تحت",
     "translit": "ta7t",
-    "en": "under · فوق fo2 above"
+    "en": "under · ⁦فوق⁩ fo2 above"
   },
   {
     "id": "b2-056",
@@ -519,7 +519,7 @@
     "ar": "ولا إشي",
     "ar_full": "ولا إشي",
     "translit": "wala ishi",
-    "en": "nothing at all · إشي ishi thing"
+    "en": "nothing at all · ⁦إشي⁩ ishi thing"
   },
   {
     "id": "b2-059",
@@ -528,7 +528,7 @@
     "ar": "الجيران",
     "ar_full": "الجيران",
     "translit": "ij-jeeraan",
-    "en": "the neighbours · sg. جار jaar"
+    "en": "the neighbours · sg. ⁦جار⁩ jaar"
   },
   {
     "id": "b2-060",
@@ -546,7 +546,7 @@
     "ar": "شفتي؟",
     "ar_full": "شفتي؟",
     "translit": "shufti?",
-    "en": "did you see? (f.) · m. شفت shuft"
+    "en": "did you see? (f.) · m. ⁦شفت⁩ shuft"
   },
   {
     "id": "b2-062",
@@ -555,7 +555,7 @@
     "ar": "بيضا",
     "ar_full": "بيضا",
     "translit": "beeda",
-    "en": "white (f.) · m. أبيض abyad"
+    "en": "white (f.) · m. ⁦أبيض⁩ abyad"
   },
   {
     "id": "b2-063",
@@ -564,7 +564,7 @@
     "ar": "لأ",
     "ar_full": "لأ",
     "translit": "la2",
-    "en": "no · أه / إيه ah / eeh yes"
+    "en": "no · ⁦أه / إيه⁩ ah / eeh yes"
   },
   {
     "id": "b2-064",
@@ -591,7 +591,7 @@
     "ar": "جرب",
     "ar_full": "جرب",
     "translit": "jarrib",
-    "en": "try! · جرب jarrab he tried"
+    "en": "try! · ⁦جرب⁩ jarrab he tried"
   },
   {
     "id": "b2-067",
@@ -609,7 +609,7 @@
     "ar": "صاحب الدكانة",
     "ar_full": "صاحب الدكانة",
     "translit": "saa7ib id-dukkaane",
-    "en": "the shopkeeper · صاحب owner, friend"
+    "en": "the shopkeeper · ⁦صاحب⁩ owner, friend"
   },
   {
     "id": "b2-069",
@@ -618,7 +618,7 @@
     "ar": "قله",
     "ar_full": "قله",
     "translit": "2allo",
-    "en": "he said to him · قلها 2alha to her"
+    "en": "he said to him · ⁦قلها⁩ 2alha to her"
   },
   {
     "id": "b2-070",
@@ -627,7 +627,7 @@
     "ar": "قاعدة",
     "ar_full": "قاعدة",
     "translit": "2aa3de",
-    "en": "sitting (f.) · قاعد 2aa3ed (m.)"
+    "en": "sitting (f.) · ⁦قاعد⁩ 2aa3ed (m.)"
   },
   {
     "id": "b2-071",
@@ -663,7 +663,7 @@
     "ar": "الحيط",
     "ar_full": "الحيط",
     "translit": "il-7eet",
-    "en": "the wall · pl. حيطان 7eetaan"
+    "en": "the wall · pl. ⁦حيطان⁩ 7eetaan"
   },
   {
     "id": "b2-075",
@@ -672,7 +672,7 @@
     "ar": "وحدها",
     "ar_full": "وحدها",
     "translit": "wa7adha",
-    "en": "by herself · لحالي la-7aali by myself"
+    "en": "by herself · ⁦لحالي⁩ la-7aali by myself"
   },
   {
     "id": "b2-076",
@@ -681,7 +681,7 @@
     "ar": "خايفة",
     "ar_full": "خايفة",
     "translit": "5aayfe",
-    "en": "afraid (f.) · خايف 5aayef (m.)"
+    "en": "afraid (f.) · ⁦خايف⁩ 5aayef (m.)"
   },
   {
     "id": "b2-077",
@@ -690,7 +690,7 @@
     "ar": "ما تخافي",
     "ar_full": "ما تخافي",
     "translit": "maa t5aafi",
-    "en": "don't be afraid (f.) · m. ما تخاف maa t5aaf"
+    "en": "don't be afraid (f.) · m. ⁦ما تخاف⁩ maa t5aaf"
   },
   {
     "id": "b2-078",
@@ -699,7 +699,7 @@
     "ar": "هون",
     "ar_full": "هون",
     "translit": "hoon",
-    "en": "here · هناك hnaak there"
+    "en": "here · ⁦هناك⁩ hnaak there"
   },
   {
     "id": "b2-079",
@@ -735,7 +735,7 @@
     "ar": "بيسكر",
     "ar_full": "بيسكر",
     "translit": "bisakker",
-    "en": "he closes · بيفتح byifta7 he opens"
+    "en": "he closes · ⁦بيفتح⁩ byifta7 he opens"
   },
   {
     "id": "b2-083",
@@ -744,7 +744,7 @@
     "ar": "قبل ما",
     "ar_full": "قبل ما",
     "translit": "2abel ma",
-    "en": "before (+ verb) · بعد ما ba3ed ma after"
+    "en": "before (+ verb) · ⁦بعد ما⁩ ba3ed ma after"
   },
   {
     "id": "b2-084",
@@ -753,7 +753,7 @@
     "ar": "ـي",
     "ar_full": "ـي",
     "translit": "-i",
-    "en": "my / me — اسمي ismi my name"
+    "en": "my / me — ⁦اسمي⁩ ismi my name"
   },
   {
     "id": "b2-085",
@@ -762,7 +762,7 @@
     "ar": "ـك",
     "ar_full": "ـك",
     "translit": "-ak (m.) / -ek (f.)",
-    "en": "your / you — وينك weenak, weenek"
+    "en": "your / you — ⁦وينك⁩ weenak, weenek"
   },
   {
     "id": "b2-086",
@@ -771,7 +771,7 @@
     "ar": "ـه",
     "ar_full": "ـه",
     "translit": "-o",
-    "en": "his / him — قله 2allo he told him"
+    "en": "his / him — ⁦قله⁩ 2allo he told him"
   },
   {
     "id": "b2-087",
@@ -780,7 +780,7 @@
     "ar": "ـها",
     "ar_full": "ـها",
     "translit": "-ha",
-    "en": "her — حملها 7amalha he carried her"
+    "en": "her — ⁦حملها⁩ 7amalha he carried her"
   },
   {
     "id": "b2-088",
@@ -789,7 +789,7 @@
     "ar": "ـنا",
     "ar_full": "ـنا",
     "translit": "-na",
-    "en": "our / us — جبلنا jiblna bring us"
+    "en": "our / us — ⁦جبلنا⁩ jiblna bring us"
   },
   {
     "id": "b2-089",
@@ -798,7 +798,7 @@
     "ar": "ـكم",
     "ar_full": "ـكم",
     "translit": "-kom",
-    "en": "your / you (pl.) — بيتكم beetkom your house"
+    "en": "your / you (pl.) — ⁦بيتكم⁩ beetkom your house"
   },
   {
     "id": "b2-090",
@@ -807,7 +807,7 @@
     "ar": "ـهم",
     "ar_full": "ـهم",
     "translit": "-hom",
-    "en": "their / them — خدهم 5idhom take them"
+    "en": "their / them — ⁦خدهم⁩ 5idhom take them"
   },
   {
     "id": "b2-091",
@@ -852,7 +852,7 @@
     "ar": "تيتا",
     "ar_full": "تيتا",
     "translit": "Teta",
-    "en": "grandma (not جدة)"
+    "en": "grandma (not ⁦جدة⁩)"
   },
   {
     "id": "b3-096",
@@ -861,7 +861,7 @@
     "ar": "سيدو",
     "ar_full": "سيدو",
     "translit": "Seedo",
-    "en": "grandpa (not جد)"
+    "en": "grandpa (not ⁦جد⁩)"
   },
   {
     "id": "b3-097",
@@ -870,7 +870,7 @@
     "ar": "إمي",
     "ar_full": "إمي",
     "translit": "immi",
-    "en": "my mum · ماما maama"
+    "en": "my mum · ⁦ماما⁩ maama"
   },
   {
     "id": "b3-098",
@@ -879,7 +879,7 @@
     "ar": "أبوي",
     "ar_full": "أبوي",
     "translit": "abouy",
-    "en": "my dad · بابا baaba"
+    "en": "my dad · ⁦بابا⁩ baaba"
   },
   {
     "id": "b3-099",
@@ -888,7 +888,7 @@
     "ar": "أخوي",
     "ar_full": "أخوي",
     "translit": "a5ouy",
-    "en": "my brother · أختي u5ti my sister"
+    "en": "my brother · ⁦أختي⁩ u5ti my sister"
   },
   {
     "id": "b3-100",
@@ -933,7 +933,7 @@
     "ar": "كل جمعة",
     "ar_full": "كل جمعة",
     "translit": "kill jum3a",
-    "en": "every Friday · الجمعة also = the week"
+    "en": "every Friday · ⁦الجمعة⁩ also = the week"
   },
   {
     "id": "b3-105",
@@ -960,7 +960,7 @@
     "ar": "يا هلا",
     "ar_full": "يا هلا",
     "translit": "ya hala",
-    "en": "welcome! · also أهلين ahlein"
+    "en": "welcome! · also ⁦أهلين⁩ ahlein"
   },
   {
     "id": "b3-108",
@@ -978,7 +978,7 @@
     "ar": "بتملا",
     "ar_full": "بتملا",
     "translit": "btimla",
-    "en": "it fills · ملا mala to fill"
+    "en": "it fills · ⁦ملا⁩ mala to fill"
   },
   {
     "id": "b3-110",
@@ -987,7 +987,7 @@
     "ar": "كله",
     "ar_full": "كله",
     "translit": "killo",
-    "en": "all of it · كلها killha all of it (f.)"
+    "en": "all of it · ⁦كلها⁩ killha all of it (f.)"
   },
   {
     "id": "b3-111",
@@ -1050,7 +1050,7 @@
     "ar": "ليش",
     "ar_full": "ليش",
     "translit": "leesh",
-    "en": "why · لأنه la2inno because"
+    "en": "why · ⁦لأنه⁩ la2inno because"
   },
   {
     "id": "b3-118",
@@ -1059,7 +1059,7 @@
     "ar": "منقلبها",
     "ar_full": "منقلبها",
     "translit": "mnu2libha",
-    "en": "we flip it · قلب 2alab to turn over"
+    "en": "we flip it · ⁦قلب⁩ 2alab to turn over"
   },
   {
     "id": "b3-119",
@@ -1104,7 +1104,7 @@
     "ar": "بعد الأكل",
     "ar_full": "بعد الأكل",
     "translit": "ba3d il-akel",
-    "en": "after the meal · الأكل = food"
+    "en": "after the meal · ⁦الأكل⁩ = food"
   },
   {
     "id": "b3-124",
@@ -1113,7 +1113,7 @@
     "ar": "بيقعد",
     "ar_full": "بيقعد",
     "translit": "byi23od",
-    "en": "he sits (not يجلس)"
+    "en": "he sits (not ⁦يجلس⁩)"
   },
   {
     "id": "b3-125",
@@ -1140,7 +1140,7 @@
     "ar": "خليني",
     "ar_full": "خليني",
     "translit": "5alleeni",
-    "en": "let me · خليك 5alleek stay / keep"
+    "en": "let me · ⁦خليك⁩ 5alleek stay / keep"
   },
   {
     "id": "b3-128",
@@ -1185,7 +1185,7 @@
     "ar": "زغير",
     "ar_full": "زغير",
     "translit": "zgheer",
-    "en": "small, young · كبير kbeer big, old"
+    "en": "small, young · ⁦كبير⁩ kbeer big, old"
   },
   {
     "id": "b3-133",
@@ -1230,7 +1230,7 @@
     "ar": "تصير",
     "ar_full": "تصير",
     "translit": "tseer",
-    "en": "it becomes · صار saar became, happened"
+    "en": "it becomes · ⁦صار⁩ saar became, happened"
   },
   {
     "id": "b3-138",
@@ -1239,7 +1239,7 @@
     "ar": "عتمة",
     "ar_full": "عتمة",
     "translit": "3atme",
-    "en": "darkness · الدنيا عتمة it's dark out"
+    "en": "darkness · ⁦الدنيا عتمة⁩ it's dark out"
   },
   {
     "id": "b3-139",
@@ -1293,7 +1293,7 @@
     "ar": "عالليل",
     "ar_full": "عالليل",
     "translit": "3al-leel",
-    "en": "at night · بالنهار bin-nhaar by day"
+    "en": "at night · ⁦بالنهار⁩ bin-nhaar by day"
   },
   {
     "id": "b3-145",
@@ -1329,7 +1329,7 @@
     "ar": "يوكل",
     "ar_full": "يوكل",
     "translit": "yokel",
-    "en": "he eats · أكل akal he ate"
+    "en": "he eats · ⁦أكل⁩ akal he ate"
   },
   {
     "id": "b3-149",
@@ -1401,7 +1401,7 @@
     "ar": "شجرة زيتون",
     "ar_full": "شجرة زيتون",
     "translit": "shajarit zeetoun",
-    "en": "an olive tree · pl. شجر زيتون"
+    "en": "an olive tree · pl. ⁦شجر زيتون⁩"
   },
   {
     "id": "b4-157",
@@ -1410,7 +1410,7 @@
     "ar": "سلة",
     "ar_full": "سلة",
     "translit": "salle",
-    "en": "basket · pl. سلال salaal"
+    "en": "basket · pl. ⁦سلال⁩ salaal"
   },
   {
     "id": "b4-158",
@@ -1464,7 +1464,7 @@
     "ar": "حابب",
     "ar_full": "حابب",
     "translit": "7aabib",
-    "en": "wanting to, would like to · f. حابة 7aabbe"
+    "en": "wanting to, would like to · f. ⁦حابة⁩ 7aabbe"
   },
   {
     "id": "b4-164",
@@ -1482,7 +1482,7 @@
     "ar": "طاح",
     "ar_full": "طاح / تطيح",
     "translit": "taa7 / titee7",
-    "en": "to fall — not وقع"
+    "en": "to fall — not ⁦وقع⁩"
   },
   {
     "id": "b4-166",
@@ -1491,7 +1491,7 @@
     "ar": "مليانة",
     "ar_full": "مليانة",
     "translit": "malyaane",
-    "en": "full (f.) · m. مليان malyaan"
+    "en": "full (f.) · m. ⁦مليان⁩ malyaan"
   },
   {
     "id": "b4-167",
@@ -1581,7 +1581,7 @@
     "ar": "غمسوا",
     "ar_full": "غمسوا",
     "translit": "8amsu",
-    "en": "dip! (pl. imperative) · غمس 8amas to dip"
+    "en": "dip! (pl. imperative) · ⁦غمس⁩ 8amas to dip"
   },
   {
     "id": "b4-177",
@@ -1599,7 +1599,7 @@
     "ar": "من ... لـ",
     "ar_full": "من ... لـ",
     "translit": "min ... la",
-    "en": "from ... to — for a chain: من جدي لأبوي"
+    "en": "from ... to — for a chain: ⁦من جدي لأبوي⁩"
   },
   {
     "id": "b4-179",
@@ -1725,7 +1725,7 @@
     "ar": "ضيوف",
     "ar_full": "ضيوف",
     "translit": "dyouf",
-    "en": "guests · sg. ضيف deef"
+    "en": "guests · sg. ⁦ضيف⁩ deef"
   },
   {
     "id": "b5-193",
@@ -1734,7 +1734,7 @@
     "ar": "فاق",
     "ar_full": "فاق",
     "translit": "faaq",
-    "en": "he woke up · يفوق yfuuq to wake up"
+    "en": "he woke up · ⁦يفوق⁩ yfuuq to wake up"
   },
   {
     "id": "b5-194",
@@ -1770,7 +1770,7 @@
     "ar": "عد",
     "ar_full": "عد",
     "translit": "3add",
-    "en": "he counted · يعد yi3idd to count"
+    "en": "he counted · ⁦يعد⁩ yi3idd to count"
   },
   {
     "id": "b5-198",
@@ -1779,7 +1779,7 @@
     "ar": "شيقل",
     "ar_full": "شيقل",
     "translit": "shiqel",
-    "en": "shekel · pl. شواقل shawaakel"
+    "en": "shekel · pl. ⁦شواقل⁩ shawaakel"
   },
   {
     "id": "b5-199",
@@ -1815,7 +1815,7 @@
     "ar": "وفر",
     "ar_full": "وفر",
     "translit": "waffar",
-    "en": "he saved (money) · يوفر ywaffir"
+    "en": "he saved (money) · ⁦يوفر⁩ ywaffir"
   },
   {
     "id": "b5-203",
@@ -1851,7 +1851,7 @@
     "ar": "حضن",
     "ar_full": "حضن",
     "translit": "7adan",
-    "en": "he/she hugged · يحضن y7adin"
+    "en": "he/she hugged · ⁦يحضن⁩ y7adin"
   },
   {
     "id": "b5-207",
@@ -1860,7 +1860,7 @@
     "ar": "فرح",
     "ar_full": "فرح",
     "translit": "farra7",
-    "en": "to make (someone) happy · تفرحني tfar7ini you make me happy"
+    "en": "to make (someone) happy · ⁦تفرحني⁩ tfar7ini you make me happy"
   },
   {
     "id": "b5-208",
@@ -1878,7 +1878,7 @@
     "ar": "جاي",
     "ar_full": "جاي",
     "translit": "jaay",
-    "en": "coming, next · العيد الجاي next Eid"
+    "en": "coming, next · ⁦العيد الجاي⁩ next Eid"
   },
   {
     "id": "b5-210",
@@ -1977,7 +1977,7 @@
     "ar": "سوق",
     "ar_full": "سوق",
     "translit": "souq",
-    "en": "market · pl. أسواق aswaaq"
+    "en": "market · pl. ⁦أسواق⁩ aswaaq"
   },
   {
     "id": "b6-221",
@@ -2022,7 +2022,7 @@
     "ar": "أزقة",
     "ar_full": "أزقة",
     "translit": "azqe",
-    "en": "alleyways · sg. زقاق zqaaq"
+    "en": "alleyways · sg. ⁦زقاق⁩ zqaaq"
   },
   {
     "id": "b6-226",
@@ -2058,7 +2058,7 @@
     "ar": "ضاع",
     "ar_full": "ضاع",
     "translit": "daa3",
-    "en": "he got lost · يضيع ydii3"
+    "en": "he got lost · ⁦يضيع⁩ ydii3"
   },
   {
     "id": "b6-230",
@@ -2094,7 +2094,7 @@
     "ar": "بهدوء",
     "ar_full": "بهدوء",
     "translit": "bi-hudou2",
-    "en": "calmly · هادي haadi calm"
+    "en": "calmly · ⁦هادي⁩ haadi calm"
   },
   {
     "id": "b6-234",
@@ -2130,7 +2130,7 @@
     "ar": "فاز",
     "ar_full": "فاز",
     "translit": "faaz",
-    "en": "he won · يفوز yfouz"
+    "en": "he won · ⁦يفوز⁩ yfouz"
   },
   {
     "id": "b6-238",
@@ -2148,7 +2148,7 @@
     "ar": "أرخص",
     "ar_full": "أرخص",
     "translit": "ar5as",
-    "en": "cheaper · رخيص ar5iis cheap"
+    "en": "cheaper · ⁦رخيص⁩ ar5iis cheap"
   },
   {
     "id": "b6-240",

@@ -173,6 +173,36 @@ function shuffle(arr) {
 }
 
 // ---------- Card UI ----------
+//
+// Three exercise shapes. A never-seen item is just taught (shown, not
+// tested) — repetitions is already 0, no point quizzing it cold. A seen
+// item is quizzed, auto-graded by correctness rather than self-rated: tap
+// the right translation (multiple choice, always available), or rebuild a
+// multi-word phrase from a shuffled word bank (only for phrases — a bare
+// single word has nothing to reorder). Audio is always an optional extra
+// tap, never required to answer.
+
+const root = $("#exercise-root");
+let exerciseDone = false; // guards against double-submit while feedback is showing
+
+function isWordOrderEligible(item) {
+  const words = item.ar.trim().split(/\s+/);
+  return words.length >= 2 && !item.ar.includes("/");
+}
+
+function pickDistractors(item, count) {
+  const pool = state.vocab.filter((v) => v.id !== item.id && v.en !== item.en);
+  const picked = [];
+  const used = new Set();
+  while (picked.length < count && picked.length < pool.length) {
+    const candidate = pool[Math.floor(Math.random() * pool.length)];
+    if (!used.has(candidate.en)) {
+      used.add(candidate.en);
+      picked.push(candidate.en);
+    }
+  }
+  return picked;
+}
 
 function nextCard() {
   if (state.queue.length === 0) {
@@ -180,31 +210,23 @@ function nextCard() {
     return;
   }
   state.current = state.queue.shift();
+  exerciseDone = false;
   const item = state.current;
   const isNew = !state.progressById[item.id];
 
-  $("#card-ar").textContent = item.ar_full;
-  $("#card-translit").textContent = item.translit;
-  $("#card-en").textContent = item.en;
-  $("#card-new-badge").hidden = !isNew;
   $("#card-book").textContent = item.book_title;
-  $("#card-reveal-area").hidden = false;
-  $("#card-answer").hidden = true;
-  $("#card-rate-row").hidden = true;
   $("#card-progress").textContent = `${state.queue.length} left`;
+
+  if (isNew) {
+    renderTeach(item);
+  } else if (isWordOrderEligible(item) && Math.random() < 0.5) {
+    renderWordOrder(item);
+  } else {
+    renderMultipleChoice(item);
+  }
 
   show("session");
 }
-
-$("#card-reveal-btn").addEventListener("click", () => {
-  $("#card-answer").hidden = false;
-  $("#card-rate-row").hidden = false;
-  $("#card-reveal-area").hidden = true;
-});
-
-$("#card-speak-btn").addEventListener("click", () => {
-  speak(state.current.ar_full);
-});
 
 function speak(text) {
   if (!("speechSynthesis" in window)) return;
@@ -214,12 +236,114 @@ function speak(text) {
   speechSynthesis.speak(utter);
 }
 
-document.querySelectorAll("[data-rate]").forEach((btn) => {
-  btn.addEventListener("click", async () => {
-    const rating = btn.dataset.rate;
-    await submitRating(rating);
+function renderTeach(item) {
+  root.innerHTML = `
+    <span class="new-badge">NEW</span>
+    <div class="ar-word" dir="rtl">${item.ar_full}</div>
+    <div class="translit">${item.translit}</div>
+    <button class="speak-btn" type="button" data-action="speak">🔊</button>
+    <div class="en-answer">${item.en}</div>
+    <button class="btn-primary continue-btn" type="button" data-action="teach-continue">Got it</button>
+  `;
+  root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar_full));
+  root.querySelector('[data-action="teach-continue"]').addEventListener("click", () => submitRating("good"));
+}
+
+function renderMultipleChoice(item) {
+  const options = shuffle([item.en, ...pickDistractors(item, 3)]);
+
+  root.innerHTML = `
+    <div class="ar-word" dir="rtl">${item.ar_full}</div>
+    <div class="translit">${item.translit}</div>
+    <button class="speak-btn" type="button" data-action="speak">🔊</button>
+    <div class="mc-options">
+      ${options.map((opt) => `<button class="mc-option" type="button" data-text="${escapeAttr(opt)}">${opt}</button>`).join("")}
+    </div>
+  `;
+  root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar_full));
+
+  root.querySelectorAll(".mc-option").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (exerciseDone) return;
+      exerciseDone = true;
+      const correct = btn.dataset.text === item.en;
+      root.querySelectorAll(".mc-option").forEach((b) => {
+        b.disabled = true;
+        if (b.dataset.text === item.en) b.classList.add("correct");
+        else if (b === btn) b.classList.add("wrong");
+      });
+      setTimeout(() => submitRating(correct ? "good" : "again"), 900);
+    });
   });
-});
+}
+
+function renderWordOrder(item) {
+  const target = item.ar.trim().split(/\s+/);
+  let bank = shuffle(target);
+  // guard against shuffle landing on the already-correct order
+  if (bank.join(" ") === target.join(" ") && bank.length > 1) {
+    [bank[0], bank[1]] = [bank[1], bank[0]];
+  }
+  const answer = [];
+
+  root.innerHTML = `
+    <div class="en-answer">${item.en}</div>
+    <button class="speak-btn" type="button" data-action="speak">🔊</button>
+    <div class="order-answer" id="order-answer" dir="rtl"></div>
+    <div class="order-bank" id="order-bank" dir="rtl"></div>
+  `;
+  root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar));
+
+  const answerEl = root.querySelector("#order-answer");
+  const bankEl = root.querySelector("#order-bank");
+
+  function renderChips() {
+    bankEl.innerHTML = bank
+      .map((w, i) => `<button class="word-chip" type="button" data-side="bank" data-idx="${i}">${w}</button>`)
+      .join("");
+    answerEl.innerHTML = answer
+      .map((w, i) => `<button class="word-chip in-answer" type="button" data-side="answer" data-idx="${i}">${w}</button>`)
+      .join("");
+
+    bankEl.querySelectorAll(".word-chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        if (exerciseDone) return;
+        const idx = Number(chip.dataset.idx);
+        answer.push(bank[idx]);
+        bank.splice(idx, 1);
+        renderChips();
+        if (answer.length === target.length) checkOrder();
+      });
+    });
+    answerEl.querySelectorAll(".word-chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        if (exerciseDone) return;
+        const idx = Number(chip.dataset.idx);
+        bank.push(answer[idx]);
+        answer.splice(idx, 1);
+        renderChips();
+      });
+    });
+  }
+
+  function checkOrder() {
+    exerciseDone = true;
+    const correct = answer.join(" ") === target.join(" ");
+    answerEl.classList.add(correct ? "correct" : "wrong");
+    if (!correct) {
+      answerEl.innerHTML = target
+        .map((w) => `<span class="word-chip in-answer">${w}</span>`)
+        .join("");
+    }
+    setTimeout(() => submitRating(correct ? "good" : "again"), 1100);
+  }
+
+  renderChips();
+}
+
+function escapeAttr(s) {
+  return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+}
 
 async function submitRating(rating) {
   const item = state.current;

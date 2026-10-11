@@ -92,13 +92,35 @@
     background: var(--stone); color: var(--ink); border-radius: 999px;
     width: 44px; height: 44px; font-size: 18px; padding: 0; margin-bottom: 18px;
   }
-  .reveal-btn { background: var(--paper); color: var(--ink); border: 1px solid var(--stone); width: 100%; max-width: 300px; }
-  .rate-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; max-width: 420px; }
-  .rate-row button { font-size: 14px; padding: 12px 6px; color: var(--cream); }
-  .rate-again { background: #A8432B; }
-  .rate-hard  { background: #C0603A; }
-  .rate-good  { background: var(--olive); }
-  .rate-easy  { background: #4F6B3A; }
+  .continue-btn { background: var(--paper); color: var(--ink); border: 1px solid var(--stone); width: 100%; max-width: 300px; margin-top: 10px; }
+
+  /* multiple choice */
+  .mc-options { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 360px; margin-top: 6px; }
+  .mc-option {
+    background: var(--paper); color: var(--ink); border: 1px solid var(--stone);
+    text-align: left; font-size: 16px;
+  }
+  .mc-option.correct { background: var(--olive); color: var(--cream); border-color: var(--olive); }
+  .mc-option.wrong { background: #A8432B; color: var(--cream); border-color: #A8432B; }
+  .mc-option:disabled { opacity: 1; }
+
+  /* word order */
+  .order-answer {
+    direction: rtl; min-height: 56px; width: 100%; max-width: 380px;
+    display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start;
+    border-bottom: 2px solid var(--stone); padding-bottom: 14px; margin-bottom: 20px;
+  }
+  .order-answer.correct { border-bottom-color: var(--olive); }
+  .order-answer.wrong { border-bottom-color: #A8432B; }
+  .order-bank {
+    direction: rtl; width: 100%; max-width: 380px;
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  }
+  .word-chip {
+    background: var(--paper); color: var(--ink); border: 1px solid var(--stone);
+    font-size: 19px; padding: 10px 16px;
+  }
+  .word-chip.in-answer { background: var(--stone); }
 
   .done-stats { font-size: 17px; margin: 10px 0 0; }
   .glyph {
@@ -148,25 +170,7 @@
       <span class="book-tag" id="card-book"></span>
       <span id="card-progress"></span>
     </div>
-    <div class="flash">
-      <span class="new-badge" id="card-new-badge" hidden>NEW</span>
-      <div class="ar-word" id="card-ar"></div>
-      <div class="translit" id="card-translit"></div>
-      <button class="speak-btn" id="card-speak-btn" aria-label="Play pronunciation">🔊</button>
-
-      <div id="card-reveal-area">
-        <button class="reveal-btn" id="card-reveal-btn">Show answer</button>
-      </div>
-      <div id="card-answer" hidden>
-        <div class="en-answer" id="card-en"></div>
-      </div>
-    </div>
-    <div class="rate-row" id="card-rate-row" hidden>
-      <button class="rate-again" data-rate="again">Again</button>
-      <button class="rate-hard" data-rate="hard">Hard</button>
-      <button class="rate-good" data-rate="good">Good</button>
-      <button class="rate-easy" data-rate="easy">Easy</button>
-    </div>
+    <div class="flash" id="exercise-root"></div>
   </div>
 
   <div id="screen-done" class="screen" hidden>
