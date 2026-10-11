@@ -54,7 +54,7 @@
   h1 { margin: 0 0 6px; font-size: 22px; }
   p.sub { color: var(--muted); font-size: 15px; margin: 0 0 20px; }
 
-  input[type="email"] {
+  input[type="email"], input[type="text"] {
     width: 100%;
     padding: 14px 16px;
     font-size: 16px;
@@ -130,7 +130,18 @@
     <div class="card">
       <div class="glyph">✉️</div>
       <h1>Check your email</h1>
-      <p class="sub">We sent a sign-in link to <strong id="check-email-address"></strong>. Open it on this device to continue.</p>
+      <p class="sub">
+        We sent a link to <strong id="check-email-address"></strong>.
+        <strong>Don't tap it</strong> — on an installed app, tapping opens Safari
+        instead, which can't sign the app in. Instead: long-press the link in the
+        email, choose <strong>Copy Link</strong>, then paste it below.
+      </p>
+      <form id="otp-form">
+        <input type="text" id="otp-input" placeholder="Paste the link here" required autocomplete="off">
+        <button type="submit" class="btn-primary" id="otp-submit">Finish signing in</button>
+      </form>
+      <p class="error-text" id="otp-error" hidden></p>
+      <p class="sub" style="margin-top:16px;"><a href="#" id="otp-back">Use a different email</a></p>
     </div>
   </div>
 

@@ -27,6 +27,14 @@ function todayStr() {
 }
 
 // ---------- Auth ----------
+//
+// Installed home-screen PWAs on iOS don't share storage with Safari, so tapping
+// the magic-link email opens Safari and signs *that* in — never the installed
+// app. Instead, the user copies the link and pastes it back into the app, which
+// pulls the token out of it and verifies it in-place (no custom email template
+// needed, which the Supabase free tier doesn't allow anyway).
+
+let pendingEmail = null;
 
 async function handleAuthScreen() {
   const { data: { session } } = await sb.auth.getSession();
@@ -52,8 +60,34 @@ $("#login-form").addEventListener("submit", async (e) => {
     $("#login-error").hidden = false;
     return;
   }
+  pendingEmail = email;
   $("#check-email-address").textContent = email;
   show("checkEmail");
+});
+
+$("#otp-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const pasted = $("#otp-input").value.trim();
+  const match = pasted.match(/token=([^&\s]+)/);
+  const token = match ? decodeURIComponent(match[1]) : pasted;
+
+  $("#otp-submit").disabled = true;
+  const { error } = await sb.auth.verifyOtp({ email: pendingEmail, token, type: "email" });
+  $("#otp-submit").disabled = false;
+  if (error) {
+    $("#otp-error").textContent = "That didn't work — check you copied the whole link, or request a new one.";
+    $("#otp-error").hidden = false;
+    return;
+  }
+  // onAuthStateChange picks up the resulting SIGNED_IN session and starts the app.
+});
+
+$("#otp-back").addEventListener("click", (e) => {
+  e.preventDefault();
+  pendingEmail = null;
+  $("#otp-input").value = "";
+  $("#otp-error").hidden = true;
+  show("login");
 });
 
 sb.auth.onAuthStateChange((event, session) => {
