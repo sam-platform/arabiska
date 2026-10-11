@@ -1,0 +1,24 @@
+[
+  {
+    "id": "x-001",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "بصلتك محروقة",
+    "ar_full": "بصلتك محروقة",
+    "translit": "basaltak ma7rooqa",
+    "en": "you're being way too nosy (lit. \"your onion is burning\") — said to someone prying into something that isn't their business"
+  },
+  {
+    "id": "x-002",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "يا طخه يا اكسر مخه",
+    "ar_full": "يا طخه يا اكسر مخه",
+    "translit": "ya to5o ya ikser mo5o",
+    "en": "he's driving me crazy — I could just shoot him or bash his brains in (venting about someone exasperating, not literal)"
+  }
+]

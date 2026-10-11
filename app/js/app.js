@@ -17,10 +17,16 @@ const CEFR_ORDER = ["A1", "A2", "B1"];
 const TIER_COVERAGE_THRESHOLD = 0.7;
 const TIER_EASE_THRESHOLD = 2.3;
 
+// Hand-authored extras (idioms, everyday words not in any book) carry their
+// own explicit `cefr` tag instead of being derived from a book number.
+function tierOf(item) {
+  return item.cefr || CEFR_BY_BOOK[item.book];
+}
+
 function estimateLevel() {
   let cleared = null;
   for (const tier of CEFR_ORDER) {
-    const tierItems = state.vocab.filter((v) => CEFR_BY_BOOK[v.book] === tier);
+    const tierItems = state.vocab.filter((v) => tierOf(v) === tier);
     const attempted = tierItems.filter((v) => state.progressById[v.id]);
     const coverage = attempted.length / tierItems.length;
     const avgEase = attempted.length
@@ -243,13 +249,16 @@ let state = null; // { user, vocab, progressById, queue, dailyLog, current }
 async function startSession(user) {
   show("loading");
 
-  const [vocabRes, progressRes, logRes] = await Promise.all([
+  const [bookVocab, extraVocab, progressRes, logRes] = await Promise.all([
     fetch("data/vocab.json").then((r) => r.json()),
+    fetch("data/extra-vocab.json").then((r) => r.json()),
     sb.from("progress").select("*"),
     sb.from("daily_log").select("*").eq("day", todayStr()).maybeSingle(),
   ]);
 
-  const vocab = vocabRes;
+  // Hand-authored extras go first so they surface soon via the normal
+  // new-item pacing, rather than waiting until all 243 book words are done.
+  const vocab = [...extraVocab, ...bookVocab];
   const progressById = {};
   for (const row of progressRes.data || []) progressById[row.item_id] = row;
 
