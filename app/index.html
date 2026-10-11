@@ -131,13 +131,11 @@
       <div class="glyph">✉️</div>
       <h1>Check your email</h1>
       <p class="sub">
-        We sent a link to <strong id="check-email-address"></strong>.
-        <strong>Don't tap it</strong> — on an installed app, tapping opens Safari
-        instead, which can't sign the app in. Instead: long-press the link in the
-        email, choose <strong>Copy Link</strong>, then paste it below.
+        We sent a 6-digit code to <strong id="check-email-address"></strong>.
+        Type it in below.
       </p>
       <form id="otp-form">
-        <input type="text" id="otp-input" placeholder="Paste the link here" required autocomplete="off">
+        <input type="text" id="otp-input" placeholder="123456" required autocomplete="one-time-code" inputmode="numeric" pattern="[0-9]*" maxlength="6" style="text-align:center; font-size:24px; letter-spacing:6px;">
         <button type="submit" class="btn-primary" id="otp-submit">Finish signing in</button>
       </form>
       <p class="error-text" id="otp-error" hidden></p>
