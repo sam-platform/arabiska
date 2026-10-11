@@ -26,6 +26,69 @@ function todayStr() {
   return new Date().toLocaleDateString("en-CA");
 }
 
+// ---------- Mascot ----------
+//
+// One donkey, moved between screens via appendChild (not cloned), so its mood
+// and idle animations carry over rather than restarting. Reactions (happy/sad)
+// are one-shot CSS animations retriggered by removing+re-adding the class.
+
+const MASCOT = document.createElement("div");
+MASCOT.className = "mascot";
+MASCOT.dataset.mood = "idle";
+MASCOT.innerHTML = `
+  <svg viewBox="0 0 200 200">
+    <g id="mascot-wrap">
+      <g id="mascot-tail">
+        <path d="M42 150 q-20 10 -12 34" stroke="#5A4A3A" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <circle cx="28" cy="186" r="8" fill="#5A4A3A"/>
+      </g>
+      <ellipse cx="100" cy="178" rx="54" ry="28" fill="#B9A78C"/>
+      <g id="mascot-ear-left">
+        <ellipse cx="60" cy="38" rx="17" ry="40" fill="#B9A78C" transform="rotate(-16 60 38)"/>
+        <ellipse cx="61" cy="42" rx="8" ry="27" fill="#E2A468" transform="rotate(-16 61 42)"/>
+      </g>
+      <g id="mascot-ear-right">
+        <ellipse cx="140" cy="38" rx="17" ry="40" fill="#B9A78C" transform="rotate(16 140 38)"/>
+        <ellipse cx="139" cy="42" rx="8" ry="27" fill="#E2A468" transform="rotate(16 139 42)"/>
+      </g>
+      <ellipse cx="100" cy="102" rx="59" ry="53" fill="#B9A78C"/>
+      <path d="M76 58 q6 -18 12 -3 q6 -20 12 2 q6 -20 12 -2 q6 15 12 3"
+            fill="none" stroke="#5A4A3A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="100" cy="132" rx="40" ry="30" fill="#EFE3CC"/>
+      <g fill="#5A4A3A">
+        <ellipse cx="87" cy="136" rx="3.2" ry="4.4"/>
+        <ellipse cx="113" cy="136" rx="3.2" ry="4.4"/>
+      </g>
+      <g id="mascot-eye-left">
+        <circle cx="76" cy="93" r="12" fill="#FFFFFF"/>
+        <circle cx="78" cy="94" r="6.4" fill="#2B2620"/>
+      </g>
+      <g id="mascot-eye-right">
+        <circle cx="124" cy="93" r="12" fill="#FFFFFF"/>
+        <circle cx="122" cy="94" r="6.4" fill="#2B2620"/>
+      </g>
+      <path d="M86 116 q14 9 28 0" class="mascot-mouth mouth-idle" stroke="#5A4A3A" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <path d="M80 112 q20 20 40 0" class="mascot-mouth mouth-happy" stroke="#5A4A3A" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <path d="M84 124 q16 -10 32 0" class="mascot-mouth mouth-sad" stroke="#5A4A3A" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    </g>
+  </svg>
+`;
+
+function mountMascot(slotId, mood) {
+  const slot = document.getElementById(slotId);
+  if (slot && !slot.contains(MASCOT)) slot.appendChild(MASCOT);
+  setMascotMood(mood || "idle");
+}
+
+function setMascotMood(mood, react) {
+  MASCOT.dataset.mood = mood;
+  if (react) {
+    MASCOT.classList.remove("react-happy", "react-sad");
+    void MASCOT.offsetWidth; // reflow so the animation restarts even for the same mood twice in a row
+    MASCOT.classList.add("react-" + react);
+  }
+}
+
 // ---------- Auth ----------
 //
 // Sign-in is a typed 6-digit code, not a link. Two reasons a link doesn't work
@@ -42,6 +105,7 @@ async function handleAuthScreen() {
   if (session) {
     startSession(session.user);
   } else {
+    mountMascot("slot-login", "idle");
     show("login");
   }
 }
@@ -216,6 +280,7 @@ function nextCard() {
 
   $("#card-book").textContent = item.book_title;
   $("#card-progress").textContent = `${state.queue.length} left`;
+  mountMascot("slot-session", "idle");
 
   if (isNew) {
     renderTeach(item);
@@ -246,7 +311,10 @@ function renderTeach(item) {
     <button class="btn-primary continue-btn" type="button" data-action="teach-continue">Got it</button>
   `;
   root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar_full));
-  root.querySelector('[data-action="teach-continue"]').addEventListener("click", () => submitRating("good"));
+  root.querySelector('[data-action="teach-continue"]').addEventListener("click", () => {
+    setMascotMood("happy", "happy");
+    submitRating("good");
+  });
 }
 
 function renderMultipleChoice(item) {
@@ -272,6 +340,7 @@ function renderMultipleChoice(item) {
         if (b.dataset.text === item.en) b.classList.add("correct");
         else if (b === btn) b.classList.add("wrong");
       });
+      setMascotMood(correct ? "happy" : "sad", correct ? "happy" : "sad");
       setTimeout(() => submitRating(correct ? "good" : "again"), 900);
     });
   });
@@ -335,6 +404,7 @@ function renderWordOrder(item) {
         .map((w) => `<span class="word-chip in-answer">${w}</span>`)
         .join("");
     }
+    setMascotMood(correct ? "happy" : "sad", correct ? "happy" : "sad");
     setTimeout(() => submitRating(correct ? "good" : "again"), 1100);
   }
 
@@ -382,6 +452,8 @@ async function submitRating(rating) {
 function renderDone() {
   $("#done-reviewed").textContent = state.dailyLog.reviewed_items_count;
   $("#done-new").textContent = state.dailyLog.new_items_count;
+  mountMascot("slot-done", "happy");
+  setMascotMood("happy", "happy");
   show("done");
 }
 
