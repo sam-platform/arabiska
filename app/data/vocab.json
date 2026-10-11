@@ -1,0 +1,2189 @@
+[
+  {
+    "id": "b1-001",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "هاد",
+    "ar_full": "هاد / هاي / هدول",
+    "translit": "haad / hayy / hadool",
+    "en": "this (m.) / this (f.) / these"
+  },
+  {
+    "id": "b1-002",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "ولد",
+    "ar_full": "ولد",
+    "translit": "walad",
+    "en": "boy · pl. ولاد wlaad"
+  },
+  {
+    "id": "b1-003",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "عمره سبع سنين",
+    "ar_full": "عمره سبع سنين",
+    "translit": "3omro sabe3 sneen",
+    "en": "he is seven years old"
+  },
+  {
+    "id": "b1-004",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "ساكن",
+    "ar_full": "ساكن",
+    "translit": "saakin",
+    "en": "living, residing"
+  },
+  {
+    "id": "b1-005",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "جنب",
+    "ar_full": "جنب",
+    "translit": "janb",
+    "en": "next to, beside"
+  },
+  {
+    "id": "b1-006",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "الصبح",
+    "ar_full": "الصبح",
+    "translit": "is-sob7",
+    "en": "the morning · بالصبح in the morning"
+  },
+  {
+    "id": "b1-007",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "إمه",
+    "ar_full": "إمه",
+    "translit": "immo",
+    "en": "his mother · إمي immi my mother"
+  },
+  {
+    "id": "b1-008",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "بتقله",
+    "ar_full": "بتقله",
+    "translit": "bit2ello",
+    "en": "she says to him (قال + له run together)"
+  },
+  {
+    "id": "b1-009",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "يلا",
+    "ar_full": "يلا",
+    "translit": "yalla",
+    "en": "come on, let's go"
+  },
+  {
+    "id": "b1-010",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "قوم",
+    "ar_full": "قوم",
+    "translit": "2oum",
+    "en": "get up! · f. قومي 2oumi"
+  },
+  {
+    "id": "b1-011",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "رح",
+    "ar_full": "رح",
+    "translit": "ra7",
+    "en": "will (future) · رح أروح I'll go"
+  },
+  {
+    "id": "b1-012",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "تتأخر",
+    "ar_full": "تتأخر",
+    "translit": "tit2a55ar",
+    "en": "you'll be late"
+  },
+  {
+    "id": "b1-013",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "شوي شوي",
+    "ar_full": "شوي شوي",
+    "translit": "shway shway",
+    "en": "slowly, bit by bit"
+  },
+  {
+    "id": "b1-014",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "كمان",
+    "ar_full": "كمان",
+    "translit": "kamaan",
+    "en": "also, more, as well"
+  },
+  {
+    "id": "b1-015",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "دقايق",
+    "ar_full": "دقايق",
+    "translit": "da2aaye2",
+    "en": "minutes · sg. دقيقة da2ee2a"
+  },
+  {
+    "id": "b1-016",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "ما في",
+    "ar_full": "ما في",
+    "translit": "maa fee",
+    "en": "there isn't · في fee there is"
+  },
+  {
+    "id": "b1-017",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "عطته",
+    "ar_full": "عطته",
+    "translit": "3atito",
+    "en": "she gave him · عطى 3ata to give"
+  },
+  {
+    "id": "b1-018",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "جبلنا",
+    "ar_full": "جبلنا",
+    "translit": "jiblna",
+    "en": "bring us! · جاب jaab to bring"
+  },
+  {
+    "id": "b1-019",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "من عند",
+    "ar_full": "من عند",
+    "translit": "min 3ind",
+    "en": "from (someone's place)"
+  },
+  {
+    "id": "b1-020",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "نزل",
+    "ar_full": "نزل",
+    "translit": "nizil",
+    "en": "he went down · طلع tili3 he went up"
+  },
+  {
+    "id": "b1-021",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "الدنيا زحمة",
+    "ar_full": "الدنيا زحمة",
+    "translit": "id-dinya za7me",
+    "en": "it's crowded (lit. the world is crowded)"
+  },
+  {
+    "id": "b1-022",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "كتير",
+    "ar_full": "كتير",
+    "translit": "kteer",
+    "en": "a lot, very"
+  },
+  {
+    "id": "b1-023",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "عم بتشتري",
+    "ar_full": "عم بتشتري",
+    "translit": "3am btishtiri",
+    "en": "she is buying (right now)"
+  },
+  {
+    "id": "b1-024",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "خضرة",
+    "ar_full": "خضرة",
+    "translit": "5adra",
+    "en": "vegetables, greens"
+  },
+  {
+    "id": "b1-025",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "بتحكي",
+    "ar_full": "بتحكي",
+    "translit": "bti7ki",
+    "en": "she talks · حكى 7aka to speak (not تكلم)"
+  },
+  {
+    "id": "b1-026",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "ريحة",
+    "ar_full": "ريحة",
+    "translit": "ree7a",
+    "en": "smell"
+  },
+  {
+    "id": "b1-027",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "ملت",
+    "ar_full": "ملت",
+    "translit": "malat",
+    "en": "it filled"
+  },
+  {
+    "id": "b1-028",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "شو بدك؟",
+    "ar_full": "شو بدك؟",
+    "translit": "shou biddak?",
+    "en": "what do you want? · f. بدك biddek"
+  },
+  {
+    "id": "b1-029",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "لو سمحت",
+    "ar_full": "لو سمحت",
+    "translit": "law sama7t",
+    "en": "please (asking a favour)"
+  },
+  {
+    "id": "b1-030",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "خدهم",
+    "ar_full": "خدهم",
+    "translit": "5idhom",
+    "en": "take them · خد 5od take"
+  },
+  {
+    "id": "b1-031",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "هدية إلك",
+    "ar_full": "هدية إلك",
+    "translit": "hdiyye 2ilak",
+    "en": "a present for you"
+  },
+  {
+    "id": "b1-032",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "فرح",
+    "ar_full": "فرح",
+    "translit": "firi7",
+    "en": "he was happy, he was glad"
+  },
+  {
+    "id": "b1-033",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "يسلمو إيديك",
+    "ar_full": "يسلمو إيديك",
+    "translit": "yislamo 2ideek",
+    "en": "\"bless your hands\" — thanks for food or a favour"
+  },
+  {
+    "id": "b1-034",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "نص",
+    "ar_full": "نص",
+    "translit": "nuss",
+    "en": "half"
+  },
+  {
+    "id": "b1-035",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "شافته",
+    "ar_full": "شافته",
+    "translit": "shaafto",
+    "en": "she saw him · شاف shaaf to see (not رأى)"
+  },
+  {
+    "id": "b1-036",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "يا حرام",
+    "ar_full": "يا حرام",
+    "translit": "ya 7araam",
+    "en": "oh no! / poor thing!"
+  },
+  {
+    "id": "b1-037",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "مين",
+    "ar_full": "مين",
+    "translit": "meen",
+    "en": "who"
+  },
+  {
+    "id": "b1-038",
+    "book": 1,
+    "book_title": "كعك القدس",
+    "ar": "مش أنا",
+    "ar_full": "مش أنا",
+    "translit": "mish ana",
+    "en": "not me · مش = the all-purpose \"not\""
+  },
+  {
+    "id": "b2-039",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "عند سامي",
+    "ar_full": "عند سامي",
+    "translit": "3ind Saami",
+    "en": "Sami has (there is no verb \"to have\")"
+  },
+  {
+    "id": "b2-040",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "قطة",
+    "ar_full": "قطة",
+    "translit": "2atta",
+    "en": "cat · pl. قطط 2tat"
+  },
+  {
+    "id": "b2-041",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "اسمها",
+    "ar_full": "اسمها",
+    "translit": "ismha",
+    "en": "her name is · اسمه ismo his name is"
+  },
+  {
+    "id": "b2-042",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "لونها",
+    "ar_full": "لونها",
+    "translit": "lonha",
+    "en": "her/its colour"
+  },
+  {
+    "id": "b2-043",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "بتحب تنام",
+    "ar_full": "بتحب تنام",
+    "translit": "bit7ibb tnaam",
+    "en": "she likes to sleep (2nd verb with no أن)"
+  },
+  {
+    "id": "b2-044",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "الشباك",
+    "ar_full": "الشباك",
+    "translit": "ish-shibbaak",
+    "en": "the window · pl. شبابيك shababeek"
+  },
+  {
+    "id": "b2-045",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "تتفرج على",
+    "ar_full": "تتفرج على",
+    "translit": "titfarraj 3ala",
+    "en": "to watch, to look at"
+  },
+  {
+    "id": "b2-046",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "يوم من الأيام",
+    "ar_full": "يوم من الأيام",
+    "translit": "yom min il-ayyaam",
+    "en": "one day (story opener)"
+  },
+  {
+    "id": "b2-047",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "مفتوح",
+    "ar_full": "مفتوح",
+    "translit": "maftou7",
+    "en": "open · مسكر msakkar shut"
+  },
+  {
+    "id": "b2-048",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "قامت",
+    "ar_full": "قامت",
+    "translit": "2aamat",
+    "en": "she got up"
+  },
+  {
+    "id": "b2-049",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "مطت حالها",
+    "ar_full": "مطت حالها",
+    "translit": "mattat 7aalha",
+    "en": "she stretched (lit. stretched herself)"
+  },
+  {
+    "id": "b2-050",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "نطت",
+    "ar_full": "نطت",
+    "translit": "nattat",
+    "en": "she jumped · نط natt to jump"
+  },
+  {
+    "id": "b2-051",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "برا",
+    "ar_full": "برا",
+    "translit": "barra",
+    "en": "outside · جوا juwwa inside"
+  },
+  {
+    "id": "b2-052",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "نادى",
+    "ar_full": "نادى",
+    "translit": "naada",
+    "en": "he called out"
+  },
+  {
+    "id": "b2-053",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "وينك؟",
+    "ar_full": "وينك؟",
+    "translit": "weenek?",
+    "en": "where are you? (f.) · m. وينك weenak"
+  },
+  {
+    "id": "b2-054",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "دور",
+    "ar_full": "دور",
+    "translit": "dawwar",
+    "en": "he searched · دور على dawwar 3ala look for"
+  },
+  {
+    "id": "b2-055",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "تحت",
+    "ar_full": "تحت",
+    "translit": "ta7t",
+    "en": "under · فوق fo2 above"
+  },
+  {
+    "id": "b2-056",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "الطاولة",
+    "ar_full": "الطاولة",
+    "translit": "it-taawle",
+    "en": "the table"
+  },
+  {
+    "id": "b2-057",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "الخزانة",
+    "ar_full": "الخزانة",
+    "translit": "il-5zaane",
+    "en": "the cupboard, the wardrobe"
+  },
+  {
+    "id": "b2-058",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ولا إشي",
+    "ar_full": "ولا إشي",
+    "translit": "wala ishi",
+    "en": "nothing at all · إشي ishi thing"
+  },
+  {
+    "id": "b2-059",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "الجيران",
+    "ar_full": "الجيران",
+    "translit": "ij-jeeraan",
+    "en": "the neighbours · sg. جار jaar"
+  },
+  {
+    "id": "b2-060",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "يا خالة",
+    "ar_full": "يا خالة",
+    "translit": "ya 5aale",
+    "en": "\"auntie\" — polite for any older woman"
+  },
+  {
+    "id": "b2-061",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "شفتي؟",
+    "ar_full": "شفتي؟",
+    "translit": "shufti?",
+    "en": "did you see? (f.) · m. شفت shuft"
+  },
+  {
+    "id": "b2-062",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "بيضا",
+    "ar_full": "بيضا",
+    "translit": "beeda",
+    "en": "white (f.) · m. أبيض abyad"
+  },
+  {
+    "id": "b2-063",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "لأ",
+    "ar_full": "لأ",
+    "translit": "la2",
+    "en": "no · أه / إيه ah / eeh yes"
+  },
+  {
+    "id": "b2-064",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "يا حبيبي",
+    "ar_full": "يا حبيبي",
+    "translit": "ya 7abeebi",
+    "en": "\"love\", \"dear\" — used constantly, to anyone"
+  },
+  {
+    "id": "b2-065",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "بس",
+    "ar_full": "بس",
+    "translit": "bass",
+    "en": "but · also \"only\", \"enough\""
+  },
+  {
+    "id": "b2-066",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "جرب",
+    "ar_full": "جرب",
+    "translit": "jarrib",
+    "en": "try! · جرب jarrab he tried"
+  },
+  {
+    "id": "b2-067",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "الدكانة",
+    "ar_full": "الدكانة",
+    "translit": "id-dukkaane",
+    "en": "the corner shop"
+  },
+  {
+    "id": "b2-068",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "صاحب الدكانة",
+    "ar_full": "صاحب الدكانة",
+    "translit": "saa7ib id-dukkaane",
+    "en": "the shopkeeper · صاحب owner, friend"
+  },
+  {
+    "id": "b2-069",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "قله",
+    "ar_full": "قله",
+    "translit": "2allo",
+    "en": "he said to him · قلها 2alha to her"
+  },
+  {
+    "id": "b2-070",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "قاعدة",
+    "ar_full": "قاعدة",
+    "translit": "2aa3de",
+    "en": "sitting (f.) · قاعد 2aa3ed (m.)"
+  },
+  {
+    "id": "b2-071",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "السطح",
+    "ar_full": "السطح",
+    "translit": "is-sat7",
+    "en": "the roof — where everyone hangs washing"
+  },
+  {
+    "id": "b2-072",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "من الصبح",
+    "ar_full": "من الصبح",
+    "translit": "min is-sob7",
+    "en": "since the morning"
+  },
+  {
+    "id": "b2-073",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "بتموء",
+    "ar_full": "بتموء",
+    "translit": "btmoo2",
+    "en": "she meows"
+  },
+  {
+    "id": "b2-074",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "الحيط",
+    "ar_full": "الحيط",
+    "translit": "il-7eet",
+    "en": "the wall · pl. حيطان 7eetaan"
+  },
+  {
+    "id": "b2-075",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "وحدها",
+    "ar_full": "وحدها",
+    "translit": "wa7adha",
+    "en": "by herself · لحالي la-7aali by myself"
+  },
+  {
+    "id": "b2-076",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "خايفة",
+    "ar_full": "خايفة",
+    "translit": "5aayfe",
+    "en": "afraid (f.) · خايف 5aayef (m.)"
+  },
+  {
+    "id": "b2-077",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ما تخافي",
+    "ar_full": "ما تخافي",
+    "translit": "maa t5aafi",
+    "en": "don't be afraid (f.) · m. ما تخاف maa t5aaf"
+  },
+  {
+    "id": "b2-078",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "هون",
+    "ar_full": "هون",
+    "translit": "hoon",
+    "en": "here · هناك hnaak there"
+  },
+  {
+    "id": "b2-079",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "حملها",
+    "ar_full": "حملها",
+    "translit": "7amalha",
+    "en": "he carried her"
+  },
+  {
+    "id": "b2-080",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "عم تخرخر",
+    "ar_full": "عم تخرخر",
+    "translit": "3am t5ar5er",
+    "en": "she's purring"
+  },
+  {
+    "id": "b2-081",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "من هديك اليوم",
+    "ar_full": "من هديك اليوم",
+    "translit": "min hadeek il-yom",
+    "en": "from that day on"
+  },
+  {
+    "id": "b2-082",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "بيسكر",
+    "ar_full": "بيسكر",
+    "translit": "bisakker",
+    "en": "he closes · بيفتح byifta7 he opens"
+  },
+  {
+    "id": "b2-083",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "قبل ما",
+    "ar_full": "قبل ما",
+    "translit": "2abel ma",
+    "en": "before (+ verb) · بعد ما ba3ed ma after"
+  },
+  {
+    "id": "b2-084",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ـي",
+    "ar_full": "ـي",
+    "translit": "-i",
+    "en": "my / me — اسمي ismi my name"
+  },
+  {
+    "id": "b2-085",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ـك",
+    "ar_full": "ـك",
+    "translit": "-ak (m.) / -ek (f.)",
+    "en": "your / you — وينك weenak, weenek"
+  },
+  {
+    "id": "b2-086",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ـه",
+    "ar_full": "ـه",
+    "translit": "-o",
+    "en": "his / him — قله 2allo he told him"
+  },
+  {
+    "id": "b2-087",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ـها",
+    "ar_full": "ـها",
+    "translit": "-ha",
+    "en": "her — حملها 7amalha he carried her"
+  },
+  {
+    "id": "b2-088",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ـنا",
+    "ar_full": "ـنا",
+    "translit": "-na",
+    "en": "our / us — جبلنا jiblna bring us"
+  },
+  {
+    "id": "b2-089",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ـكم",
+    "ar_full": "ـكم",
+    "translit": "-kom",
+    "en": "your / you (pl.) — بيتكم beetkom your house"
+  },
+  {
+    "id": "b2-090",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ـهم",
+    "ar_full": "ـهم",
+    "translit": "-hom",
+    "en": "their / them — خدهم 5idhom take them"
+  },
+  {
+    "id": "b2-091",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "شو صار؟",
+    "ar_full": "شو صار؟",
+    "translit": "shou saar?",
+    "en": "what happened?"
+  },
+  {
+    "id": "b2-092",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ما بعرف",
+    "ar_full": "ما بعرف",
+    "translit": "maa ba3ref",
+    "en": "I don't know"
+  },
+  {
+    "id": "b2-093",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "لحظة",
+    "ar_full": "لحظة",
+    "translit": "la7za",
+    "en": "one second"
+  },
+  {
+    "id": "b2-094",
+    "book": 2,
+    "book_title": "وين راحت مشمش؟",
+    "ar": "ولا يهمك",
+    "ar_full": "ولا يهمك",
+    "translit": "wala yhimmak",
+    "en": "no worries, don't mention it"
+  },
+  {
+    "id": "b3-095",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "تيتا",
+    "ar_full": "تيتا",
+    "translit": "Teta",
+    "en": "grandma (not جدة)"
+  },
+  {
+    "id": "b3-096",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "سيدو",
+    "ar_full": "سيدو",
+    "translit": "Seedo",
+    "en": "grandpa (not جد)"
+  },
+  {
+    "id": "b3-097",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "إمي",
+    "ar_full": "إمي",
+    "translit": "immi",
+    "en": "my mum · ماما maama"
+  },
+  {
+    "id": "b3-098",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "أبوي",
+    "ar_full": "أبوي",
+    "translit": "abouy",
+    "en": "my dad · بابا baaba"
+  },
+  {
+    "id": "b3-099",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "أخوي",
+    "ar_full": "أخوي",
+    "translit": "a5ouy",
+    "en": "my brother · أختي u5ti my sister"
+  },
+  {
+    "id": "b3-100",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "عمي",
+    "ar_full": "عمي / عمتي",
+    "translit": "3ammi / 3ammti",
+    "en": "dad's brother / dad's sister"
+  },
+  {
+    "id": "b3-101",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "خالي",
+    "ar_full": "خالي / خالتي",
+    "translit": "5aali / 5aalti",
+    "en": "mum's brother / mum's sister"
+  },
+  {
+    "id": "b3-102",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "العيلة",
+    "ar_full": "العيلة",
+    "translit": "il-3eele",
+    "en": "the family"
+  },
+  {
+    "id": "b3-103",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "الولاد",
+    "ar_full": "الولاد",
+    "translit": "il-wlaad",
+    "en": "the kids"
+  },
+  {
+    "id": "b3-104",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "كل جمعة",
+    "ar_full": "كل جمعة",
+    "translit": "kill jum3a",
+    "en": "every Friday · الجمعة also = the week"
+  },
+  {
+    "id": "b3-105",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "عيلة",
+    "ar_full": "عيلة",
+    "translit": "3eele",
+    "en": "family"
+  },
+  {
+    "id": "b3-106",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "بيت حنينا",
+    "ar_full": "بيت حنينا",
+    "translit": "Beet 7aneena",
+    "en": "a Jerusalem neighbourhood"
+  },
+  {
+    "id": "b3-107",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "يا هلا",
+    "ar_full": "يا هلا",
+    "translit": "ya hala",
+    "en": "welcome! · also أهلين ahlein"
+  },
+  {
+    "id": "b3-108",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "تفضلوا",
+    "ar_full": "تفضلوا",
+    "translit": "tfaddalu",
+    "en": "come in / help yourselves / after you"
+  },
+  {
+    "id": "b3-109",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "بتملا",
+    "ar_full": "بتملا",
+    "translit": "btimla",
+    "en": "it fills · ملا mala to fill"
+  },
+  {
+    "id": "b3-110",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "كله",
+    "ar_full": "كله",
+    "translit": "killo",
+    "en": "all of it · كلها killha all of it (f.)"
+  },
+  {
+    "id": "b3-111",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "مقلوبة",
+    "ar_full": "مقلوبة",
+    "translit": "ma2loube",
+    "en": "\"upside-down\" — rice, aubergine and meat"
+  },
+  {
+    "id": "b3-112",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "عملتلكم",
+    "ar_full": "عملتلكم",
+    "translit": "3amaltilkom",
+    "en": "I made for you (pl.)"
+  },
+  {
+    "id": "b3-113",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "سلطة",
+    "ar_full": "سلطة",
+    "translit": "salata",
+    "en": "salad"
+  },
+  {
+    "id": "b3-114",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "شوية",
+    "ar_full": "شوية",
+    "translit": "shwayye",
+    "en": "a little, a bit of"
+  },
+  {
+    "id": "b3-115",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لبن",
+    "ar_full": "لبن",
+    "translit": "laban",
+    "en": "yoghurt (in the Levant — not milk)"
+  },
+  {
+    "id": "b3-116",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "حليب",
+    "ar_full": "حليب",
+    "translit": "7aleeb",
+    "en": "milk — this is the word you want"
+  },
+  {
+    "id": "b3-117",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "ليش",
+    "ar_full": "ليش",
+    "translit": "leesh",
+    "en": "why · لأنه la2inno because"
+  },
+  {
+    "id": "b3-118",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "منقلبها",
+    "ar_full": "منقلبها",
+    "translit": "mnu2libha",
+    "en": "we flip it · قلب 2alab to turn over"
+  },
+  {
+    "id": "b3-119",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "الطبق",
+    "ar_full": "الطبق",
+    "translit": "it-taba2",
+    "en": "the plate, the dish"
+  },
+  {
+    "id": "b3-120",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "يا سيدي",
+    "ar_full": "يا سيدي",
+    "translit": "ya seedi",
+    "en": "affectionate \"my dear\" (to a child or a friend)"
+  },
+  {
+    "id": "b3-121",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "الطنجرة",
+    "ar_full": "الطنجرة",
+    "translit": "it-tanjara",
+    "en": "the cooking pot"
+  },
+  {
+    "id": "b3-122",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "طاخ",
+    "ar_full": "طاخ",
+    "translit": "taa5",
+    "en": "thud! bang! (sound word)"
+  },
+  {
+    "id": "b3-123",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "بعد الأكل",
+    "ar_full": "بعد الأكل",
+    "translit": "ba3d il-akel",
+    "en": "after the meal · الأكل = food"
+  },
+  {
+    "id": "b3-124",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "بيقعد",
+    "ar_full": "بيقعد",
+    "translit": "byi23od",
+    "en": "he sits (not يجلس)"
+  },
+  {
+    "id": "b3-125",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "البلكونة",
+    "ar_full": "البلكونة",
+    "translit": "il-balkone",
+    "en": "the balcony"
+  },
+  {
+    "id": "b3-126",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "قهوة",
+    "ar_full": "قهوة",
+    "translit": "2ahwe",
+    "en": "coffee · also = a café"
+  },
+  {
+    "id": "b3-127",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "خليني",
+    "ar_full": "خليني",
+    "translit": "5alleeni",
+    "en": "let me · خليك 5alleek stay / keep"
+  },
+  {
+    "id": "b3-128",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "احكيلك",
+    "ar_full": "احكيلك",
+    "translit": "a7keelak",
+    "en": "I'll tell you"
+  },
+  {
+    "id": "b3-129",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "حكاية",
+    "ar_full": "حكاية",
+    "translit": "7ikaaye",
+    "en": "a story, a tale"
+  },
+  {
+    "id": "b3-130",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "من زمان",
+    "ar_full": "من زمان",
+    "translit": "min zamaan",
+    "en": "from long ago · also \"for ages\""
+  },
+  {
+    "id": "b3-131",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لما",
+    "ar_full": "لما",
+    "translit": "lamma",
+    "en": "when (in a statement, never a question)"
+  },
+  {
+    "id": "b3-132",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "زغير",
+    "ar_full": "زغير",
+    "translit": "zgheer",
+    "en": "small, young · كبير kbeer big, old"
+  },
+  {
+    "id": "b3-133",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "ولا",
+    "ar_full": "ولا",
+    "translit": "wala",
+    "en": "nor, not even"
+  },
+  {
+    "id": "b3-134",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "كنا نلعب",
+    "ar_full": "كنا نلعب",
+    "translit": "kunna nil3ab",
+    "en": "we used to play"
+  },
+  {
+    "id": "b3-135",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "الحارة",
+    "ar_full": "الحارة",
+    "translit": "il-7aara",
+    "en": "the neighbourhood, the lane"
+  },
+  {
+    "id": "b3-136",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لحد ما",
+    "ar_full": "لحد ما",
+    "translit": "la7ad ma",
+    "en": "until (+ verb)"
+  },
+  {
+    "id": "b3-137",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "تصير",
+    "ar_full": "تصير",
+    "translit": "tseer",
+    "en": "it becomes · صار saar became, happened"
+  },
+  {
+    "id": "b3-138",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "عتمة",
+    "ar_full": "عتمة",
+    "translit": "3atme",
+    "en": "darkness · الدنيا عتمة it's dark out"
+  },
+  {
+    "id": "b3-139",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "غميضة",
+    "ar_full": "غميضة",
+    "translit": "ghmeeda",
+    "en": "hide-and-seek"
+  },
+  {
+    "id": "b3-140",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "سبع حجار",
+    "ar_full": "سبع حجار",
+    "translit": "sab3 7jaar",
+    "en": "\"seven stones\" — the classic street game"
+  },
+  {
+    "id": "b3-141",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "كرة",
+    "ar_full": "كرة",
+    "translit": "koora",
+    "en": "ball, football"
+  },
+  {
+    "id": "b3-142",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "تنادي",
+    "ar_full": "تنادي",
+    "translit": "tnaadi",
+    "en": "she calls out"
+  },
+  {
+    "id": "b3-143",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "تأخرتوا",
+    "ar_full": "تأخرتوا",
+    "translit": "t2a55artu",
+    "en": "you (pl.) are late"
+  },
+  {
+    "id": "b3-144",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "عالليل",
+    "ar_full": "عالليل",
+    "translit": "3al-leel",
+    "en": "at night · بالنهار bin-nhaar by day"
+  },
+  {
+    "id": "b3-145",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "راجعين",
+    "ar_full": "راجعين",
+    "translit": "raj3een",
+    "en": "going back (pl.)"
+  },
+  {
+    "id": "b3-146",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "مش بس",
+    "ar_full": "مش بس",
+    "translit": "mish bass",
+    "en": "not only"
+  },
+  {
+    "id": "b3-147",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "وبعدين",
+    "ar_full": "وبعدين",
+    "translit": "w-ba3deen",
+    "en": "\"and then?\" — also \"so what?\""
+  },
+  {
+    "id": "b3-148",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "يوكل",
+    "ar_full": "يوكل",
+    "translit": "yokel",
+    "en": "he eats · أكل akal he ate"
+  },
+  {
+    "id": "b3-149",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لعبت",
+    "ar_full": "لعبت",
+    "translit": "li3ibt",
+    "en": "I played / you (m.) played"
+  },
+  {
+    "id": "b3-150",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لعبتي",
+    "ar_full": "لعبتي",
+    "translit": "li3ibti",
+    "en": "you (f.) played"
+  },
+  {
+    "id": "b3-151",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لعب",
+    "ar_full": "لعب",
+    "translit": "li3ib",
+    "en": "he played"
+  },
+  {
+    "id": "b3-152",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لعبنا",
+    "ar_full": "لعبنا",
+    "translit": "li3ibna",
+    "en": "we played"
+  },
+  {
+    "id": "b3-153",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لعبتوا",
+    "ar_full": "لعبتوا",
+    "translit": "li3ibtu",
+    "en": "you (pl.) played"
+  },
+  {
+    "id": "b3-154",
+    "book": 3,
+    "book_title": "الجمعة عند تيتا",
+    "ar": "لعبوا",
+    "ar_full": "لعبوا",
+    "translit": "li3bu",
+    "en": "they played"
+  },
+  {
+    "id": "b4-155",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "أرض",
+    "ar_full": "أرض",
+    "translit": "ard",
+    "en": "land, a plot of land"
+  },
+  {
+    "id": "b4-156",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "شجرة زيتون",
+    "ar_full": "شجرة زيتون",
+    "translit": "shajarit zeetoun",
+    "en": "an olive tree · pl. شجر زيتون"
+  },
+  {
+    "id": "b4-157",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "سلة",
+    "ar_full": "سلة",
+    "translit": "salle",
+    "en": "basket · pl. سلال salaal"
+  },
+  {
+    "id": "b4-158",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "زيت",
+    "ar_full": "زيت",
+    "translit": "zeet",
+    "en": "oil"
+  },
+  {
+    "id": "b4-159",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "قطف",
+    "ar_full": "قطف",
+    "translit": "qataf",
+    "en": "he picked (olives, fruit)"
+  },
+  {
+    "id": "b4-160",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "معصرة",
+    "ar_full": "معصرة",
+    "translit": "ma3sara",
+    "en": "the press, where the oil is made"
+  },
+  {
+    "id": "b4-161",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "يلي",
+    "ar_full": "يلي",
+    "translit": "yalli",
+    "en": "who, which, that — the all-purpose relative"
+  },
+  {
+    "id": "b4-162",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "الشتوية",
+    "ar_full": "الشتوية",
+    "translit": "ish-shitwiyye",
+    "en": "the rainy season, \"the cold months\""
+  },
+  {
+    "id": "b4-163",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "حابب",
+    "ar_full": "حابب",
+    "translit": "7aabib",
+    "en": "wanting to, would like to · f. حابة 7aabbe"
+  },
+  {
+    "id": "b4-164",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "برفق",
+    "ar_full": "برفق",
+    "translit": "bi-rifq",
+    "en": "gently"
+  },
+  {
+    "id": "b4-165",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "طاح",
+    "ar_full": "طاح / تطيح",
+    "translit": "taa7 / titee7",
+    "en": "to fall — not وقع"
+  },
+  {
+    "id": "b4-166",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "مليانة",
+    "ar_full": "مليانة",
+    "translit": "malyaane",
+    "en": "full (f.) · m. مليان malyaan"
+  },
+  {
+    "id": "b4-167",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "زعتر",
+    "ar_full": "زعتر",
+    "translit": "za3tar",
+    "en": "the herb mix — also the plant itself"
+  },
+  {
+    "id": "b4-168",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "عطيني",
+    "ar_full": "عطيني",
+    "translit": "3atteeni",
+    "en": "give me"
+  },
+  {
+    "id": "b4-169",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "حطيلي",
+    "ar_full": "حطيلي",
+    "translit": "7attili",
+    "en": "put ... for me"
+  },
+  {
+    "id": "b4-170",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "زيادة",
+    "ar_full": "زيادة",
+    "translit": "ziyaade",
+    "en": "extra, more (of something)"
+  },
+  {
+    "id": "b4-171",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "باقي",
+    "ar_full": "باقي",
+    "translit": "baaqi",
+    "en": "the rest, what's left"
+  },
+  {
+    "id": "b4-172",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "خلي بالك",
+    "ar_full": "خلي بالك",
+    "translit": "5alli baalak",
+    "en": "pay attention, watch out"
+  },
+  {
+    "id": "b4-173",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "مش لعبة",
+    "ar_full": "مش لعبة",
+    "translit": "mish li3be",
+    "en": "it's not a game — take it seriously"
+  },
+  {
+    "id": "b4-174",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بتستاهل",
+    "ar_full": "بتستاهل",
+    "translit": "bitistaahal",
+    "en": "it's worth it"
+  },
+  {
+    "id": "b4-175",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "موسم",
+    "ar_full": "موسم",
+    "translit": "mawsim",
+    "en": "season (harvest season, in context)"
+  },
+  {
+    "id": "b4-176",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "غمسوا",
+    "ar_full": "غمسوا",
+    "translit": "8amsu",
+    "en": "dip! (pl. imperative) · غمس 8amas to dip"
+  },
+  {
+    "id": "b4-177",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بكرة",
+    "ar_full": "بكرة",
+    "translit": "bukra",
+    "en": "tomorrow — or \"one day\", in the future"
+  },
+  {
+    "id": "b4-178",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "من ... لـ",
+    "ar_full": "من ... لـ",
+    "translit": "min ... la",
+    "en": "from ... to — for a chain: من جدي لأبوي"
+  },
+  {
+    "id": "b4-179",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بدي",
+    "ar_full": "بدي",
+    "translit": "biddi",
+    "en": "I want (to)"
+  },
+  {
+    "id": "b4-180",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بدك",
+    "ar_full": "بدك",
+    "translit": "biddak / biddik",
+    "en": "you want (m. / f.)"
+  },
+  {
+    "id": "b4-181",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بدو",
+    "ar_full": "بدو",
+    "translit": "biddo",
+    "en": "he wants"
+  },
+  {
+    "id": "b4-182",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بدها",
+    "ar_full": "بدها",
+    "translit": "bidha",
+    "en": "she wants"
+  },
+  {
+    "id": "b4-183",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بدنا",
+    "ar_full": "بدنا",
+    "translit": "bidna",
+    "en": "we want"
+  },
+  {
+    "id": "b4-184",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بدكم",
+    "ar_full": "بدكم",
+    "translit": "bidkom",
+    "en": "you (pl.) want"
+  },
+  {
+    "id": "b4-185",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "بدهم",
+    "ar_full": "بدهم",
+    "translit": "bidhom",
+    "en": "they want"
+  },
+  {
+    "id": "b4-186",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "جبتلك",
+    "ar_full": "جبتلك",
+    "translit": "jibtillak",
+    "en": "I brought (it) for you"
+  },
+  {
+    "id": "b4-187",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "قطفتها",
+    "ar_full": "قطفتها",
+    "translit": "qataftha",
+    "en": "I picked it (f.)"
+  },
+  {
+    "id": "b4-188",
+    "book": 4,
+    "book_title": "قطاف الزيتون",
+    "ar": "عطته",
+    "ar_full": "عطته",
+    "translit": "3atetto",
+    "en": "she gave him/it"
+  },
+  {
+    "id": "b5-189",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "كل عام وانتو بخير",
+    "ar_full": "كل عام وانتو بخير",
+    "translit": "kill 3aam w-into bi-5eer",
+    "en": "the Eid greeting, to more than one person"
+  },
+  {
+    "id": "b5-190",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "بألف خير",
+    "ar_full": "بألف خير",
+    "translit": "bi-alf 5eer",
+    "en": "the standard reply"
+  },
+  {
+    "id": "b5-191",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "عيدية",
+    "ar_full": "عيدية",
+    "translit": "3eediyye",
+    "en": "money given to kids at Eid"
+  },
+  {
+    "id": "b5-192",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "ضيوف",
+    "ar_full": "ضيوف",
+    "translit": "dyouf",
+    "en": "guests · sg. ضيف deef"
+  },
+  {
+    "id": "b5-193",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "فاق",
+    "ar_full": "فاق",
+    "translit": "faaq",
+    "en": "he woke up · يفوق yfuuq to wake up"
+  },
+  {
+    "id": "b5-194",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "قميص",
+    "ar_full": "قميص",
+    "translit": "qamiis",
+    "en": "shirt"
+  },
+  {
+    "id": "b5-195",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "عادة",
+    "ar_full": "عادة",
+    "translit": "3aade",
+    "en": "a custom, a habit"
+  },
+  {
+    "id": "b5-196",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "مد ايده",
+    "ar_full": "مد ايده",
+    "translit": "madd eedo",
+    "en": "he held out his hand"
+  },
+  {
+    "id": "b5-197",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "عد",
+    "ar_full": "عد",
+    "translit": "3add",
+    "en": "he counted · يعد yi3idd to count"
+  },
+  {
+    "id": "b5-198",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "شيقل",
+    "ar_full": "شيقل",
+    "translit": "shiqel",
+    "en": "shekel · pl. شواقل shawaakel"
+  },
+  {
+    "id": "b5-199",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "محشي",
+    "ar_full": "محشي",
+    "translit": "ma7shi",
+    "en": "stuffed (with something)"
+  },
+  {
+    "id": "b5-200",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "هرب",
+    "ar_full": "هرب",
+    "translit": "hirib",
+    "en": "he/she ran off, fled"
+  },
+  {
+    "id": "b5-201",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "أقارب",
+    "ar_full": "أقارب",
+    "translit": "aqaarib",
+    "en": "relatives"
+  },
+  {
+    "id": "b5-202",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "وفر",
+    "ar_full": "وفر",
+    "translit": "waffar",
+    "en": "he saved (money) · يوفر ywaffir"
+  },
+  {
+    "id": "b5-203",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "منسف",
+    "ar_full": "منسف",
+    "translit": "mansaf",
+    "en": "the rice-and-lamb dish, guest of honour food"
+  },
+  {
+    "id": "b5-204",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "رفع صوته",
+    "ar_full": "رفع صوته",
+    "translit": "rafa3 sowto",
+    "en": "he raised his voice"
+  },
+  {
+    "id": "b5-205",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "الحمدلله عالسلامة",
+    "ar_full": "الحمدلله عالسلامة",
+    "translit": "il-7amdilla 3as-salaame",
+    "en": "\"thank God for your safety\" — welcoming someone back"
+  },
+  {
+    "id": "b5-206",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "حضن",
+    "ar_full": "حضن",
+    "translit": "7adan",
+    "en": "he/she hugged · يحضن y7adin"
+  },
+  {
+    "id": "b5-207",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "فرح",
+    "ar_full": "فرح",
+    "translit": "farra7",
+    "en": "to make (someone) happy · تفرحني tfar7ini you make me happy"
+  },
+  {
+    "id": "b5-208",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "قلب طيب",
+    "ar_full": "قلب طيب",
+    "translit": "qalb tayyeb",
+    "en": "a kind heart"
+  },
+  {
+    "id": "b5-209",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "جاي",
+    "ar_full": "جاي",
+    "translit": "jaay",
+    "en": "coming, next · العيد الجاي next Eid"
+  },
+  {
+    "id": "b5-210",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "ولد ← ولاد",
+    "ar_full": "ولد ← ولاد",
+    "translit": "walad ← wlaad",
+    "en": "boy(s) — broken"
+  },
+  {
+    "id": "b5-211",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "بنت ← بنات",
+    "ar_full": "بنت ← بنات",
+    "translit": "bint ← banaat",
+    "en": "girl(s) — sound"
+  },
+  {
+    "id": "b5-212",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "عم ← أعمام",
+    "ar_full": "عم ← أعمام",
+    "translit": "3am ← a3maam",
+    "en": "uncle(s) — broken"
+  },
+  {
+    "id": "b5-213",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "خالة ← خالات",
+    "ar_full": "خالة ← خالات",
+    "translit": "5aale ← 5aalaat",
+    "en": "aunt(s) — sound"
+  },
+  {
+    "id": "b5-214",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "صاحب ← أصحاب",
+    "ar_full": "صاحب ← أصحاب",
+    "translit": "saa7ib ← ashaab",
+    "en": "friend(s) — broken"
+  },
+  {
+    "id": "b5-215",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "ضيف ← ضيوف",
+    "ar_full": "ضيف ← ضيوف",
+    "translit": "deef ← dyouf",
+    "en": "guest(s) — broken"
+  },
+  {
+    "id": "b5-216",
+    "book": 5,
+    "book_title": "العيد",
+    "ar": "بيت ← بيوت",
+    "ar_full": "بيت ← بيوت",
+    "translit": "beet ← byout",
+    "en": "house(s) — broken"
+  },
+  {
+    "id": "b6-217",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "البلدة القديمة",
+    "ar_full": "البلدة القديمة",
+    "translit": "il-balad il-qadiime",
+    "en": "the Old City"
+  },
+  {
+    "id": "b6-218",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "المسجد الأقصى",
+    "ar_full": "المسجد الأقصى",
+    "translit": "il-masjid il-aqsa",
+    "en": "Al-Aqsa Mosque"
+  },
+  {
+    "id": "b6-219",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "باب العامود",
+    "ar_full": "باب العامود",
+    "translit": "baab il-3amoud",
+    "en": "Damascus Gate"
+  },
+  {
+    "id": "b6-220",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "سوق",
+    "ar_full": "سوق",
+    "translit": "souq",
+    "en": "market · pl. أسواق aswaaq"
+  },
+  {
+    "id": "b6-221",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "تياب",
+    "ar_full": "تياب",
+    "translit": "tyaab",
+    "en": "clothes"
+  },
+  {
+    "id": "b6-222",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "الأذان",
+    "ar_full": "الأذان",
+    "translit": "il-azaan",
+    "en": "the call to prayer"
+  },
+  {
+    "id": "b6-223",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "بالذات",
+    "ar_full": "بالذات",
+    "translit": "bi-zaato",
+    "en": "specifically, exactly (that one)"
+  },
+  {
+    "id": "b6-224",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "بتزحم",
+    "ar_full": "بتزحم",
+    "translit": "btiz7am",
+    "en": "it gets crowded"
+  },
+  {
+    "id": "b6-225",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "أزقة",
+    "ar_full": "أزقة",
+    "translit": "azqe",
+    "en": "alleyways · sg. زقاق zqaaq"
+  },
+  {
+    "id": "b6-226",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "حكى ... إنه",
+    "ar_full": "حكى ... إنه",
+    "translit": "7aka ... inno",
+    "en": "told ... that (he/it) — reporting speech"
+  },
+  {
+    "id": "b6-227",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "شم",
+    "ar_full": "شم",
+    "translit": "shamm",
+    "en": "he smelled"
+  },
+  {
+    "id": "b6-228",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "طول عمرك",
+    "ar_full": "طول عمرك",
+    "translit": "tuul 3umrak",
+    "en": "your whole life"
+  },
+  {
+    "id": "b6-229",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "ضاع",
+    "ar_full": "ضاع",
+    "translit": "daa3",
+    "en": "he got lost · يضيع ydii3"
+  },
+  {
+    "id": "b6-230",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "وعد",
+    "ar_full": "وعد",
+    "translit": "w3ad",
+    "en": "a promise · also \"I promise!\" on its own"
+  },
+  {
+    "id": "b6-231",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "باحة",
+    "ar_full": "باحة",
+    "translit": "baa7a",
+    "en": "a courtyard"
+  },
+  {
+    "id": "b6-232",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "مبهور",
+    "ar_full": "مبهور",
+    "translit": "mabhour",
+    "en": "amazed, dazzled"
+  },
+  {
+    "id": "b6-233",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "بهدوء",
+    "ar_full": "بهدوء",
+    "translit": "bi-hudou2",
+    "en": "calmly · هادي haadi calm"
+  },
+  {
+    "id": "b6-234",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "صادف",
+    "ar_full": "صادف",
+    "translit": "saadaf",
+    "en": "he ran into (someone) by chance"
+  },
+  {
+    "id": "b6-235",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "حفيد",
+    "ar_full": "حفيد",
+    "translit": "7afeed",
+    "en": "grandson"
+  },
+  {
+    "id": "b6-236",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "تسابق",
+    "ar_full": "تسابق",
+    "translit": "tsaabaq",
+    "en": "to race each other"
+  },
+  {
+    "id": "b6-237",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "فاز",
+    "ar_full": "فاز",
+    "translit": "faaz",
+    "en": "he won · يفوز yfouz"
+  },
+  {
+    "id": "b6-238",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "قديش",
+    "ar_full": "قديش",
+    "translit": "qaddeesh",
+    "en": "how much (asking a price)"
+  },
+  {
+    "id": "b6-239",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "أرخص",
+    "ar_full": "أرخص",
+    "translit": "ar5as",
+    "en": "cheaper · رخيص ar5iis cheap"
+  },
+  {
+    "id": "b6-240",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "قيمة",
+    "ar_full": "قيمة",
+    "translit": "qeeme",
+    "en": "value, worth"
+  },
+  {
+    "id": "b6-241",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "حكى إنه تعبان",
+    "ar_full": "حكى إنه تعبان",
+    "translit": "7aka inno ta3baan",
+    "en": "he said that he's tired"
+  },
+  {
+    "id": "b6-242",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "قالت إنها جاهزة",
+    "ar_full": "قالت إنها جاهزة",
+    "translit": "2aalat inneha jaahza",
+    "en": "she said that she's ready"
+  },
+  {
+    "id": "b6-243",
+    "book": 6,
+    "book_title": "جمعة في القدس القديمة",
+    "ar": "حكى إنه السوق قديم",
+    "ar_full": "حكى إنه السوق قديم",
+    "translit": "7aka inno is-souq qadiim",
+    "en": "he said that the market is old"
+  }
+]

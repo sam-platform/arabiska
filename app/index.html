@@ -5,21 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <title>Arabiska</title>
 
-<!-- Android / general PWA -->
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#C0603A">
 
-<!-- iOS home-screen + fullscreen standalone -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Arabiska">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-
 <link rel="icon" href="icons/icon-192.png">
 
 <style>
   :root {
     --cream:  #FBF6EC;
+    --paper:  #F4EBD9;
     --stone:  #E4D5B7;
     --olive:  #6B7A4E;
     --terra:  #C0603A;
@@ -38,55 +36,140 @@
   body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 100vh;
-    /* fill under the iPhone notch / home indicator when launched standalone */
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    padding: 24px;
   }
-  .card { padding: 32px; max-width: 320px; }
-  .glyph {
-    font-size: 64px;
-    color: var(--cream);
-    background: var(--terra);
-    width: 108px;
-    height: 108px;
-    line-height: 108px;
-    border-radius: 24px;
-    margin: 0 auto 20px;
-  }
-  h1 { margin: 0 0 6px; font-size: 24px; }
-  p.sub { color: var(--muted); font-size: 15px; margin: 0 0 18px; }
-  .status {
-    font-size: 13px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: var(--stone);
+  [hidden] { display: none !important; }
+  .card { width: 100%; max-width: 360px; }
+
+  h1 { margin: 0 0 6px; font-size: 22px; }
+  p.sub { color: var(--muted); font-size: 15px; margin: 0 0 20px; }
+
+  input[type="email"] {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 1px solid var(--stone);
+    border-radius: 12px;
+    background: var(--paper);
     color: var(--ink);
-    display: inline-block;
+    margin-bottom: 12px;
   }
-  .mode-standalone .status { background: var(--olive); color: var(--cream); }
+  button {
+    font-family: inherit;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--terra); color: var(--cream); width: 100%; }
+  .btn-primary:disabled { opacity: 0.6; }
+  .error-text { color: var(--terra); font-size: 14px; margin-top: 10px; }
+
+  /* ---- session / flashcard ---- */
+  #screen-session { justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
+  .topbar { display: flex; justify-content: space-between; width: 100%; max-width: 420px; font-size: 13px; color: var(--muted); }
+  .flash { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 420px; }
+  .book-tag { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .new-badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    background: var(--olive); color: var(--cream); padding: 3px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .ar-word { font-size: 42px; line-height: 1.3; margin-bottom: 8px; direction: rtl; }
+  .translit { color: var(--muted); font-size: 16px; font-style: italic; margin-bottom: 18px; }
+  .en-answer { font-size: 19px; margin-bottom: 20px; }
+  .speak-btn {
+    background: var(--stone); color: var(--ink); border-radius: 999px;
+    width: 44px; height: 44px; font-size: 18px; padding: 0; margin-bottom: 18px;
+  }
+  .reveal-btn { background: var(--paper); color: var(--ink); border: 1px solid var(--stone); width: 100%; max-width: 300px; }
+  .rate-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; width: 100%; max-width: 420px; }
+  .rate-row button { font-size: 14px; padding: 12px 6px; color: var(--cream); }
+  .rate-again { background: #A8432B; }
+  .rate-hard  { background: #C0603A; }
+  .rate-good  { background: var(--olive); }
+  .rate-easy  { background: #4F6B3A; }
+
+  .done-stats { font-size: 17px; margin: 10px 0 0; }
+  .glyph {
+    font-size: 48px; color: var(--cream); background: var(--terra);
+    width: 84px; height: 84px; line-height: 84px; border-radius: 20px; margin: 0 auto 16px;
+  }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="glyph">ع</div>
-    <h1>أهلا، سامي!</h1>
-    <p class="sub">PWA install check</p>
-    <span class="status" id="status">checking…</span>
+
+  <div id="screen-loading" class="screen">
+    <p class="sub">loading…</p>
   </div>
 
-  <script>
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches
-      || window.navigator.standalone === true;
-    const el = document.getElementById('status');
-    if (isStandalone) {
-      document.body.classList.add('mode-standalone');
-      el.textContent = '✅ running fullscreen, installed from home screen';
-    } else {
-      el.textContent = '🌐 running in the browser tab — add to home screen to test fullscreen';
-    }
-  </script>
+  <div id="screen-login" class="screen" hidden>
+    <div class="card">
+      <div class="glyph">ع</div>
+      <h1>Arabiska</h1>
+      <p class="sub">Sign in to start your daily practice</p>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="you@email.com" required autocomplete="email">
+        <button type="submit" class="btn-primary" id="login-submit">Send me a sign-in link</button>
+      </form>
+      <p class="error-text" id="login-error" hidden></p>
+    </div>
+  </div>
+
+  <div id="screen-check-email" class="screen" hidden>
+    <div class="card">
+      <div class="glyph">✉️</div>
+      <h1>Check your email</h1>
+      <p class="sub">We sent a sign-in link to <strong id="check-email-address"></strong>. Open it on this device to continue.</p>
+    </div>
+  </div>
+
+  <div id="screen-session" class="screen" hidden>
+    <div class="topbar">
+      <span class="book-tag" id="card-book"></span>
+      <span id="card-progress"></span>
+    </div>
+    <div class="flash">
+      <span class="new-badge" id="card-new-badge" hidden>NEW</span>
+      <div class="ar-word" id="card-ar"></div>
+      <div class="translit" id="card-translit"></div>
+      <button class="speak-btn" id="card-speak-btn" aria-label="Play pronunciation">🔊</button>
+
+      <div id="card-reveal-area">
+        <button class="reveal-btn" id="card-reveal-btn">Show answer</button>
+      </div>
+      <div id="card-answer" hidden>
+        <div class="en-answer" id="card-en"></div>
+      </div>
+    </div>
+    <div class="rate-row" id="card-rate-row" hidden>
+      <button class="rate-again" data-rate="again">Again</button>
+      <button class="rate-hard" data-rate="hard">Hard</button>
+      <button class="rate-good" data-rate="good">Good</button>
+      <button class="rate-easy" data-rate="easy">Easy</button>
+    </div>
+  </div>
+
+  <div id="screen-done" class="screen" hidden>
+    <div class="card">
+      <div class="glyph">✅</div>
+      <h1>All done for now</h1>
+      <p class="sub">Come back later today or tomorrow for more.</p>
+      <p class="done-stats">Reviewed: <strong id="done-reviewed"></strong> · New: <strong id="done-new"></strong></p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
