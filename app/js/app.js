@@ -325,8 +325,31 @@ function renderMultipleChoice(item, isNew) {
         else if (b === btn) b.classList.add("wrong");
       });
       setMascotMood(correct ? "happy" : "sad", correct ? "happy" : "sad");
-      setTimeout(() => submitRating(correct ? "good" : "again"), 900);
+      if (correct) {
+        showRatingPrompt();
+      } else {
+        setTimeout(() => submitRating("again"), 900);
+      }
     });
+  });
+}
+
+// Wrong answers are unambiguous — just reschedule soon and move on. A
+// correct answer is ambiguous (lucky guess vs. knew it cold), so that's
+// where self-rating actually adds information to the SM-2 schedule.
+function showRatingPrompt() {
+  const wrap = document.createElement("div");
+  wrap.innerHTML = `
+    <p class="rate-prompt">How well did you know that?</p>
+    <div class="rate-row">
+      <button class="rate-hard" type="button" data-rate="hard">Hard</button>
+      <button class="rate-good" type="button" data-rate="good">Good</button>
+      <button class="rate-easy" type="button" data-rate="easy">Easy</button>
+    </div>
+  `;
+  root.appendChild(wrap);
+  wrap.querySelectorAll("[data-rate]").forEach((btn) => {
+    btn.addEventListener("click", () => submitRating(btn.dataset.rate));
   });
 }
 
@@ -389,7 +412,11 @@ function renderWordOrder(item) {
         .join("");
     }
     setMascotMood(correct ? "happy" : "sad", correct ? "happy" : "sad");
-    setTimeout(() => submitRating(correct ? "good" : "again"), 1100);
+    if (correct) {
+      setTimeout(() => showRatingPrompt(), 400);
+    } else {
+      setTimeout(() => submitRating("again"), 1100);
+    }
   }
 
   renderChips();
