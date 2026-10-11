@@ -82,6 +82,7 @@
   .session-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
   .flash { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 420px; }
   .book-tag { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  #level-badge { font-size: 12px; font-weight: 600; color: var(--olive); }
   .new-badge {
     display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
     background: var(--olive); color: var(--cream); padding: 3px 10px; border-radius: 999px; margin-bottom: 14px;
@@ -215,6 +216,7 @@
   <div id="screen-session" class="screen" hidden>
     <div class="topbar">
       <span class="book-tag" id="card-book"></span>
+      <span id="level-badge"></span>
       <span id="card-progress"></span>
     </div>
     <div class="session-body">
@@ -229,6 +231,7 @@
       <h1>Today's new words are done!</h1>
       <p class="sub">Keep going with extra repetition, or stop here for today.</p>
       <p class="done-stats">Reviewed: <strong id="continue-reviewed"></strong> · New: <strong id="continue-new"></strong></p>
+      <p class="sub" id="continue-level"></p>
       <button class="btn-primary" type="button" id="continue-more-btn" style="margin-top:14px;">Keep practicing</button>
       <button class="continue-btn" type="button" id="continue-stop-btn">I'm done for now</button>
     </div>
@@ -240,6 +243,7 @@
       <h1>All done for now</h1>
       <p class="sub">Come back later today or tomorrow for more.</p>
       <p class="done-stats">Reviewed: <strong id="done-reviewed"></strong> · New: <strong id="done-new"></strong></p>
+      <p class="sub" id="done-level"></p>
     </div>
   </div>
 

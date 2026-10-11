@@ -3,8 +3,62 @@
 
 const SUPABASE_URL = "https://gdwvycndaqxydluvqdia.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_PnGf7MRx1nBFcRKo0O4dPQ_L03B64vI";
-const NEW_ITEMS_PER_DAY = 6;
 const REVIEWS_PER_SESSION = 30;
+
+// ---------- Level ----------
+//
+// The 6 books only actually cover roughly A1 (book 1-2: present tense,
+// greetings) through B1 (book 5-6: conditionals, reported speech) — there's
+// no B2+ content yet, so the ceiling here is real, not a placeholder. A tier
+// counts as "cleared" once most of its words are attempted *and* holding up
+// well (ease_factor, the same SM-2 number Hard/Good/Easy already drives).
+const CEFR_BY_BOOK = { 1: "A1", 2: "A1", 3: "A2", 4: "A2", 5: "B1", 6: "B1" };
+const CEFR_ORDER = ["A1", "A2", "B1"];
+const TIER_COVERAGE_THRESHOLD = 0.7;
+const TIER_EASE_THRESHOLD = 2.3;
+
+function estimateLevel() {
+  let cleared = null;
+  for (const tier of CEFR_ORDER) {
+    const tierItems = state.vocab.filter((v) => CEFR_BY_BOOK[v.book] === tier);
+    const attempted = tierItems.filter((v) => state.progressById[v.id]);
+    const coverage = attempted.length / tierItems.length;
+    const avgEase = attempted.length
+      ? attempted.reduce((sum, v) => sum + state.progressById[v.id].ease_factor, 0) / attempted.length
+      : 0;
+    if (coverage >= TIER_COVERAGE_THRESHOLD && avgEase >= TIER_EASE_THRESHOLD) {
+      cleared = tier;
+    } else {
+      break; // tiers are sequential — stop at the first one not yet solid
+    }
+  }
+  return cleared;
+}
+
+function renderLevelBadge() {
+  const level = estimateLevel();
+  const el = $("#level-badge");
+  if (el) el.textContent = level ? `Level: ${level}` : "Level: getting started";
+}
+
+function levelSummaryText() {
+  const level = estimateLevel();
+  const ceiling = CEFR_ORDER[CEFR_ORDER.length - 1];
+  const current = level ? `Estimated level: ${level}` : "Estimated level: getting started";
+  return `${current} (book content currently goes up to ${ceiling})`;
+}
+
+// New-word pace reacts to the same Hard/Good/Easy feedback that drives
+// scheduling: doing well (high average ease) opens the throttle, struggling
+// closes it — rather than a flat count regardless of how it's going.
+function computeNewBudget(dailyLog) {
+  const graded = Object.values(state.progressById).filter((p) => p.repetitions >= 1);
+  const avgEase = graded.length
+    ? graded.reduce((sum, p) => sum + p.ease_factor, 0) / graded.length
+    : 2.5;
+  const base = avgEase >= 2.8 ? 10 : avgEase >= 2.3 ? 6 : 3;
+  return Math.max(0, base - dailyLog.new_items_count);
+}
 
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -213,15 +267,16 @@ async function startSession(user) {
     }
   }
 
-  const newBudget = Math.max(0, NEW_ITEMS_PER_DAY - dailyLog.new_items_count);
+  state = { user, vocab, progressById, queue: [], dailyLog: { ...dailyLog }, current: null };
+
+  const newBudget = computeNewBudget(dailyLog);
   const newItems = unseen.slice(0, newBudget);
   const reviewItems = due.slice(0, REVIEWS_PER_SESSION);
 
-  const queue = shuffle([...reviewItems, ...newItems]);
+  state.queue = shuffle([...reviewItems, ...newItems]);
+  renderLevelBadge();
 
-  state = { user, vocab, progressById, queue, dailyLog: { ...dailyLog }, current: null };
-
-  if (queue.length === 0) {
+  if (state.queue.length === 0) {
     renderContinuePrompt();
   } else {
     nextCard();
@@ -457,6 +512,7 @@ async function submitRating(rating) {
   });
 
   if (result.requeue) state.queue.push(item);
+  renderLevelBadge();
   nextCard();
 }
 
@@ -474,6 +530,7 @@ function renderContinuePrompt() {
   }
   $("#continue-reviewed").textContent = state.dailyLog.reviewed_items_count;
   $("#continue-new").textContent = state.dailyLog.new_items_count;
+  $("#continue-level").textContent = levelSummaryText();
   mountMascot("slot-continue", "happy");
   setMascotMood("happy", "happy");
   show("continue");
@@ -490,6 +547,7 @@ $("#continue-stop-btn").addEventListener("click", () => renderDone());
 function renderDone() {
   $("#done-reviewed").textContent = state.dailyLog.reviewed_items_count;
   $("#done-new").textContent = state.dailyLog.new_items_count;
+  $("#done-level").textContent = levelSummaryText();
   mountMascot("slot-done", "happy");
   setMascotMood("happy", "happy");
   show("done");
