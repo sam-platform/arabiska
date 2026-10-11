@@ -746,5 +746,115 @@
     "ar_full": "دماغي راحت",
     "translit": "dmaaghi raa7et",
     "en": "I can't think straight, I'm losing it (lit. \"my mind is gone\")"
+  },
+  {
+    "id": "x-073",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "يوم ديك ولا عشرة فرخة",
+    "ar_full": "يوم ديك ولا عشرة فرخة",
+    "translit": "yoom deek wala 3ashara farkha",
+    "en": "one day as a rooster beats ten as a hen — dignity and independence over a long life of submission"
+  },
+  {
+    "id": "x-074",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "إيد لحالها ما بتصفق",
+    "ar_full": "إيد لحالها ما بتصفق",
+    "translit": "eed la-7aala ma btsaffe2",
+    "en": "one hand alone can't clap — you need others to get things done"
+  },
+  {
+    "id": "x-075",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "الحمل إذا تفرق بنشال",
+    "ar_full": "الحمل إذا تفرق بنشال",
+    "translit": "il-7iml iza tfarra2 binshaal",
+    "en": "a burden shared is a burden carried (lit. \"a load, once split up, gets lifted\")"
+  },
+  {
+    "id": "x-076",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "A2",
+    "ar": "البعيد عن العين بعيد عن القلب",
+    "ar_full": "البعيد عن العين بعيد عن القلب",
+    "translit": "il-b3eed 3an il-3ein b3eed 3an il-2alb",
+    "en": "out of sight, out of mind"
+  },
+  {
+    "id": "x-077",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "اضرب الحديد وهو حامي",
+    "ar_full": "اضرب الحديد وهو حامي",
+    "translit": "idrib il-7adeed w huwwe 7aami",
+    "en": "strike the iron while it's hot — seize the opportunity now"
+  },
+  {
+    "id": "x-078",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "كثر العتاب بفرق الاحباب",
+    "ar_full": "كثر العتاب بفرق الاحباب",
+    "translit": "kutr il-3itaab bifarri2 il-a7baab",
+    "en": "too much nagging/blame drives loved ones apart"
+  },
+  {
+    "id": "x-079",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "A2",
+    "ar": "الصلح سيد الاحكام",
+    "ar_full": "الصلح سيد الاحكام",
+    "translit": "is-sul7 sayyid il-a7kaam",
+    "en": "making peace beats any judgment — reconciliation is best"
+  },
+  {
+    "id": "x-080",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "A2",
+    "ar": "من هاب خاب",
+    "ar_full": "من هاب خاب",
+    "translit": "min haab 5aab",
+    "en": "whoever is too afraid, fails — fortune favors the bold"
+  },
+  {
+    "id": "x-081",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "كل طلعة ووراها نزلة",
+    "ar_full": "كل طلعة ووراها نزلة",
+    "translit": "kill tal3a w-waraaha nazle",
+    "en": "every rise is followed by a fall — things that go up must come down (said both as caution and as comfort during hard times)"
+  },
+  {
+    "id": "x-082",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "رغيف في رغيف ولا يبات جارك جعان",
+    "ar_full": "رغيف في رغيف ولا يبات جارك جعان",
+    "translit": "ra8eef fi ra8eef wala ybaat jaarak ja3aan",
+    "en": "share your bread — don't let your neighbor go to sleep hungry"
   }
 ]
