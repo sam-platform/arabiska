@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Arabiska</title>
+
+<!-- Android / general PWA -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#C0603A">
+
+<!-- iOS home-screen + fullscreen standalone -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Arabiska">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+<link rel="icon" href="icons/icon-192.png">
+
+<style>
+  :root {
+    --cream:  #FBF6EC;
+    --stone:  #E4D5B7;
+    --olive:  #6B7A4E;
+    --terra:  #C0603A;
+    --ink:    #2B2620;
+    --muted:  #857763;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    /* fill under the iPhone notch / home indicator when launched standalone */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .card { padding: 32px; max-width: 320px; }
+  .glyph {
+    font-size: 64px;
+    color: var(--cream);
+    background: var(--terra);
+    width: 108px;
+    height: 108px;
+    line-height: 108px;
+    border-radius: 24px;
+    margin: 0 auto 20px;
+  }
+  h1 { margin: 0 0 6px; font-size: 24px; }
+  p.sub { color: var(--muted); font-size: 15px; margin: 0 0 18px; }
+  .status {
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--stone);
+    color: var(--ink);
+    display: inline-block;
+  }
+  .mode-standalone .status { background: var(--olive); color: var(--cream); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="glyph">ع</div>
+    <h1>أهلا، سامي!</h1>
+    <p class="sub">PWA install check</p>
+    <span class="status" id="status">checking…</span>
+  </div>
+
+  <script>
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+      || window.navigator.standalone === true;
+    const el = document.getElementById('status');
+    if (isStandalone) {
+      document.body.classList.add('mode-standalone');
+      el.textContent = '✅ running fullscreen, installed from home screen';
+    } else {
+      el.textContent = '🌐 running in the browser tab — add to home screen to test fullscreen';
+    }
+  </script>
+</body>
+</html>

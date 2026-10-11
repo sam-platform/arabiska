@@ -1,0 +1,210 @@
+/* ============================================================
+   Shared stylesheet for the Palestinian-dialect reader series
+   A5 portrait, print-ready via headless Chrome.
+   ============================================================ */
+
+@page { size: A5 portrait; margin: 0; }
+
+* { box-sizing: border-box; }
+
+:root {
+  --cream:      #FBF6EC;
+  --paper:      #F4EBD9;
+  --stone:      #E4D5B7;
+  --stone-dark: #C3AE8B;
+  --olive:      #6B7A4E;
+  --terra:      #C0603A;
+  --blue:       #2F4C63;
+  --ink:        #2B2620;
+  --muted:      #857763;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #7d766b;
+  color: var(--ink);
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 148mm;
+  height: 210mm;
+  padding: 13mm 12mm 11mm;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  break-after: page;
+  margin: 0 auto 6mm;
+  box-shadow: 0 2mm 6mm rgba(0,0,0,.35);
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+@media print {
+  html, body { background: #fff; }
+  .page { margin: 0; box-shadow: none; }
+}
+
+/* ---------- Arabic + transliteration typography ---------- */
+
+.ar {
+  direction: rtl;
+  text-align: right;
+  font-family: "Dubai", "Segoe UI", "Traditional Arabic", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.95;
+  letter-spacing: 0;
+}
+
+.lat { direction: ltr; text-align: left; }
+
+/* Arabic quoted inside an English sentence. <bdi> isolates it so the
+   surrounding Latin text does not get reordered by the bidi algorithm. */
+bdi {
+  font-family: "Dubai", "Segoe UI", sans-serif;
+  direction: rtl;
+  unicode-bidi: isolate;
+  font-size: 1.28em;
+  line-height: 1;
+}
+
+/* ---------- Cover ---------- */
+
+.cover { justify-content: space-between; background: var(--paper); }
+.cover .kicker {
+  font-size: 8.5pt; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--muted); text-align: center;
+}
+.cover .title-ar {
+  font-size: 34pt; line-height: 1.5; text-align: center;
+  color: var(--blue); margin: 2mm 0 1mm;
+}
+.cover .title-lat {
+  text-align: center; font-size: 12pt; letter-spacing: .05em;
+  color: var(--terra); font-style: italic;
+}
+.cover .title-en {
+  text-align: center; font-size: 9.5pt; color: var(--muted); margin-top: 1.5mm;
+}
+.cover .cover-illus { flex: 1; display: flex; align-items: center; padding: 4mm 0; }
+.cover .cover-illus svg { width: 100%; height: auto; }
+.cover .footnote {
+  text-align: center; font-size: 8pt; color: var(--muted);
+  border-top: .4mm solid var(--stone-dark); padding-top: 3mm; line-height: 1.7;
+}
+
+/* ---------- Story page ---------- */
+
+.illus {
+  height: 62mm; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 4mm;
+}
+.illus svg { width: 100%; height: 100%; }
+
+.story-ar {
+  font-size: 17pt;
+  color: var(--ink);
+  flex: 0 0 auto;
+  margin-bottom: 4mm;
+}
+.story-ar p { margin: 0 0 1.5mm; }
+.story-ar .say { color: var(--terra); }
+
+.help {
+  margin-top: auto;
+  border-top: .4mm solid var(--stone-dark);
+  padding-top: 3.5mm;
+}
+.help .translit {
+  font-size: 8.5pt; line-height: 1.6; color: var(--blue);
+  font-style: italic; margin: 0 0 2.5mm;
+}
+.help .translit span { display: block; }
+.help .en {
+  font-size: 8.5pt; line-height: 1.55; color: var(--muted); margin: 0;
+}
+
+/* ---------- Page furniture ---------- */
+
+.folio {
+  position: absolute; bottom: 5mm; left: 0; right: 0;
+  text-align: center; font-size: 7.5pt; color: var(--stone-dark);
+  letter-spacing: .1em;
+}
+
+/* ---------- Reference pages (key, glossary, notes) ---------- */
+
+.ref h1 {
+  font-size: 15pt; color: var(--blue); margin: 0 0 1.5mm;
+  letter-spacing: .01em; font-weight: 600;
+}
+.ref h1 .ar-inline {
+  font-family: "Dubai", "Segoe UI", sans-serif; font-size: 15pt;
+}
+.ref .sub {
+  font-size: 8.5pt; color: var(--muted); margin: 0 0 4mm;
+  border-bottom: .4mm solid var(--stone-dark); padding-bottom: 3mm; line-height: 1.5;
+}
+.ref h2 {
+  font-size: 9.5pt; color: var(--terra); margin: 4mm 0 2mm;
+  letter-spacing: .12em; text-transform: uppercase; font-weight: 600;
+}
+.ref p { font-size: 8.5pt; line-height: 1.65; margin: 0 0 2.5mm; color: var(--ink); }
+
+table { width: 100%; border-collapse: collapse; }
+table td, table th { padding: 1.05mm 1.5mm; vertical-align: middle; }
+table tr + tr td { border-top: .25mm solid var(--stone); }
+
+.gloss { font-size: 8pt; }
+.gloss td.a {
+  font-family: "Dubai", "Segoe UI", sans-serif; font-size: 11pt;
+  direction: rtl; text-align: right; width: 27%; color: var(--ink);
+  line-height: 1.5;
+}
+.gloss td.t { font-style: italic; color: var(--blue); width: 27%; }
+.gloss td.e { color: var(--ink); }
+
+.contrast { font-size: 8pt; }
+.contrast th {
+  font-size: 7pt; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--muted); text-align: left; border-bottom: .4mm solid var(--stone-dark);
+  padding-bottom: 1.5mm;
+}
+.contrast th.r { text-align: right; }
+.contrast td.good {
+  font-family: "Dubai", "Segoe UI", sans-serif; font-size: 11.5pt;
+  direction: rtl; text-align: right; width: 22%; color: var(--olive);
+}
+.contrast td.bad {
+  font-family: "Dubai", "Segoe UI", sans-serif; font-size: 11.5pt;
+  direction: rtl; text-align: right; width: 22%; color: var(--stone-dark);
+  text-decoration: line-through; text-decoration-thickness: .3mm;
+}
+.contrast td.t { font-style: italic; color: var(--blue); width: 26%; font-size: 7.5pt; }
+.contrast td.e { color: var(--ink); font-size: 7.5pt; }
+
+.key-row {
+  display: flex; align-items: baseline; gap: 2mm;
+  font-size: 8.5pt; padding: 1.1mm 0;
+  border-top: .25mm solid var(--stone);
+}
+.key-row .sym {
+  font-weight: 700; color: var(--terra); font-size: 11pt;
+  flex: 0 0 15mm;
+}
+.key-row .let {
+  font-family: "Dubai", "Segoe UI", sans-serif; font-size: 13pt;
+  width: 10mm; flex: 0 0 10mm; color: var(--ink);
+}
+.key-row .desc { color: var(--ink); flex: 1; line-height: 1.5; }
+
+.callout {
+  background: var(--stone); border-left: 1mm solid var(--olive);
+  padding: 2.5mm 3mm; font-size: 8pt; line-height: 1.6; margin: 3mm 0 0;
+}
+.callout strong { color: var(--olive); }

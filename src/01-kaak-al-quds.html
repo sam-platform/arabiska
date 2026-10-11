@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>كعك القدس</title>
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+
+<!-- ============================= COVER ============================= -->
+<section class="page cover">
+  <div class="kicker">قصص بالعامية الفلسطينية &nbsp;·&nbsp; Book 1</div>
+
+  <div>
+    <div class="title-ar">كعك القدس</div>
+    <div class="title-lat">ka3ek il-2uds</div>
+    <div class="title-en">The Jerusalem Ka'ak</div>
+  </div>
+
+  <div class="cover-illus">
+    <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="250" fill="#EFE3CC"/>
+      <circle cx="52" cy="48" r="23" fill="#E8B24C"/>
+      <!-- skyline behind -->
+      <rect x="0" y="150" width="70" height="100" fill="#DCCAA9"/>
+      <rect x="330" y="150" width="70" height="100" fill="#DCCAA9"/>
+      <path d="M336 150 a29 29 0 0 1 58 0 z" fill="#8FA36B"/>
+      <!-- gate wall -->
+      <rect x="70" y="88" width="260" height="162" fill="#D9C7A7"/>
+      <!-- crenellations -->
+      <g fill="#D9C7A7">
+        <rect x="70"  y="70" width="26" height="20"/>
+        <rect x="109" y="70" width="26" height="20"/>
+        <rect x="148" y="70" width="26" height="20"/>
+        <rect x="187" y="70" width="26" height="20"/>
+        <rect x="226" y="70" width="26" height="20"/>
+        <rect x="265" y="70" width="26" height="20"/>
+        <rect x="304" y="70" width="26" height="20"/>
+      </g>
+      <!-- towers -->
+      <rect x="70" y="100" width="42" height="150" fill="#CDB894"/>
+      <rect x="288" y="100" width="42" height="150" fill="#CDB894"/>
+      <!-- stone courses -->
+      <g stroke="#C3AE8B" stroke-width="1.4" opacity=".8">
+        <path d="M112 122 H288 M112 146 H288 M112 170 H288"/>
+      </g>
+      <!-- arch opening -->
+      <path d="M158 250 V182 a42 42 0 0 1 84 0 V250 Z" fill="#5D4C3A"/>
+      <path d="M152 186 a48 48 0 0 1 96 0 l-12 0 a36 36 0 0 0 -72 0 Z" fill="#BCA684"/>
+      <!-- small windows -->
+      <rect x="84" y="126" width="14" height="22" rx="7" fill="#5D4C3A"/>
+      <rect x="302" y="126" width="14" height="22" rx="7" fill="#5D4C3A"/>
+      <!-- ka'ak in foreground -->
+      <g transform="translate(300,206)">
+        <ellipse cx="0" cy="0" rx="46" ry="30" fill="#D9A05B"/>
+        <ellipse cx="0" cy="0" rx="22" ry="12" fill="#EFE3CC"/>
+        <g fill="#8A5A2B">
+          <circle cx="-30" cy="-8" r="1.9"/><circle cx="-14" cy="-19" r="1.9"/>
+          <circle cx="6" cy="-20" r="1.9"/><circle cx="26" cy="-11" r="1.9"/>
+          <circle cx="32" cy="6" r="1.9"/><circle cx="14" cy="17" r="1.9"/>
+          <circle cx="-10" cy="19" r="1.9"/><circle cx="-30" cy="10" r="1.9"/>
+        </g>
+      </g>
+      <!-- ground -->
+      <rect x="0" y="240" width="400" height="10" fill="#C3AE8B"/>
+    </svg>
+  </div>
+
+  <div class="footnote">
+    اللهجة الفلسطينية &nbsp;—&nbsp; القدس<br>
+    Spoken Palestinian (Jerusalem). No fus7a, no tashkeel.
+  </div>
+</section>
+
+<!-- ============================= KEY ============================= -->
+<section class="page ref">
+  <h1>How to read this book</h1>
+  <p class="sub">
+    Every page gives you the Arabic first. Underneath, in smaller type, you get the
+    Jerusalem pronunciation in chat-alphabet, then the English. Try to read the Arabic
+    aloud before you look down.
+  </p>
+
+  <h2>The chat alphabet used here</h2>
+  <div class="key-row"><span class="sym">7</span><span class="let">ح</span><span class="desc">hard breathy H — <em>7abeebi, sob7</em></span></div>
+  <div class="key-row"><span class="sym">5</span><span class="let">خ</span><span class="desc">kh, like Swedish/German <em>ach</em> — <em>5aalid, 5ams</em></span></div>
+  <div class="key-row"><span class="sym">3</span><span class="let">ع</span><span class="desc">ayn, deep in the throat — <em>3ammo, ka3ek</em></span></div>
+  <div class="key-row"><span class="sym">2</span><span class="let">ء ق</span><span class="desc">glottal stop. In Jerusalem city speech <strong>ق is a glottal stop</strong>: <bdi>قال</bdi> = <em>2aal</em>, <bdi>سوق</bdi> = <em>sou2</em></span></div>
+  <div class="key-row"><span class="sym">gh</span><span class="let">غ</span><span class="desc">like a French r — <em>ghmeeda, zgheer</em></span></div>
+  <div class="key-row"><span class="sym">aa ee oo</span><span class="let">ا ي و</span><span class="desc">long vowels — hold them; <em>baab</em> is not <em>bab</em></span></div>
+
+  <div class="callout">
+    <strong>About that <bdi>ق</bdi>.</strong> You may also see <strong>8</strong> used for <bdi>ق</bdi> in texting.
+    That spelling belongs to people who actually pronounce it — village Palestinians,
+    Jordanians (often as a hard <em>g</em>), Bedouin. In Jerusalem, Jaffa, Nablus town
+    centre, Damascus and Beirut, <bdi>ق</bdi> is simply a glottal stop, so this book writes it as
+    <strong>2</strong>. Both are correct Levantine — just pick one and be consistent.
+  </div>
+
+  <h2>Three habits that keep you out of fus7a</h2>
+  <table class="contrast">
+    <tr><th class="r">Say</th><th class="r">Not</th><th></th><th></th></tr>
+    <tr><td class="good">بدي</td><td class="bad">أريد</td><td class="t">biddi</td><td class="e">I want</td></tr>
+    <tr><td class="good">شو</td><td class="bad">ماذا</td><td class="t">shou</td><td class="e">what</td></tr>
+    <tr><td class="good">بروح</td><td class="bad">أذهب</td><td class="t">barou7</td><td class="e">I go</td></tr>
+  </table>
+
+  <div class="folio">1</div>
+</section>
+
+<!-- ============================= P1 ============================= -->
+<section class="page">
+  <div class="illus">
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="240" fill="#F1E6D2"/>
+      <circle cx="60" cy="44" r="20" fill="#E8B24C"/>
+      <!-- stone houses -->
+      <rect x="20" y="96" width="86" height="112" fill="#DCCAA9"/>
+      <rect x="106" y="70" width="74" height="138" fill="#D0BB98"/>
+      <rect x="248" y="86" width="96" height="122" fill="#DCCAA9"/>
+      <rect x="180" y="112" width="68" height="96" fill="#C8B28E"/>
+      <g fill="#5D4C3A">
+        <rect x="38" y="118" width="16" height="22" rx="3"/>
+        <rect x="72" y="118" width="16" height="22" rx="3"/>
+        <rect x="124" y="94" width="16" height="22" rx="3"/>
+        <rect x="124" y="140" width="16" height="22" rx="3"/>
+        <rect x="270" y="110" width="16" height="22" rx="3"/>
+        <rect x="306" y="110" width="16" height="22" rx="3"/>
+        <rect x="200" y="136" width="16" height="22" rx="3"/>
+      </g>
+      <!-- dome -->
+      <path d="M282 86 a30 30 0 0 1 60 0 z" fill="#8FA36B"/>
+      <!-- ground -->
+      <rect x="0" y="208" width="400" height="32" fill="#C3AE8B"/>
+      <!-- Sami -->
+      <g transform="translate(196,150)">
+        <path d="M-16 58 V26 a16 16 0 0 1 32 0 V58 Z" fill="#C0603A"/>
+        <rect x="-13" y="56" width="10" height="14" fill="#2F4C63"/>
+        <rect x="3" y="56" width="10" height="14" fill="#2F4C63"/>
+        <rect x="-17" y="66" width="15" height="6" rx="3" fill="#3A2E24"/>
+        <rect x="2" y="66" width="15" height="6" rx="3" fill="#3A2E24"/>
+        <circle cx="0" cy="6" r="15" fill="#E8C39E"/>
+        <path d="M-15 3 a15 15 0 0 1 30 0 a15 8 0 0 0 -30 0 z" fill="#3A2E24"/>
+        <circle cx="-5" cy="8" r="1.7" fill="#2B2620"/>
+        <circle cx="5" cy="8" r="1.7" fill="#2B2620"/>
+        <path d="M-4 14 q4 4 8 0" stroke="#2B2620" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="story-ar">
+    <p>هاد سامي.</p>
+    <p>سامي ولد عمره سبع سنين.</p>
+    <p>هو ساكن في القدس، جنب باب العامود.</p>
+  </div>
+
+  <div class="help">
+    <div class="translit lat">
+      <span>haad Saami.</span>
+      <span>Saami walad 3omro sabe3 sneen.</span>
+      <span>huwwe saakin fil-2uds, janb baab il-3amoud.</span>
+    </div>
+    <p class="en lat">This is Sami. Sami is a boy, seven years old. He lives in Jerusalem, right by Damascus Gate.</p>
+  </div>
+  <div class="folio">2</div>
+</section>
+
+<!-- ============================= P2 ============================= -->
+<section class="page">
+  <div class="illus">
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="240" fill="#EDE0C8"/>
+      <!-- window with morning light -->
+      <rect x="238" y="26" width="112" height="98" rx="4" fill="#9FC3D6"/>
+      <rect x="238" y="26" width="112" height="98" rx="4" fill="none" stroke="#8A6E4B" stroke-width="6"/>
+      <path d="M294 26 V124 M238 75 H350" stroke="#8A6E4B" stroke-width="5"/>
+      <circle cx="322" cy="52" r="13" fill="#E8B24C"/>
+      <!-- floor -->
+      <rect x="0" y="196" width="400" height="44" fill="#C3AE8B"/>
+      <!-- bed -->
+      <rect x="30" y="150" width="230" height="50" rx="6" fill="#B4894F"/>
+      <rect x="24" y="112" width="26" height="88" rx="6" fill="#8A6E4B"/>
+      <rect x="248" y="132" width="20" height="68" rx="6" fill="#8A6E4B"/>
+      <!-- blanket -->
+      <path d="M96 152 h158 a6 6 0 0 1 6 6 v22 a6 6 0 0 1 -6 6 H96 Z" fill="#6B7A4E"/>
+      <path d="M96 152 h158 v8 H96 Z" fill="#8FA36B"/>
+      <!-- pillow + head -->
+      <rect x="52" y="140" width="52" height="26" rx="10" fill="#F4EBD9"/>
+      <g transform="translate(84,146)">
+        <circle cx="0" cy="0" r="15" fill="#E8C39E"/>
+        <path d="M-15 -3 a15 15 0 0 1 30 0 a15 8 0 0 0 -30 0 z" fill="#3A2E24"/>
+        <path d="M-8 2 h6 M2 2 h6" stroke="#2B2620" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M-4 9 q4 3 8 0" stroke="#2B2620" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- zzz -->
+      <g fill="#2F4C63" font-family="Segoe UI" font-size="17" font-weight="700">
+        <text x="112" y="122">z</text><text x="128" y="108">z</text><text x="146" y="92">z</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="story-ar">
+    <p>كل يوم الصبح، إمه بتقله:</p>
+    <p class="say">«يلا يا سامي، قوم! رح تتأخر عالمدرسة!»</p>
+    <p>سامي بيفتح عيونه شوي شوي وبيقول:</p>
+    <p class="say">«خمس دقايق كمان يا ماما!»</p>
+  </div>
+
+  <div class="help">
+    <div class="translit lat">
+      <span>kill yom is-sob7, immo bit2ello:</span>
+      <span>“yalla ya Saami, 2oum! ra7 tit2a55ar 3al-madrase!”</span>
+      <span>Saami byifta7 3youno shway shway w-bi2oul:</span>
+      <span>“5ams da2aaye2 kamaan ya maama!”</span>
+    </div>
+    <p class="en lat">Every morning his mum says to him: “Come on Sami, get up! You're going to be late for school!” Sami opens his eyes little by little and says: “Five more minutes, Mum!”</p>
+  </div>
+  <div class="folio">3</div>
+</section>
+
+<!-- ============================= P3 ============================= -->
+<section class="page">
+  <div class="illus">
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="240" fill="#F1E6D2"/>
+      <rect x="0" y="200" width="400" height="40" fill="#C3AE8B"/>
+      <!-- doorway -->
+      <path d="M40 200 V96 a44 44 0 0 1 88 0 V200 Z" fill="#8A6E4B"/>
+      <path d="M48 200 V98 a36 36 0 0 1 72 0 V200 Z" fill="#6E5537"/>
+      <!-- mum -->
+      <g transform="translate(160,116)">
+        <path d="M-22 84 V22 a22 26 0 0 1 44 0 V84 Z" fill="#2F4C63"/>
+        <circle cx="0" cy="0" r="16" fill="#E8C39E"/>
+        <path d="M-17 4 a17 19 0 0 1 34 0 q0 -22 -17 -22 t-17 22 z" fill="#7A4C63"/>
+        <circle cx="-5" cy="2" r="1.7" fill="#2B2620"/>
+        <circle cx="5" cy="2" r="1.7" fill="#2B2620"/>
+        <path d="M-4 8 q4 3 8 0" stroke="#2B2620" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <!-- arm out -->
+        <path d="M-20 34 L-52 52" stroke="#E8C39E" stroke-width="9" stroke-linecap="round"/>
+      </g>
+      <!-- coins -->
+      <g transform="translate(102,176)">
+        <circle cx="0" cy="0" r="11" fill="#D9A05B" stroke="#A87738" stroke-width="2"/>
+        <circle cx="16" cy="6" r="9" fill="#D9A05B" stroke="#A87738" stroke-width="2"/>
+      </g>
+      <!-- Sami reaching -->
+      <g transform="translate(292,132)">
+        <path d="M-16 70 V26 a16 16 0 0 1 32 0 V70 Z" fill="#C0603A"/>
+        <path d="M-14 40 L-44 48" stroke="#E8C39E" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="0" cy="4" r="15" fill="#E8C39E"/>
+        <path d="M-15 1 a15 15 0 0 1 30 0 a15 8 0 0 0 -30 0 z" fill="#3A2E24"/>
+        <circle cx="-5" cy="6" r="1.7" fill="#2B2620"/>
+        <circle cx="5" cy="6" r="1.7" fill="#2B2620"/>
+        <path d="M-5 12 q5 5 10 0" stroke="#2B2620" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="story-ar">
+    <p>بس اليوم الجمعة. ما في مدرسة!</p>
+    <p>إمه عطته عشر شيكل وقالتله:</p>
+    <p class="say">«روح جبلنا كعك من عند أبو خالد.»</p>
+  </div>
+
+  <div class="help">
+    <div class="translit lat">
+      <span>bass il-yom ij-jum3a. maa fee madrase!</span>
+      <span>immo 3atito 3ashar shekel w-2aalatlo:</span>
+      <span>“rou7 jiblna ka3ek min 3ind Abu 5aalid.”</span>
+    </div>
+    <p class="en lat">But today is Friday. No school! His mum gave him ten shekels and said to him: “Go bring us some ka'ak from Abu Khalid's.”</p>
+  </div>
+  <div class="folio">4</div>
+</section>
+
+<!-- ============================= P4 ============================= -->
+<section class="page">
+  <div class="illus">
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="240" fill="#EDE0C8"/>
+      <rect x="0" y="198" width="400" height="42" fill="#C3AE8B"/>
+      <!-- arcade arches -->
+      <g fill="#D9C7A7">
+        <rect x="0" y="30" width="400" height="34"/>
+      </g>
+      <g fill="#CDB894">
+        <path d="M10 64 h72 v70 a36 36 0 0 0 -72 0 Z"/>
+        <path d="M96 64 h72 v70 a36 36 0 0 0 -72 0 Z"/>
+        <path d="M232 64 h72 v70 a36 36 0 0 0 -72 0 Z"/>
+        <path d="M318 64 h72 v70 a36 36 0 0 0 -72 0 Z"/>
+      </g>
+      <!-- awnings -->
+      <path d="M14 92 h150 l-10 26 H24 Z" fill="#C0603A"/>
+      <path d="M236 92 h150 l-10 26 H246 Z" fill="#6B7A4E"/>
+      <!-- veg crates -->
+      <g>
+        <rect x="30" y="156" width="80" height="42" rx="4" fill="#A87738"/>
+        <circle cx="46" cy="154" r="10" fill="#C0603A"/><circle cx="66" cy="150" r="10" fill="#C0603A"/>
+        <circle cx="86" cy="154" r="10" fill="#C0603A"/><circle cx="102" cy="152" r="9" fill="#C0603A"/>
+        <rect x="256" y="156" width="86" height="42" rx="4" fill="#A87738"/>
+        <circle cx="274" cy="152" r="11" fill="#8FA36B"/><circle cx="296" cy="148" r="11" fill="#8FA36B"/>
+        <circle cx="318" cy="152" r="11" fill="#8FA36B"/>
+      </g>
+      <!-- crowd silhouettes -->
+      <g>
+        <g transform="translate(150,138)"><circle cy="0" r="13" fill="#3A2E24"/><path d="M-16 60 V20 a16 20 0 0 1 32 0 V60 Z" fill="#2F4C63"/></g>
+        <g transform="translate(186,146)"><circle cy="0" r="12" fill="#5D4C3A"/><path d="M-15 52 V18 a15 18 0 0 1 30 0 V52 Z" fill="#7A4C63"/></g>
+        <g transform="translate(218,142)"><circle cy="0" r="12" fill="#3A2E24"/><path d="M-15 56 V18 a15 18 0 0 1 30 0 V56 Z" fill="#6B7A4E"/></g>
+      </g>
+      <!-- Sami small, walking -->
+      <g transform="translate(360,160)">
+        <path d="M-12 38 V16 a12 12 0 0 1 24 0 V38 Z" fill="#C0603A"/>
+        <circle cy="2" r="11" fill="#E8C39E"/>
+        <path d="M-11 0 a11 11 0 0 1 22 0 a11 6 0 0 0 -22 0 z" fill="#3A2E24"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="story-ar">
+    <p>سامي نزل عالسوق. الدنيا زحمة كتير.</p>
+    <p>في ناس عم بتشتري خضرة، وفي ناس عم بتحكي وبتضحك.</p>
+    <p>وريحة الكعك بالسمسم ملت الشارع كله.</p>
+  </div>
+
+  <div class="help">
+    <div class="translit lat">
+      <span>Saami nizil 3as-sou2. id-dinya za7me kteer.</span>
+      <span>fee naas 3am btishtiri 5adra, w-fee naas 3am bti7ki w-btid7ak.</span>
+      <span>w-ree7it il-ka3ek bis-simsim malat ish-shaari3 killo.</span>
+    </div>
+    <p class="en lat">Sami went down to the market. It was really packed. Some people were buying vegetables, some were talking and laughing. And the smell of sesame ka'ak filled the whole street.</p>
+  </div>
+  <div class="folio">5</div>
+</section>
+
+<!-- ============================= P5 ============================= -->
+<section class="page">
+  <div class="illus">
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="240" fill="#F1E6D2"/>
+      <rect x="0" y="200" width="400" height="40" fill="#C3AE8B"/>
+      <!-- cart -->
+      <rect x="96" y="130" width="220" height="14" rx="4" fill="#8A6E4B"/>
+      <rect x="104" y="144" width="204" height="52" fill="#A87738"/>
+      <circle cx="140" cy="200" r="16" fill="#5D4C3A"/><circle cx="140" cy="200" r="6" fill="#C3AE8B"/>
+      <circle cx="272" cy="200" r="16" fill="#5D4C3A"/><circle cx="272" cy="200" r="6" fill="#C3AE8B"/>
+      <!-- ka'ak stacked, seen edge-on -->
+      <g>
+        <ellipse cx="150" cy="120" rx="40" ry="12" fill="#D9A05B"/>
+        <ellipse cx="150" cy="112" rx="40" ry="12" fill="#E0AC6A"/>
+        <ellipse cx="150" cy="104" rx="40" ry="12" fill="#D9A05B"/>
+        <ellipse cx="248" cy="120" rx="40" ry="12" fill="#D9A05B"/>
+        <ellipse cx="248" cy="112" rx="40" ry="12" fill="#E0AC6A"/>
+      </g>
+      <!-- za'tar cone -->
+      <path d="M330 148 l22 0 l-11 34 Z" fill="#F4EBD9"/>
+      <path d="M330 148 l22 0 l-4 12 h-14 Z" fill="#6B7A4E"/>
+      <!-- vendor behind -->
+      <g transform="translate(200,58)">
+        <path d="M-26 74 V26 a26 24 0 0 1 52 0 V74 Z" fill="#F4EBD9"/>
+        <circle cx="0" cy="2" r="17" fill="#D9A97E"/>
+        <path d="M-17 -2 a17 17 0 0 1 34 0 a17 9 0 0 0 -34 0 z" fill="#8A8378"/>
+        <path d="M-11 22 a11 7 0 0 0 22 0 z" fill="#8A8378"/>
+        <circle cx="-6" cy="2" r="1.8" fill="#2B2620"/>
+        <circle cx="6" cy="2" r="1.8" fill="#2B2620"/>
+        <path d="M-6 11 q6 6 12 0" stroke="#2B2620" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- Sami at cart -->
+      <g transform="translate(58,140)">
+        <path d="M-15 60 V22 a15 15 0 0 1 30 0 V60 Z" fill="#C0603A"/>
+        <path d="M13 34 L40 26" stroke="#E8C39E" stroke-width="8" stroke-linecap="round"/>
+        <circle cy="2" r="14" fill="#E8C39E"/>
+        <path d="M-14 -1 a14 14 0 0 1 28 0 a14 7 0 0 0 -28 0 z" fill="#3A2E24"/>
+        <circle cx="4" cy="4" r="1.7" fill="#2B2620"/>
+        <circle cx="-6" cy="4" r="1.7" fill="#2B2620"/>
+        <path d="M-4 10 q4 4 8 0" stroke="#2B2620" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="story-ar">
+    <p class="say">«صباح الخير يا عمو!»</p>
+    <p class="say">«صباح النور يا سامي! شو بدك اليوم؟»</p>
+    <p class="say">«بدي أربع كعكات، ومعهم زعتر لو سمحت.»</p>
+  </div>
+
+  <div class="help">
+    <div class="translit lat">
+      <span>“saba7 il-5eer ya 3ammo!”</span>
+      <span>“saba7 in-nour ya Saami! shou biddak il-yom?”</span>
+      <span>“biddi arba3 ka3kaat, w-ma3hom za3tar law sama7t.”</span>
+    </div>
+    <p class="en lat">“Good morning, uncle!” “Good morning, Sami! What do you want today?” “I'd like four ka'ak, and some za'tar with them, please.”</p>
+  </div>
+  <div class="folio">6</div>
+</section>
+
+<!-- ============================= P6 ============================= -->
+<section class="page">
+  <div class="illus">
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="240" fill="#EDE0C8"/>
+      <rect x="0" y="200" width="400" height="40" fill="#C3AE8B"/>
+      <!-- warm burst -->
+      <g stroke="#E8B24C" stroke-width="4" stroke-linecap="round" opacity=".55">
+        <path d="M200 20 V44 M144 34 l10 20 M256 34 l-10 20 M108 74 l20 10 M292 74 l-20 10"/>
+      </g>
+      <!-- vendor -->
+      <g transform="translate(96,96)">
+        <path d="M-28 104 V28 a28 26 0 0 1 56 0 V104 Z" fill="#F4EBD9"/>
+        <path d="M24 44 L74 56" stroke="#D9A97E" stroke-width="10" stroke-linecap="round"/>
+        <circle cy="0" r="18" fill="#D9A97E"/>
+        <path d="M-18 -4 a18 18 0 0 1 36 0 a18 9 0 0 0 -36 0 z" fill="#8A8378"/>
+        <path d="M-12 20 a12 8 0 0 0 24 0 z" fill="#8A8378"/>
+        <circle cx="-6" cy="0" r="1.9" fill="#2B2620"/>
+        <circle cx="7" cy="0" r="1.9" fill="#2B2620"/>
+        <path d="M-7 10 q7 8 14 0" stroke="#2B2620" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- ka'ak being handed -->
+      <g transform="translate(196,156)">
+        <ellipse cx="0" cy="0" rx="34" ry="22" fill="#D9A05B"/>
+        <ellipse cx="0" cy="0" rx="15" ry="8" fill="#EDE0C8"/>
+        <g fill="#8A5A2B">
+          <circle cx="-22" cy="-5" r="1.6"/><circle cx="-9" cy="-14" r="1.6"/>
+          <circle cx="6" cy="-14" r="1.6"/><circle cx="20" cy="-6" r="1.6"/>
+          <circle cx="21" cy="7" r="1.6"/><circle cx="6" cy="13" r="1.6"/>
+          <circle cx="-10" cy="13" r="1.6"/><circle cx="-23" cy="6" r="1.6"/>
+        </g>
+      </g>
+      <!-- Sami receiving, happy -->
+      <g transform="translate(310,110)">
+        <path d="M-18 90 V30 a18 18 0 0 1 36 0 V90 Z" fill="#C0603A"/>
+        <path d="M-16 44 L-62 52" stroke="#E8C39E" stroke-width="9" stroke-linecap="round"/>
+        <circle cy="2" r="17" fill="#E8C39E"/>
+        <path d="M-17 -1 a17 17 0 0 1 34 0 a17 9 0 0 0 -34 0 z" fill="#3A2E24"/>
+        <path d="M-9 1 a3 3 0 0 1 6 0 M3 1 a3 3 0 0 1 6 0" stroke="#2B2620" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M-7 9 q7 9 14 0" stroke="#2B2620" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="story-ar">
+    <p>أبو خالد ضحك وقال:</p>
+    <p class="say">«خدهم، وهاي وحدة كمان هدية إلك.»</p>
+    <p>سامي فرح كتير وقال:</p>
+    <p class="say">«يسلمو إيديك يا عمو!»</p>
+  </div>
+
+  <div class="help">
+    <div class="translit lat">
+      <span>Abu 5aalid di7ik w-2aal:</span>
+      <span>“5idhom, w-hayy wa7de kamaan hdiyye 2ilak.”</span>
+      <span>Saami firi7 kteer w-2aal:</span>
+      <span>“yislamo 2ideek ya 3ammo!”</span>
+    </div>
+    <p class="en lat">Abu Khalid laughed and said: “Take them, and here's one more as a present for you.” Sami was really happy and said: “Bless your hands, uncle!”</p>
+  </div>
+  <div class="folio">7</div>
+</section>
+
+<!-- ============================= P7 ============================= -->
+<section class="page">
+  <div class="illus">
+    <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="240" fill="#F1E6D2"/>
+      <rect x="0" y="196" width="400" height="44" fill="#C3AE8B"/>
+      <!-- kitchen wall tiles -->
+      <g fill="#DCCAA9">
+        <rect x="16" y="24" width="120" height="70" rx="4"/>
+      </g>
+      <g stroke="#C3AE8B" stroke-width="2">
+        <path d="M56 24 V94 M96 24 V94 M16 59 H136"/>
+      </g>
+      <!-- table -->
+      <rect x="120" y="150" width="200" height="10" rx="4" fill="#8A6E4B"/>
+      <rect x="136" y="160" width="12" height="36" fill="#8A6E4B"/>
+      <rect x="292" y="160" width="12" height="36" fill="#8A6E4B"/>
+      <!-- paper bag with ka'ak -->
+      <path d="M188 150 v-40 h56 v40 Z" fill="#E0CBA4"/>
+      <ellipse cx="216" cy="106" rx="26" ry="16" fill="#D9A05B"/>
+      <ellipse cx="216" cy="106" rx="11" ry="6" fill="#F1E6D2"/>
+      <!-- mum -->
+      <g transform="translate(70,110)">
+        <path d="M-22 86 V24 a22 26 0 0 1 44 0 V86 Z" fill="#2F4C63"/>
+        <circle cy="0" r="16" fill="#E8C39E"/>
+        <path d="M-17 4 a17 19 0 0 1 34 0 q0 -22 -17 -22 t-17 22 z" fill="#7A4C63"/>
+        <circle cx="-5" cy="2" r="1.7" fill="#2B2620"/>
+        <circle cx="5" cy="2" r="1.7" fill="#2B2620"/>
+        <ellipse cx="0" cy="10" rx="4" ry="5" fill="#2B2620"/>
+      </g>
+      <!-- Sami pointing away, cheeky -->
+      <g transform="translate(340,118)">
+        <path d="M-17 78 V26 a17 17 0 0 1 34 0 V78 Z" fill="#C0603A"/>
+        <path d="M-15 40 L-48 34" stroke="#E8C39E" stroke-width="8" stroke-linecap="round"/>
+        <circle cy="0" r="16" fill="#E8C39E"/>
+        <path d="M-16 -3 a16 16 0 0 1 32 0 a16 8 0 0 0 -32 0 z" fill="#3A2E24"/>
+        <path d="M-9 0 a3 3 0 0 1 6 0 M3 0 a3 3 0 0 1 6 0" stroke="#2B2620" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M-7 8 q7 8 14 0" stroke="#2B2620" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- the cat, innocent -->
+      <g transform="translate(216,176)">
+        <ellipse cx="0" cy="6" rx="30" ry="17" fill="#F4EBD9"/>
+        <ellipse cx="-16" cy="2" rx="12" ry="10" fill="#E09A55"/>
+        <circle cx="20" cy="-8" r="14" fill="#F4EBD9"/>
+        <path d="M10 -18 l2 -12 l10 8 Z" fill="#E09A55"/>
+        <path d="M28 -20 l6 -11 l6 11 Z" fill="#F4EBD9"/>
+        <circle cx="15" cy="-9" r="1.7" fill="#2B2620"/>
+        <circle cx="25" cy="-9" r="1.7" fill="#2B2620"/>
+        <path d="M20 -4 l-3 3 M20 -4 l3 3" stroke="#2B2620" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M-28 4 q-14 -6 -8 -20" stroke="#E09A55" stroke-width="7" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="story-ar">
+    <p>رجع سامي عالبيت وهو ماكل نص كعكة عالطريق.</p>
+    <p>إمه شافته وقالت:</p>
+    <p class="say">«يا حرام! مين أكل الكعكة؟»</p>
+    <p>سامي ضحك وقال:</p>
+    <p class="say">«مش أنا... القطة!»</p>
+  </div>
+
+  <div class="help">
+    <div class="translit lat">
+      <span>rija3 Saami 3al-beet w-huwwe maakel nuss ka3ke 3at-taree2.</span>
+      <span>immo shaafto w-2aalat: “ya 7araam! meen akal il-ka3ke?”</span>
+      <span>Saami di7ik w-2aal: “mish ana... il-2atta!”</span>
+    </div>
+    <p class="en lat">Sami got home having already eaten half a ka'ak on the way. His mum saw him and said: “Oh no! Who ate the ka'ak?” Sami laughed and said: “Not me... the cat!”</p>
+  </div>
+  <div class="folio">8</div>
+</section>
+
+<!-- ============================= GLOSSARY ============================= -->
+<section class="page ref">
+  <h1>Words from this story</h1>
+  <p class="sub">All of these are what people actually say in Jerusalem. Where the fus7a word differs, it is noted.</p>
+
+  <table class="gloss">
+    <tr><td class="a">هاد / هاي / هدول</td><td class="t">haad / hayy / hadool</td><td class="e">this (m.) / this (f.) / these</td></tr>
+    <tr><td class="a">ولد</td><td class="t">walad</td><td class="e">boy · pl. <bdi>ولاد</bdi> wlaad</td></tr>
+    <tr><td class="a">عمره سبع سنين</td><td class="t">3omro sabe3 sneen</td><td class="e">he is seven years old</td></tr>
+    <tr><td class="a">ساكن</td><td class="t">saakin</td><td class="e">living, residing</td></tr>
+    <tr><td class="a">جنب</td><td class="t">janb</td><td class="e">next to, beside</td></tr>
+    <tr><td class="a">الصبح</td><td class="t">is-sob7</td><td class="e">the morning · <bdi>بالصبح</bdi> in the morning</td></tr>
+    <tr><td class="a">إمه</td><td class="t">immo</td><td class="e">his mother · <bdi>إمي</bdi> immi my mother</td></tr>
+    <tr><td class="a">بتقله</td><td class="t">bit2ello</td><td class="e">she says to him (<bdi>قال</bdi> + <bdi>له</bdi> run together)</td></tr>
+    <tr><td class="a">يلا</td><td class="t">yalla</td><td class="e">come on, let's go</td></tr>
+    <tr><td class="a">قوم</td><td class="t">2oum</td><td class="e">get up! · f. <bdi>قومي</bdi> 2oumi</td></tr>
+    <tr><td class="a">رح</td><td class="t">ra7</td><td class="e">will (future) · <bdi>رح أروح</bdi> I'll go</td></tr>
+    <tr><td class="a">تتأخر</td><td class="t">tit2a55ar</td><td class="e">you'll be late</td></tr>
+    <tr><td class="a">شوي شوي</td><td class="t">shway shway</td><td class="e">slowly, bit by bit</td></tr>
+    <tr><td class="a">كمان</td><td class="t">kamaan</td><td class="e">also, more, as well</td></tr>
+    <tr><td class="a">دقايق</td><td class="t">da2aaye2</td><td class="e">minutes · sg. <bdi>دقيقة</bdi> da2ee2a</td></tr>
+    <tr><td class="a">ما في</td><td class="t">maa fee</td><td class="e">there isn't · <bdi>في</bdi> fee there is</td></tr>
+    <tr><td class="a">عطته</td><td class="t">3atito</td><td class="e">she gave him · <bdi>عطى</bdi> 3ata to give</td></tr>
+    <tr><td class="a">جبلنا</td><td class="t">jiblna</td><td class="e">bring us! · <bdi>جاب</bdi> jaab to bring</td></tr>
+    <tr><td class="a">من عند</td><td class="t">min 3ind</td><td class="e">from (someone's place)</td></tr>
+    <tr><td class="a">نزل</td><td class="t">nizil</td><td class="e">he went down · <bdi>طلع</bdi> tili3 he went up</td></tr>
+  </table>
+  <div class="folio">9</div>
+</section>
+
+<section class="page ref">
+  <h1>Words from this story <span style="font-weight:400;font-size:10pt;color:#857763">· continued</span></h1>
+  <p class="sub">&nbsp;</p>
+  <table class="gloss">
+    <tr><td class="a">الدنيا زحمة</td><td class="t">id-dinya za7me</td><td class="e">it's crowded (lit. the world is crowded)</td></tr>
+    <tr><td class="a">كتير</td><td class="t">kteer</td><td class="e">a lot, very</td></tr>
+    <tr><td class="a">عم بتشتري</td><td class="t">3am btishtiri</td><td class="e">she is buying (right now)</td></tr>
+    <tr><td class="a">خضرة</td><td class="t">5adra</td><td class="e">vegetables, greens</td></tr>
+    <tr><td class="a">بتحكي</td><td class="t">bti7ki</td><td class="e">she talks · <bdi>حكى</bdi> 7aka to speak (not <bdi>تكلم</bdi>)</td></tr>
+    <tr><td class="a">ريحة</td><td class="t">ree7a</td><td class="e">smell</td></tr>
+    <tr><td class="a">ملت</td><td class="t">malat</td><td class="e">it filled</td></tr>
+    <tr><td class="a">شو بدك؟</td><td class="t">shou biddak?</td><td class="e">what do you want? · f. <bdi>بدك</bdi> biddek</td></tr>
+    <tr><td class="a">لو سمحت</td><td class="t">law sama7t</td><td class="e">please (asking a favour)</td></tr>
+    <tr><td class="a">خدهم</td><td class="t">5idhom</td><td class="e">take them · <bdi>خد</bdi> 5od take</td></tr>
+    <tr><td class="a">هدية إلك</td><td class="t">hdiyye 2ilak</td><td class="e">a present for you</td></tr>
+    <tr><td class="a">فرح</td><td class="t">firi7</td><td class="e">he was happy, he was glad</td></tr>
+    <tr><td class="a">يسلمو إيديك</td><td class="t">yislamo 2ideek</td><td class="e">"bless your hands" — thanks for food or a favour</td></tr>
+    <tr><td class="a">نص</td><td class="t">nuss</td><td class="e">half</td></tr>
+    <tr><td class="a">شافته</td><td class="t">shaafto</td><td class="e">she saw him · <bdi>شاف</bdi> shaaf to see (not <bdi>رأى</bdi>)</td></tr>
+    <tr><td class="a">يا حرام</td><td class="t">ya 7araam</td><td class="e">oh no! / poor thing!</td></tr>
+    <tr><td class="a">مين</td><td class="t">meen</td><td class="e">who</td></tr>
+    <tr><td class="a">مش أنا</td><td class="t">mish ana</td><td class="e">not me · <bdi>مش</bdi> = the all-purpose "not"</td></tr>
+  </table>
+
+  <div class="folio">10</div>
+</section>
+
+<!-- ============================= NOTES ============================= -->
+<section class="page ref">
+  <h1>Dialect notes</h1>
+  <p class="sub">The grammar behind the story. These five patterns cover most of what makes Palestinian sound Palestinian.</p>
+
+  <h2>1 · The <bdi>بـ</bdi> prefix = ordinary present</h2>
+  <p>Stick <bdi>بـ</bdi> on the front of the present tense for anything habitual or general.
+  <bdi>بروح</bdi> <em>barou7</em> I go · <bdi>بتروح</bdi> <em>btrou7</em> you go / she goes ·
+  <bdi>بيروح</bdi> <em>birou7</em> he goes · <bdi>منروح</bdi> <em>mnrou7</em> we go ·
+  <bdi>بتروحوا</bdi> <em>btrou7u</em> you (pl.) go · <bdi>بيروحوا</bdi> <em>birou7u</em> they go.</p>
+
+  <h2>2 · <bdi>عم</bdi> = right this second</h2>
+  <p><bdi>عم بيروح</bdi> <em>3am birou7</em> — he's going, right now. Compare <bdi>بيروح</bdi>
+  <em>birou7</em> — he goes, generally. From the story: <bdi>عم بتشتري</bdi>, <bdi>عم بتحكي</bdi>.</p>
+
+  <h2>3 · <bdi>رح</bdi> = future</h2>
+  <p><bdi>رح تتأخر</bdi> <em>ra7 tit2a55ar</em> — you'll be late. You will also hear <bdi>حـ</bdi>
+  glued on (<em>7atit2a55ar</em>) and <bdi>رايح</bdi>. Never <bdi>سوف</bdi>, never <bdi>سـ</bdi>.</p>
+
+  <h2>4 · Two different "not"</h2>
+  <p><bdi>ما</bdi> goes in front of verbs: <bdi>ما بعرف</bdi> <em>maa ba3ref</em> I don't know ·
+  <bdi>ما شفته</bdi> <em>maa shufto</em> I didn't see him.<br>
+  <bdi>مش</bdi> goes in front of everything else: <bdi>مش أنا</bdi> <em>mish ana</em> ·
+  <bdi>مش هون</bdi> <em>mish hoon</em> not here · <bdi>مش حلو</bdi> <em>mish 7ilu</em> not nice.<br>
+  Syrians use <bdi>مو</bdi> where Palestinians use <bdi>مش</bdi> — worth recognising, but stick with <bdi>مش</bdi>.</p>
+
+  <h2>5 · Squashing <bdi>على</bdi> and <bdi>الـ</bdi> together</h2>
+  <p><bdi>على</bdi> + <bdi>الـ</bdi> becomes <bdi>عالـ</bdi> : <bdi>عالمدرسة</bdi> <em>3al-madrase</em>,
+  <bdi>عالسوق</bdi> <em>3as-sou2</em>, <bdi>عالبيت</bdi> <em>3al-beet</em>. Same trick with
+  <bdi>بـ</bdi> : <bdi>بالسمسم</bdi> <em>bis-simsim</em>. Note how the <em>l</em> assimilates to
+  s, t, n, r, d, z, sh — that is the sun-letter rule, and it is alive and well in speech.</p>
+
+  <div class="folio">11</div>
+</section>
+
+<section class="page ref">
+  <h1>Say it this way, not that way</h1>
+  <p class="sub">The word on the left is what you will hear in Jerusalem. The struck-through word
+  is the fus7a equivalent — you will read it in books and hear it on the news, but saying it
+  in conversation is exactly what marks someone out as a learner.</p>
+
+  <table class="contrast">
+    <tr><th class="r">Palestinian</th><th class="r">Fus7a</th><th></th><th></th></tr>
+    <tr><td class="good">شو</td><td class="bad">ماذا</td><td class="t">shou</td><td class="e">what</td></tr>
+    <tr><td class="good">وين</td><td class="bad">أين</td><td class="t">ween</td><td class="e">where</td></tr>
+    <tr><td class="good">ليش</td><td class="bad">لماذا</td><td class="t">leesh</td><td class="e">why</td></tr>
+    <tr><td class="good">هلأ</td><td class="bad">الآن</td><td class="t">halla2</td><td class="e">now (also <bdi>هسا</bdi> hassa)</td></tr>
+    <tr><td class="good">كتير</td><td class="bad">جداً</td><td class="t">kteer</td><td class="e">very</td></tr>
+    <tr><td class="good">إشي</td><td class="bad">شيء</td><td class="t">ishi</td><td class="e">thing (very Palestinian)</td></tr>
+    <tr><td class="good">زلمة</td><td class="bad">رجل</td><td class="t">zalame</td><td class="e">man, guy</td></tr>
+    <tr><td class="good">إجا</td><td class="bad">جاء</td><td class="t">ija</td><td class="e">he came</td></tr>
+    <tr><td class="good">قعد</td><td class="bad">جلس</td><td class="t">2a3ad</td><td class="e">he sat</td></tr>
+    <tr><td class="good">بدو يروح</td><td class="bad">يريد أن يذهب</td><td class="t">biddo yrou7</td><td class="e">he wants to go</td></tr>
+    <tr><td class="good">هون / هناك</td><td class="bad">هنا</td><td class="t">hoon / hnaak</td><td class="e">here / there</td></tr>
+    <tr><td class="good">قديش</td><td class="bad">كم</td><td class="t">2addeesh</td><td class="e">how much</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>Read it out loud.</strong> Go back to page 2 and read the story again without looking
+    at the transliteration. The point is not to understand it — you already do — it is to get your
+    mouth used to <bdi>بدي</bdi>, <bdi>شو</bdi>, <bdi>عم</bdi> and the glottal <bdi>ق</bdi> until
+    they come out without thinking.
+  </div>
+
+  <div class="folio">12</div>
+</section>
+
+</body>
+</html>
