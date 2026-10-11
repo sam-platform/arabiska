@@ -364,14 +364,6 @@ function speak(text) {
   speechSynthesis.speak(utter);
 }
 
-// Hand-authored content I'm not confident about (no native check behind it,
-// unlike the books) — shown so a wrong gloss doesn't look authoritative.
-function unverifiedNoteHtml(item) {
-  return item.unverified
-    ? '<p class="unverified-note">⚠️ meaning unconfirmed — this is my best guess, let me know the real one</p>'
-    : "";
-}
-
 function renderMultipleChoice(item, isNew) {
   const options = shuffle([item.en, ...pickDistractors(item, 3)]);
 
@@ -383,7 +375,6 @@ function renderMultipleChoice(item, isNew) {
     <div class="mc-options">
       ${options.map((opt) => `<button class="mc-option" type="button" data-text="${escapeAttr(opt)}">${opt}</button>`).join("")}
     </div>
-    ${unverifiedNoteHtml(item)}
   `;
   root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar_full));
 
@@ -440,7 +431,6 @@ function renderWordOrder(item) {
     <button class="speak-btn" type="button" data-action="speak">🔊</button>
     <div class="order-answer" id="order-answer" dir="rtl"></div>
     <div class="order-bank" id="order-bank" dir="rtl"></div>
-    ${unverifiedNoteHtml(item)}
   `;
   root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar));
 
