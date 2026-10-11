@@ -239,13 +239,13 @@ function shuffle(arr) {
 
 // ---------- Card UI ----------
 //
-// Three exercise shapes. A never-seen item is just taught (shown, not
-// tested) — repetitions is already 0, no point quizzing it cold. A seen
-// item is quizzed, auto-graded by correctness rather than self-rated: tap
-// the right translation (multiple choice, always available), or rebuild a
-// multi-word phrase from a shuffled word bank (only for phrases — a bare
-// single word has nothing to reorder). Audio is always an optional extra
-// tap, never required to answer.
+// Every item is quizzed, new or not — guessing cold and getting corrected is
+// the teaching moment; showing the meaning first would make it trivial.
+// Two shapes: tap the right translation (multiple choice, always available —
+// the only option for a word seen for the first time), or rebuild a
+// multi-word phrase from a shuffled word bank (review only — only for
+// phrases, and only once the word's actually been seen before). Audio is
+// always an optional extra tap, never required to answer.
 
 const root = $("#exercise-root");
 let exerciseDone = false; // guards against double-submit while feedback is showing
@@ -283,12 +283,10 @@ function nextCard() {
   $("#card-progress").textContent = `${state.queue.length} left`;
   mountMascot("slot-session", "idle");
 
-  if (isNew) {
-    renderTeach(item);
-  } else if (isWordOrderEligible(item) && Math.random() < 0.5) {
+  if (!isNew && isWordOrderEligible(item) && Math.random() < 0.5) {
     renderWordOrder(item);
   } else {
-    renderMultipleChoice(item);
+    renderMultipleChoice(item, isNew);
   }
 
   show("session");
@@ -302,27 +300,11 @@ function speak(text) {
   speechSynthesis.speak(utter);
 }
 
-function renderTeach(item) {
-  root.innerHTML = `
-    <span class="new-badge">NEW</span>
-    <div class="ar-word" dir="rtl">${item.ar_full}</div>
-    <div class="translit">${item.translit}</div>
-    <button class="speak-btn" type="button" data-action="speak">🔊</button>
-    <div class="en-answer">${item.en}</div>
-    <button class="btn-primary continue-btn" type="button" data-action="teach-continue">Got it</button>
-  `;
-  root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar_full));
-  // Teaching is just exposure, not a graded rep — the actual first rep is the
-  // quiz right after, so there's always something to answer, not just "ok".
-  root.querySelector('[data-action="teach-continue"]').addEventListener("click", () => {
-    renderMultipleChoice(item);
-  });
-}
-
-function renderMultipleChoice(item) {
+function renderMultipleChoice(item, isNew) {
   const options = shuffle([item.en, ...pickDistractors(item, 3)]);
 
   root.innerHTML = `
+    ${isNew ? '<span class="new-badge">NEW</span>' : ""}
     <div class="ar-word" dir="rtl">${item.ar_full}</div>
     <div class="translit">${item.translit}</div>
     <button class="speak-btn" type="button" data-action="speak">🔊</button>
