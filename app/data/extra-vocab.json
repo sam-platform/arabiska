@@ -614,5 +614,137 @@
     "ar_full": "الصبر مفتاح الفرج",
     "translit": "is-sabr muftaa7 il-faraj",
     "en": "patience is the key to relief"
+  },
+  {
+    "id": "x-059",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "حرقت دمي",
+    "ar_full": "حرقت دمي",
+    "translit": "7ara2it damee",
+    "en": "you really annoyed/frustrated me (lit. \"you burned my blood\")"
+  },
+  {
+    "id": "x-060",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "A2",
+    "ar": "بدي موت",
+    "ar_full": "بدي موت",
+    "translit": "biddi moot",
+    "en": "I'm so done / so embarrassed / exhausted (lit. \"I want to die\", exaggerated for effect, not literal)"
+  },
+  {
+    "id": "x-061",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "word",
+    "cefr": "A2",
+    "ar": "قرفان",
+    "ar_full": "قرفان · f. قرفانة 2arfaane",
+    "translit": "2arfaan",
+    "en": "fed up, disgusted"
+  },
+  {
+    "id": "x-062",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "جبتلي دقة قلب",
+    "ar_full": "جبتلي دقة قلب",
+    "translit": "jibitli da22et 2alb",
+    "en": "you scared me (lit. \"you gave me a heart attack\")"
+  },
+  {
+    "id": "x-063",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "يا نهاري الأسود",
+    "ar_full": "يا نهاري الأسود",
+    "translit": "ya nahaari il-iswad",
+    "en": "what a terrible day (lit. \"oh my black day\") — exclamation of distress or bad luck"
+  },
+  {
+    "id": "x-064",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "A2",
+    "ar": "مش قادر",
+    "ar_full": "مش قادر · f. مش قادرة mish 2aadra",
+    "translit": "mish 2aadir",
+    "en": "I can't take it anymore"
+  },
+  {
+    "id": "x-065",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "لسانك طويل",
+    "ar_full": "لسانك طويل",
+    "translit": "lsaanak taweel",
+    "en": "you talk too much / you're being disrespectful (lit. \"your tongue is long\")"
+  },
+  {
+    "id": "x-066",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "A2",
+    "ar": "خلص فكي",
+    "ar_full": "خلص فكي",
+    "translit": "5alas fakki",
+    "en": "enough, stop talking (lit. \"enough, your jaw\")"
+  },
+  {
+    "id": "x-067",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "word",
+    "cefr": "A2",
+    "ar": "طفشان",
+    "ar_full": "طفشان · f. طفشانة tafshaane",
+    "translit": "tafshaan",
+    "en": "bored out of my mind"
+  },
+  {
+    "id": "x-068",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "A2",
+    "ar": "مصيبة",
+    "ar_full": "مصيبة",
+    "translit": "museebe",
+    "en": "disaster! what a mess!"
+  },
+  {
+    "id": "x-069",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "يا خرابي",
+    "ar_full": "يا خرابي",
+    "translit": "ya 5araabi",
+    "en": "oh no, I'm ruined (exclamation of distress or exasperation)"
+  },
+  {
+    "id": "x-070",
+    "book": 0,
+    "book_title": "Everyday sayings & extra words",
+    "type": "saying",
+    "cefr": "B1",
+    "ar": "دماغي راحت",
+    "ar_full": "دماغي راحت",
+    "translit": "dmaaghi raa7et",
+    "en": "I can't think straight, I'm losing it (lit. \"my mind is gone\")"
   }
 ]
