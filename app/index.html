@@ -87,14 +87,12 @@
     display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
     background: var(--olive); color: var(--cream); padding: 3px 10px; border-radius: 999px; margin-bottom: 14px;
   }
-  .ar-word { font-size: 42px; line-height: 1.3; margin-bottom: 8px; direction: rtl; }
-  .translit { color: var(--muted); font-size: 16px; font-style: italic; margin-bottom: 18px; }
+  .ar-word { font-size: 42px; line-height: 1.3; margin-bottom: 18px; direction: rtl; }
   .en-answer { font-size: 19px; margin-bottom: 20px; }
   .speak-btn {
     background: var(--stone); color: var(--ink); border-radius: 999px;
     width: 44px; height: 44px; font-size: 18px; padding: 0; margin-bottom: 18px;
   }
-  .continue-btn { background: var(--paper); color: var(--ink); border: 1px solid var(--stone); width: 100%; max-width: 300px; margin-top: 10px; }
 
   /* multiple choice */
   .mc-options { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 360px; margin-top: 6px; }
@@ -123,6 +121,8 @@
     font-size: 19px; padding: 10px 16px;
   }
   .word-chip.in-answer { background: var(--stone); }
+  .order-check-btn { width: 100%; max-width: 300px; margin-top: 18px; }
+  .order-check-btn:disabled { opacity: 0.5; }
 
   /* self-rating, shown only after a correct answer */
   .rate-prompt { font-size: 14px; color: var(--muted); margin: 16px 0 8px; }
@@ -229,11 +229,10 @@
     <div class="card">
       <div class="mascot-slot" id="slot-continue"></div>
       <h1>Today's new words are done!</h1>
-      <p class="sub">Keep going with extra repetition, or stop here for today.</p>
+      <p class="sub">Keep going with extra repetition whenever you're up for more.</p>
       <p class="done-stats">Reviewed: <strong id="continue-reviewed"></strong> · New: <strong id="continue-new"></strong></p>
       <p class="sub" id="continue-level"></p>
       <button class="btn-primary" type="button" id="continue-more-btn" style="margin-top:14px;">Keep practicing</button>
-      <button class="continue-btn" type="button" id="continue-stop-btn">I'm done for now</button>
     </div>
   </div>
 

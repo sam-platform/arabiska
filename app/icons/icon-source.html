@@ -1,6 +1,7 @@
 <!-- Source for the app icon. Rendered to PNG at several sizes via headless
-     Chrome screenshots (see ..\..\gen-icons.ps1) — same technique as the book
-     PDFs, no binary image files kept in the repo as the "true" source. -->
+     Chrome screenshots — same technique as the book PDFs (see ..\..\build.ps1),
+     no binary image files kept in the repo as the "true" source. Donkey
+     artwork mirrors the in-app mascot (js/app.js) for brand consistency. -->
 <!doctype html>
 <html>
 <head>
@@ -13,11 +14,28 @@
 <body>
 <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <rect width="512" height="512" rx="96" fill="#C0603A"/>
-  <circle cx="256" cy="256" r="190" fill="#FBF6EC" opacity="0.08"/>
-  <text x="256" y="340" text-anchor="middle"
-        font-family="Segoe UI, Tahoma, Arial, sans-serif"
-        font-size="300" font-weight="700"
-        fill="#FBF6EC">ع</text>
+  <svg x="56" y="56" width="400" height="400" viewBox="0 0 200 200">
+    <path d="M42 150 q-20 10 -12 34" stroke="#5A4A3A" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <circle cx="28" cy="186" r="8" fill="#5A4A3A"/>
+    <ellipse cx="100" cy="178" rx="54" ry="28" fill="#B9A78C"/>
+    <ellipse cx="60" cy="38" rx="17" ry="40" fill="#B9A78C" transform="rotate(-16 60 38)"/>
+    <ellipse cx="61" cy="42" rx="8" ry="27" fill="#E2A468" transform="rotate(-16 61 42)"/>
+    <ellipse cx="140" cy="38" rx="17" ry="40" fill="#B9A78C" transform="rotate(16 140 38)"/>
+    <ellipse cx="139" cy="42" rx="8" ry="27" fill="#E2A468" transform="rotate(16 139 42)"/>
+    <ellipse cx="100" cy="102" rx="59" ry="53" fill="#B9A78C"/>
+    <path d="M76 58 q6 -18 12 -3 q6 -20 12 2 q6 -20 12 -2 q6 15 12 3"
+          fill="none" stroke="#5A4A3A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="100" cy="132" rx="40" ry="30" fill="#EFE3CC"/>
+    <g fill="#5A4A3A">
+      <ellipse cx="87" cy="136" rx="3.2" ry="4.4"/>
+      <ellipse cx="113" cy="136" rx="3.2" ry="4.4"/>
+    </g>
+    <circle cx="76" cy="93" r="12" fill="#FFFFFF"/>
+    <circle cx="78" cy="94" r="6.4" fill="#2B2620"/>
+    <circle cx="124" cy="93" r="12" fill="#FFFFFF"/>
+    <circle cx="122" cy="94" r="6.4" fill="#2B2620"/>
+    <path d="M80 112 q20 20 40 0" stroke="#5A4A3A" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  </svg>
 </svg>
 </body>
 </html>

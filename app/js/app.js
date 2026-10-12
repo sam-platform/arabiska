@@ -57,12 +57,19 @@ function levelSummaryText() {
 // New-word pace reacts to the same Hard/Good/Easy feedback that drives
 // scheduling: doing well (high average ease) opens the throttle, struggling
 // closes it — rather than a flat count regardless of how it's going.
+//
+// TEMPORARY: the caps below are inflated while the level estimate is still
+// catching up to where the user actually places — book content has been
+// running far easier than their real level, so coverage needs to climb fast.
+// Once estimateLevel() stops lagging, drop these back down to roughly
+// { fast: 10, steady: 6, slow: 3 }.
+const NEW_WORD_PACE = { fast: 30, steady: 20, slow: 12 };
 function computeNewBudget(dailyLog) {
   const graded = Object.values(state.progressById).filter((p) => p.repetitions >= 1);
   const avgEase = graded.length
     ? graded.reduce((sum, p) => sum + p.ease_factor, 0) / graded.length
     : 2.5;
-  const base = avgEase >= 2.8 ? 10 : avgEase >= 2.3 ? 6 : 3;
+  const base = avgEase >= 2.8 ? NEW_WORD_PACE.fast : avgEase >= 2.3 ? NEW_WORD_PACE.steady : NEW_WORD_PACE.slow;
   return Math.max(0, base - dailyLog.new_items_count);
 }
 
@@ -319,18 +326,55 @@ function isWordOrderEligible(item) {
   return words.length >= 2 && !item.ar.includes("/");
 }
 
+// Vocab `en` fields carry grammar notes alongside the translation, often
+// including the Arabic word itself (e.g. "boy · pl. ⁦ولاد⁩ wlaad") — fine as
+// a learning aid on its own, but not as a multiple-choice option. This keeps
+// only the leading translation, dropping anything after a "·"/"—" separator
+// and any parenthetical aside that still has Arabic in it.
+function cleanEn(en) {
+  let clean = en;
+  // Only drop the "· pl. ⁦ولاد⁩ wlaad"-style tail when it actually carries
+  // Arabic — some entries use the same "·"/"—" separators for an all-English
+  // aside (idiom entries especially), which should stay intact.
+  const segments = clean.split(/ · | — /);
+  if (segments.length > 1 && /[؀-ۿ]/.test(segments.slice(1).join(" · "))) {
+    clean = segments[0];
+  }
+  clean = clean.replace(/\([^)]*[؀-ۿ][^)]*\)/g, "");
+  clean = clean.replace(/[؀-ۿ⁦-⁩]/g, "");
+  return clean.replace(/\s{2,}/g, " ").trim();
+}
+
 function pickDistractors(item, count) {
-  const pool = state.vocab.filter((v) => v.id !== item.id && v.en !== item.en);
+  const correct = cleanEn(item.en);
+  const pool = state.vocab.filter((v) => v.id !== item.id && cleanEn(v.en) !== correct);
   const picked = [];
   const used = new Set();
   while (picked.length < count && picked.length < pool.length) {
-    const candidate = pool[Math.floor(Math.random() * pool.length)];
-    if (!used.has(candidate.en)) {
-      used.add(candidate.en);
-      picked.push(candidate.en);
+    const candidate = cleanEn(pool[Math.floor(Math.random() * pool.length)].en);
+    if (!used.has(candidate)) {
+      used.add(candidate);
+      picked.push(candidate);
     }
   }
   return picked;
+}
+
+// Single-word decoys drawn from other items' Arabic, for the word-order bank
+// — otherwise the bank holds exactly the right words and ordering is the
+// only thing being tested, rather than also recognizing which words belong.
+function pickWordDecoys(item, target, count) {
+  const pool = [];
+  const seen = new Set(target);
+  for (const v of state.vocab) {
+    if (v.id === item.id) continue;
+    for (const w of v.ar.trim().split(/\s+/)) {
+      if (!w || seen.has(w)) continue;
+      seen.add(w);
+      pool.push(w);
+    }
+  }
+  return shuffle(pool).slice(0, count);
 }
 
 function nextCard() {
@@ -365,12 +409,12 @@ function speak(text) {
 }
 
 function renderMultipleChoice(item, isNew) {
-  const options = shuffle([item.en, ...pickDistractors(item, 3)]);
+  const correctText = cleanEn(item.en);
+  const options = shuffle([correctText, ...pickDistractors(item, 3)]);
 
   root.innerHTML = `
     ${isNew ? '<span class="new-badge">NEW</span>' : ""}
     <div class="ar-word" dir="rtl">${item.ar_full}</div>
-    <div class="translit">${item.translit}</div>
     <button class="speak-btn" type="button" data-action="speak">🔊</button>
     <div class="mc-options">
       ${options.map((opt) => `<button class="mc-option" type="button" data-text="${escapeAttr(opt)}">${opt}</button>`).join("")}
@@ -382,10 +426,10 @@ function renderMultipleChoice(item, isNew) {
     btn.addEventListener("click", () => {
       if (exerciseDone) return;
       exerciseDone = true;
-      const correct = btn.dataset.text === item.en;
+      const correct = btn.dataset.text === correctText;
       root.querySelectorAll(".mc-option").forEach((b) => {
         b.disabled = true;
-        if (b.dataset.text === item.en) b.classList.add("correct");
+        if (b.dataset.text === correctText) b.classList.add("correct");
         else if (b === btn) b.classList.add("wrong");
       });
       setMascotMood(correct ? "happy" : "sad", correct ? "happy" : "sad");
@@ -417,25 +461,30 @@ function showRatingPrompt() {
   });
 }
 
+// A fresh random count each time (3-6) rather than a fixed number, so the
+// bank size itself isn't a tell.
+function randomDecoyCount() {
+  return 3 + Math.floor(Math.random() * 4);
+}
+
 function renderWordOrder(item) {
   const target = item.ar.trim().split(/\s+/);
-  let bank = shuffle(target);
-  // guard against shuffle landing on the already-correct order
-  if (bank.join(" ") === target.join(" ") && bank.length > 1) {
-    [bank[0], bank[1]] = [bank[1], bank[0]];
-  }
+  const decoys = pickWordDecoys(item, target, randomDecoyCount());
+  let bank = shuffle([...target, ...decoys]);
   const answer = [];
 
   root.innerHTML = `
-    <div class="en-answer">${item.en}</div>
+    <div class="en-answer">${cleanEn(item.en)}</div>
     <button class="speak-btn" type="button" data-action="speak">🔊</button>
     <div class="order-answer" id="order-answer" dir="rtl"></div>
     <div class="order-bank" id="order-bank" dir="rtl"></div>
+    <button class="btn-primary order-check-btn" type="button" id="order-check-btn" disabled>Check</button>
   `;
   root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar));
 
   const answerEl = root.querySelector("#order-answer");
   const bankEl = root.querySelector("#order-bank");
+  const checkBtn = root.querySelector("#order-check-btn");
 
   function renderChips() {
     bankEl.innerHTML = bank
@@ -444,6 +493,7 @@ function renderWordOrder(item) {
     answerEl.innerHTML = answer
       .map((w, i) => `<button class="word-chip in-answer" type="button" data-side="answer" data-idx="${i}">${w}</button>`)
       .join("");
+    checkBtn.disabled = answer.length === 0;
 
     bankEl.querySelectorAll(".word-chip").forEach((chip) => {
       chip.addEventListener("click", () => {
@@ -452,7 +502,6 @@ function renderWordOrder(item) {
         answer.push(bank[idx]);
         bank.splice(idx, 1);
         renderChips();
-        if (answer.length === target.length) checkOrder();
       });
     });
     answerEl.querySelectorAll(".word-chip").forEach((chip) => {
@@ -466,8 +515,14 @@ function renderWordOrder(item) {
     });
   }
 
+  checkBtn.addEventListener("click", () => {
+    if (exerciseDone || answer.length === 0) return;
+    checkOrder();
+  });
+
   function checkOrder() {
     exerciseDone = true;
+    checkBtn.disabled = true;
     const correct = answer.join(" ") === target.join(" ");
     answerEl.classList.add(correct ? "correct" : "wrong");
     if (!correct) {
@@ -550,8 +605,6 @@ $("#continue-more-btn").addEventListener("click", () => {
   state.queue = pool.slice(0, EXTRA_REVIEW_BATCH);
   nextCard();
 });
-
-$("#continue-stop-btn").addEventListener("click", () => renderDone());
 
 function renderDone() {
   $("#done-reviewed").textContent = state.dailyLog.reviewed_items_count;
