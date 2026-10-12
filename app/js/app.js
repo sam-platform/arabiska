@@ -98,7 +98,7 @@ function show(name) {
 // sync with it afterward.
 
 const THEME_KEY = "arabiska-theme";
-const THEME_COLOR = { dark: "#E2935E", light: "#C8713E" };
+const THEME_COLOR = { dark: "#141D24", light: "#DCE6EC" };
 const themeToggleBtn = $("#theme-toggle");
 
 function applyTheme(theme) {
