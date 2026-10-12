@@ -323,11 +323,11 @@ function isWordOrderEligible(item) {
   return words.length >= 2 && !item.ar.includes("/");
 }
 
-// Vocab `en` fields carry grammar notes alongside the translation, often
-// including the Arabic word itself (e.g. "boy · pl. ⁦ولاد⁩ wlaad") — fine as
-// a learning aid on its own, but not as a multiple-choice option. This keeps
-// only the leading translation, dropping anything after a "·"/"—" separator
-// and any parenthetical aside that still has Arabic in it.
+// Vocab `en` fields carry grammar notes and usage asides alongside the
+// translation — sometimes the Arabic word itself (e.g. "boy · pl. ⁦ولاد⁩
+// wlaad"), sometimes pure English filler (e.g. "I swear, seriously (filler
+// for emphasis)"). Fine as a learning aid on its own, but not as a
+// multiple-choice option, where only the core translation belongs.
 function cleanEn(en) {
   let clean = en;
   // Only drop the "· pl. ⁦ولاد⁩ wlaad"-style tail when it actually carries
@@ -337,9 +337,15 @@ function cleanEn(en) {
   if (segments.length > 1 && /[؀-ۿ]/.test(segments.slice(1).join(" · "))) {
     clean = segments[0];
   }
-  clean = clean.replace(/\([^)]*[؀-ۿ][^)]*\)/g, "");
+  // Parenthetical asides always go, English or not — grammar markers, "lit."
+  // glosses, usage notes.
+  clean = clean.replace(/\s*\([^()]*\)/g, "");
   clean = clean.replace(/[؀-ۿ⁦-⁩]/g, "");
-  return clean.replace(/\s{2,}/g, " ").trim();
+  clean = clean.replace(/\s{2,}/g, " ").trim();
+  // Collapse "/"-separated alternatives left identical once their markers
+  // are gone (e.g. "this (m.) / this (f.)" -> "this / this" -> "this").
+  const parts = clean.split(" / ").map((p) => p.trim());
+  return parts.filter((p, i) => p !== parts[i - 1]).join(" / ");
 }
 
 function pickDistractors(item, count) {
