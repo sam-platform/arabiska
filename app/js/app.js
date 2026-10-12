@@ -235,9 +235,6 @@ function grade(progressRow, rating) {
   if (rating === "again") {
     return { repetitions: 0, ease_factor: Math.max(1.3, ease - 0.2), interval_days: 0, requeue: true };
   }
-  if (rating === "hard") {
-    return { repetitions, ease_factor: Math.max(1.3, ease - 0.15), interval_days: Math.max(1, interval * 1.2), requeue: false };
-  }
   if (rating === "good") {
     repetitions += 1;
     interval = repetitions === 1 ? 1 : repetitions === 2 ? 6 : Math.round(interval * ease);
@@ -400,12 +397,35 @@ function nextCard() {
   show("session");
 }
 
+// Safari (iOS in particular) has a long-standing bug where an utterance with
+// no other reference gets garbage-collected mid-speech and simply goes
+// silent — holding one here is the documented workaround. Picking an actual
+// Arabic voice (when the device has one) also matters: `lang` alone is a
+// hint some engines ignore, again failing silently rather than erroring.
+let activeUtterance = null;
+
+function pickArabicVoice() {
+  const voices = speechSynthesis.getVoices();
+  return voices.find((v) => v.lang && v.lang.toLowerCase().startsWith("ar")) || null;
+}
+
 function speak(text) {
   if (!("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = "ar";
-  speechSynthesis.cancel();
+  const voice = pickArabicVoice();
+  if (voice) utter.voice = voice;
+  activeUtterance = utter;
   speechSynthesis.speak(utter);
+}
+
+// Voice lists load asynchronously on some browsers — this nudges Safari to
+// populate speechSynthesis.getVoices() before the first tap of the speaker
+// button needs it.
+if ("speechSynthesis" in window) {
+  speechSynthesis.getVoices();
+  speechSynthesis.addEventListener("voiceschanged", () => speechSynthesis.getVoices());
 }
 
 function renderMultipleChoice(item, isNew) {
@@ -450,7 +470,6 @@ function showRatingPrompt() {
   wrap.innerHTML = `
     <p class="rate-prompt">How well did you know that?</p>
     <div class="rate-row">
-      <button class="rate-hard" type="button" data-rate="hard">Hard</button>
       <button class="rate-good" type="button" data-rate="good">Good</button>
       <button class="rate-easy" type="button" data-rate="easy">Easy</button>
     </div>
