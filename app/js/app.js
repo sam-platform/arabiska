@@ -275,7 +275,7 @@ async function startSession(user) {
     const p = progressById[item.id];
     if (!p) {
       unseen.push(item);
-    } else if (new Date(p.due_at).getTime() <= now) {
+    } else if (!p.mastered && new Date(p.due_at).getTime() <= now) {
       due.push(item);
     }
   }
@@ -483,6 +483,7 @@ function showRatingPrompt() {
     <div class="rate-row">
       <button class="rate-good" type="button" data-rate="good">Good</button>
       <button class="rate-easy" type="button" data-rate="easy">Easy</button>
+      <button class="rate-mastered" type="button" data-rate="mastered">Mastered</button>
     </div>
   `;
   root.appendChild(wrap);
@@ -575,22 +576,48 @@ function escapeAttr(s) {
   return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 }
 
+// "Mastered" permanently retires an item as its own flashcard — a way to
+// blow through the words that are already far too easy (walla, mar7aba...)
+// without waiting on SM-2 to space them out gradually. It still fully
+// satisfies the current rep so isWordOrderEligible items keep contributing
+// their Arabic to other cards' word banks; only startSession() and the
+// continue-prompt pools skip it going forward (see the `mastered` filters
+// there).
+const MASTERED_INTERVAL_DAYS = 36500; // ~100 years — effectively "never due"
+
 async function submitRating(rating) {
   const item = state.current;
   const prev = state.progressById[item.id];
   const wasNew = !prev;
-  const result = grade(prev, rating);
 
-  const row = {
-    user_id: state.user.id,
-    item_id: item.id,
-    repetitions: result.repetitions,
-    ease_factor: result.ease_factor,
-    interval_days: result.interval_days,
-    due_at: new Date(Date.now() + result.interval_days * 86400000).toISOString(),
-    last_result: rating,
-    last_reviewed_at: new Date().toISOString(),
-  };
+  let row;
+  if (rating === "mastered") {
+    row = {
+      user_id: state.user.id,
+      item_id: item.id,
+      repetitions: (prev?.repetitions || 0) + 1,
+      ease_factor: Math.max(prev?.ease_factor || 2.5, 2.8),
+      interval_days: MASTERED_INTERVAL_DAYS,
+      due_at: new Date(Date.now() + MASTERED_INTERVAL_DAYS * 86400000).toISOString(),
+      mastered: true,
+      last_result: rating,
+      last_reviewed_at: new Date().toISOString(),
+    };
+  } else {
+    const result = grade(prev, rating);
+    row = {
+      user_id: state.user.id,
+      item_id: item.id,
+      repetitions: result.repetitions,
+      ease_factor: result.ease_factor,
+      interval_days: result.interval_days,
+      due_at: new Date(Date.now() + result.interval_days * 86400000).toISOString(),
+      mastered: false,
+      last_result: rating,
+      last_reviewed_at: new Date().toISOString(),
+    };
+    if (result.requeue) state.queue.push(item);
+  }
   state.progressById[item.id] = row;
 
   // fire-and-forget-ish, but we await so a flaky connection doesn't silently drop progress
@@ -605,19 +632,25 @@ async function submitRating(rating) {
     reviewed_items_count: state.dailyLog.reviewed_items_count,
   });
 
-  if (result.requeue) state.queue.push(item);
   renderLevelBadge();
   nextCard();
 }
 
 const EXTRA_REVIEW_BATCH = 10;
 
+// True for anything with progress that isn't permanently retired via
+// "Mastered" — the pool eligible for the voluntary extra-practice rounds.
+function isExtraPracticeCandidate(v) {
+  const p = state.progressById[v.id];
+  return !!p && !p.mastered;
+}
+
 // Today's assigned new words + due reviews are a fixed, paced batch — but
 // once that's done, there's no reason to force a stop. Anything already
-// learned (repetitions > 0, regardless of whether it's actually due yet) is
-// fair game for an extra round, repeated for as long as the user wants.
+// learned (regardless of whether it's actually due yet) is fair game for an
+// extra round, repeated for as long as the user wants.
 function renderContinuePrompt() {
-  const learnedPool = state.vocab.filter((v) => state.progressById[v.id]);
+  const learnedPool = state.vocab.filter(isExtraPracticeCandidate);
   if (learnedPool.length === 0) {
     renderDone();
     return;
@@ -631,7 +664,7 @@ function renderContinuePrompt() {
 }
 
 $("#continue-more-btn").addEventListener("click", () => {
-  const pool = shuffle(state.vocab.filter((v) => state.progressById[v.id]));
+  const pool = shuffle(state.vocab.filter(isExtraPracticeCandidate));
   state.queue = pool.slice(0, EXTRA_REVIEW_BATCH);
   nextCard();
 });
