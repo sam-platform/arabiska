@@ -89,6 +89,35 @@ function show(name) {
   for (const key in screens) screens[key].hidden = key !== name;
 }
 
+// ---------- Theme ----------
+//
+// Harbor Night is the default (set in the CSS itself) — this is a manual
+// light/dark toggle, not tied to the OS theme. The inline script in <head>
+// applies a saved "light" preference before first paint so it doesn't flash
+// dark first; this just keeps the toggle button and meta theme-color in
+// sync with it afterward.
+
+const THEME_KEY = "arabiska-theme";
+const THEME_COLOR = { dark: "#E2935E", light: "#C8713E" };
+const themeToggleBtn = $("#theme-toggle");
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeToggleBtn.textContent = theme === "light" ? "🌙" : "☀️";
+  themeToggleBtn.setAttribute("aria-label", theme === "light" ? "Switch to dark mode" : "Switch to light mode");
+  $("#meta-theme-color").setAttribute("content", THEME_COLOR[theme]);
+}
+
+themeToggleBtn.addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  try {
+    localStorage.setItem(THEME_KEY, next);
+  } catch (e) {}
+  applyTheme(next);
+});
+
+applyTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
+
 function todayStr() {
   // local calendar day, not UTC
   return new Date().toLocaleDateString("en-CA");
