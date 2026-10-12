@@ -337,9 +337,14 @@ function cleanEn(en) {
   if (segments.length > 1 && /[؀-ۿ]/.test(segments.slice(1).join(" · "))) {
     clean = segments[0];
   }
-  // Parenthetical asides always go, English or not — grammar markers, "lit."
-  // glosses, usage notes.
-  clean = clean.replace(/\s*\([^()]*\)/g, "");
+  // Parenthetical asides go — grammar markers, usage notes — except a
+  // "lit. ..." literal-translation gloss, worth keeping on its own even when
+  // the rest of the same parens is filler (e.g. "(polite request, lit. \"God
+  // keep you\")" keeps just the gloss).
+  clean = clean.replace(/\s*\(([^()]*)\)/g, (_, inner) => {
+    const lit = inner.match(/lit\.\s*("(?:[^"\\]|\\.)*"|[^,)]*)/i);
+    return lit ? ` (lit. ${lit[1].trim()})` : "";
+  });
   clean = clean.replace(/[؀-ۿ⁦-⁩]/g, "");
   clean = clean.replace(/\s{2,}/g, " ").trim();
   // Collapse "/"-separated alternatives left identical once their markers
