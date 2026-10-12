@@ -359,13 +359,13 @@ function isWordOrderEligible(item) {
 // multiple-choice option, where only the core translation belongs.
 function cleanEn(en) {
   let clean = en;
-  // Only drop the "· pl. ⁦ولاد⁩ wlaad"-style tail when it actually carries
-  // Arabic — some entries use the same "·"/"—" separators for an all-English
-  // aside (idiom entries especially), which should stay intact.
+  // Drop anything after a "·"/"—" separator — grammar tails ("· pl. ⁦ولاد⁩
+  // wlaad"), usage asides ("· also 'for ages'"), and idiom explanations
+  // ("— let bygones be bygones...") alike. Keeping those in would make the
+  // multiple-choice option needlessly long and, for idioms especially, an
+  // obvious giveaway next to short single-word distractors.
   const segments = clean.split(/ · | — /);
-  if (segments.length > 1 && /[؀-ۿ]/.test(segments.slice(1).join(" · "))) {
-    clean = segments[0];
-  }
+  if (segments.length > 1) clean = segments[0];
   // Parenthetical asides go — grammar markers, usage notes — except a
   // "lit. ..." literal-translation gloss, worth keeping on its own even when
   // the rest of the same parens is filler (e.g. "(polite request, lit. \"God
@@ -382,16 +382,36 @@ function cleanEn(en) {
   return parts.filter((p, i) => p !== parts[i - 1]).join(" / ");
 }
 
+// A short phrase next to three single words (or vice versa) gives the
+// answer away by shape alone, without needing any Arabic. Bucket by word
+// count and prefer decoys from the correct answer's own bucket, so the
+// options are at least superficially comparable; only fall back to the
+// rest of the vocab once that bucket runs out of unique candidates.
+function wordCount(text) {
+  return text.trim().split(/\s+/).length;
+}
+function lengthBucket(text) {
+  const n = wordCount(text);
+  return n <= 2 ? "short" : n <= 5 ? "medium" : "long";
+}
+
 function pickDistractors(item, count) {
   const correct = cleanEn(item.en);
-  const pool = state.vocab.filter((v) => v.id !== item.id && cleanEn(v.en) !== correct);
+  const targetBucket = lengthBucket(correct);
+  const candidates = state.vocab
+    .filter((v) => v.id !== item.id)
+    .map((v) => cleanEn(v.en))
+    .filter((text) => text !== correct);
+  const matched = candidates.filter((text) => lengthBucket(text) === targetBucket);
+  const rest = candidates.filter((text) => lengthBucket(text) !== targetBucket);
+
   const picked = [];
   const used = new Set();
-  while (picked.length < count && picked.length < pool.length) {
-    const candidate = cleanEn(pool[Math.floor(Math.random() * pool.length)].en);
-    if (!used.has(candidate)) {
-      used.add(candidate);
-      picked.push(candidate);
+  for (const text of [...shuffle(matched), ...shuffle(rest)]) {
+    if (picked.length >= count) break;
+    if (!used.has(text)) {
+      used.add(text);
+      picked.push(text);
     }
   }
   return picked;

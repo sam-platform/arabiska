@@ -261,7 +261,7 @@
     "ar": "القرد بعين امه غزال",
     "ar_full": "القرد بعين امه غزال",
     "translit": "il-2ird b3ein immo ghazaal",
-    "en": "to its mother, a monkey looks like a gazelle — parents see their own kids as perfect"
+    "en": "parents see their own kids as perfect (lit. \"to its mother, a monkey looks like a gazelle\")"
   },
   {
     "id": "x-027",
@@ -281,7 +281,7 @@
     "type": "word",
     "cefr": "A1",
     "ar": "تعبان",
-    "ar_full": "تعبان · f. تعبانة ta3baane",
+    "ar_full": "تعبان · f. تعبانة",
     "translit": "ta3baan",
     "en": "tired"
   },
@@ -292,7 +292,7 @@
     "type": "word",
     "cefr": "A1",
     "ar": "فرحان",
-    "ar_full": "فرحان · f. فرحانة far7aane",
+    "ar_full": "فرحان · f. فرحانة",
     "translit": "far7aan",
     "en": "happy"
   },
@@ -303,7 +303,7 @@
     "type": "word",
     "cefr": "A1",
     "ar": "زعلان",
-    "ar_full": "زعلان · f. زعلانة za3laane",
+    "ar_full": "زعلان · f. زعلانة",
     "translit": "za3laan",
     "en": "upset, sad"
   },
@@ -314,7 +314,7 @@
     "type": "word",
     "cefr": "A1",
     "ar": "جوعان",
-    "ar_full": "جوعان · f. جوعانة jaw3aane",
+    "ar_full": "جوعان · f. جوعانة",
     "translit": "jaw3aan",
     "en": "hungry"
   },
@@ -325,7 +325,7 @@
     "type": "word",
     "cefr": "A1",
     "ar": "عطشان",
-    "ar_full": "عطشان · f. عطشانة 3atshaane",
+    "ar_full": "عطشان · f. عطشانة",
     "translit": "3atshaan",
     "en": "thirsty"
   },
@@ -336,7 +336,7 @@
     "type": "word",
     "cefr": "A2",
     "ar": "متأكد",
-    "ar_full": "متأكد · f. متأكدة mit2akkide",
+    "ar_full": "متأكد · f. متأكدة",
     "translit": "mit2akkid",
     "en": "sure, certain"
   },
@@ -413,7 +413,7 @@
     "type": "word",
     "cefr": "A1",
     "ar": "واحد",
-    "ar_full": "واحد · f. وحدة wa7de",
+    "ar_full": "واحد · f. وحدة",
     "translit": "wa7ad",
     "en": "one"
   },
@@ -602,7 +602,7 @@
     "ar": "الجار قبل الدار",
     "ar_full": "الجار قبل الدار",
     "translit": "ij-jaar 2abl id-daar",
-    "en": "the neighbor before the house — good neighbors matter more than the house itself"
+    "en": "good neighbors matter more than the house itself (lit. \"the neighbor before the house\")"
   },
   {
     "id": "x-058",
@@ -644,7 +644,7 @@
     "type": "word",
     "cefr": "A2",
     "ar": "قرفان",
-    "ar_full": "قرفان · f. قرفانة 2arfaane",
+    "ar_full": "قرفان · f. قرفانة",
     "translit": "2arfaan",
     "en": "fed up, disgusted"
   },
@@ -677,7 +677,7 @@
     "type": "saying",
     "cefr": "A2",
     "ar": "مش قادر",
-    "ar_full": "مش قادر · f. مش قادرة mish 2aadra",
+    "ar_full": "مش قادر · f. مش قادرة",
     "translit": "mish 2aadir",
     "en": "I can't take it anymore"
   },
@@ -710,7 +710,7 @@
     "type": "word",
     "cefr": "A2",
     "ar": "طفشان",
-    "ar_full": "طفشان · f. طفشانة tafshaane",
+    "ar_full": "طفشان · f. طفشانة",
     "translit": "tafshaan",
     "en": "bored out of my mind"
   },
@@ -855,6 +855,6 @@
     "ar": "رغيف في رغيف ولا يبات جارك جعان",
     "ar_full": "رغيف في رغيف ولا يبات جارك جعان",
     "translit": "ra8eef fi ra8eef wala ybaat jaarak ja3aan",
-    "en": "share your bread — don't let your neighbor go to sleep hungry"
+    "en": "don't let your neighbor go hungry (lit. \"share your bread\")"
   }
 ]
