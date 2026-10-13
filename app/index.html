@@ -177,6 +177,13 @@
   .rate-easy { background: var(--easy); }
   .rate-mastered { background: var(--ink); }
 
+  /* ---- dashboard ---- */
+  .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 4px; }
+  .stat-card { background: var(--paper); border: 1px solid var(--stone); border-radius: 14px; padding: 16px 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--terra); }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .home-link { color: var(--muted); text-decoration: underline; }
+
   .done-stats { font-size: 17px; margin: 10px 0 0; }
   .glyph {
     font-size: 48px; color: var(--cream); background: var(--terra);
@@ -260,6 +267,29 @@
     </div>
   </div>
 
+  <div id="screen-dashboard" class="screen" hidden>
+    <div class="card">
+      <div class="mascot-slot" id="slot-dashboard"></div>
+      <h1>Arabiska</h1>
+      <p class="sub" id="dash-greeting">Ready for today's practice?</p>
+      <div class="dash-stats">
+        <div class="stat-card">
+          <div class="stat-value" id="dash-streak">0</div>
+          <div class="stat-label">day streak</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="dash-mastered">0</div>
+          <div class="stat-label">mastered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="dash-level">—</div>
+          <div class="stat-label">level</div>
+        </div>
+      </div>
+      <button class="btn-primary" type="button" id="start-practice-btn" style="margin-top:20px;">Start practicing</button>
+    </div>
+  </div>
+
   <div id="screen-session" class="screen" hidden>
     <div class="topbar">
       <span class="book-tag" id="card-book"></span>
@@ -280,6 +310,7 @@
       <p class="done-stats">Reviewed: <strong id="continue-reviewed"></strong> · New: <strong id="continue-new"></strong></p>
       <p class="sub" id="continue-level"></p>
       <button class="btn-primary" type="button" id="continue-more-btn" style="margin-top:14px;">Keep practicing</button>
+      <p class="sub" style="margin-top:14px;"><a href="#" class="home-link" id="continue-home-btn">Back to dashboard</a></p>
     </div>
   </div>
 
@@ -290,6 +321,7 @@
       <p class="sub">Come back later today or tomorrow for more.</p>
       <p class="done-stats">Reviewed: <strong id="done-reviewed"></strong> · New: <strong id="done-new"></strong></p>
       <p class="sub" id="done-level"></p>
+      <button class="btn-primary" type="button" id="done-home-btn" style="margin-top:14px;">Back to dashboard</button>
     </div>
   </div>
 

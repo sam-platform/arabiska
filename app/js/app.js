@@ -54,6 +54,35 @@ function levelSummaryText() {
   return `${current} (book content currently goes up to ${ceiling})`;
 }
 
+function masteredCount() {
+  return Object.values(state.progressById).filter((p) => p.mastered).length;
+}
+
+// A day only "counts" once the whole set is finished (see
+// finishInitialSetIfPending()) — answering one card isn't enough. Counts
+// backward from today; if today isn't finished yet (the day isn't over),
+// that alone doesn't break the streak — it just starts counting from
+// yesterday instead. state.dailyLog is the freshest source for *today*
+// since it's updated in-memory as the user plays, ahead of what logHistory
+// (fetched once at load) would show.
+function computeStreak() {
+  const activeDays = new Set(
+    state.logHistory.filter((r) => r.set_completed).map((r) => r.day)
+  );
+  const todayKey = todayStr();
+  if (state.dailyLog.set_completed) activeDays.add(todayKey);
+
+  const cursor = new Date();
+  if (!activeDays.has(todayKey)) cursor.setDate(cursor.getDate() - 1);
+
+  let streak = 0;
+  while (activeDays.has(cursor.toLocaleDateString("en-CA"))) {
+    streak++;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+  return streak;
+}
+
 // New-word pace reacts to the same Hard/Good/Easy feedback that drives
 // scheduling: doing well (high average ease) opens the throttle, struggling
 // closes it — rather than a flat count regardless of how it's going.
@@ -80,6 +109,7 @@ const screens = {
   loading: $("#screen-loading"),
   login: $("#screen-login"),
   checkEmail: $("#screen-check-email"),
+  dashboard: $("#screen-dashboard"),
   session: $("#screen-session"),
   continue: $("#screen-continue"),
   done: $("#screen-done"),
@@ -286,7 +316,7 @@ async function startSession(user) {
     fetch("data/vocab.json").then((r) => r.json()),
     fetch("data/extra-vocab.json").then((r) => r.json()),
     sb.from("progress").select("*"),
-    sb.from("daily_log").select("*").eq("day", todayStr()).maybeSingle(),
+    sb.from("daily_log").select("*"),
   ]);
 
   // Hand-authored extras go first so they surface soon via the normal
@@ -295,13 +325,34 @@ async function startSession(user) {
   const progressById = {};
   for (const row of progressRes.data || []) progressById[row.item_id] = row;
 
-  const dailyLog = logRes.data || { day: todayStr(), new_items_count: 0, reviewed_items_count: 0 };
+  const logHistory = logRes.data || [];
+  const dailyLog = logHistory.find((r) => r.day === todayStr()) || {
+    day: todayStr(),
+    new_items_count: 0,
+    reviewed_items_count: 0,
+    set_completed: false,
+  };
 
+  state = { user, vocab, progressById, queue: [], dailyLog: { ...dailyLog }, logHistory, current: null };
+
+  renderDashboard();
+}
+
+function renderDashboard() {
+  const streak = computeStreak();
+  $("#dash-streak").textContent = streak > 0 ? `🔥 ${streak}` : "0";
+  $("#dash-mastered").textContent = masteredCount();
+  $("#dash-level").textContent = estimateLevel() || "New";
+  mountMascot("slot-dashboard", streak > 0 ? "happy" : "idle");
+  show("dashboard");
+}
+
+function beginPractice() {
   const now = Date.now();
   const due = [];
   const unseen = [];
-  for (const item of vocab) {
-    const p = progressById[item.id];
+  for (const item of state.vocab) {
+    const p = state.progressById[item.id];
     if (!p) {
       unseen.push(item);
     } else if (!p.mastered && new Date(p.due_at).getTime() <= now) {
@@ -309,21 +360,39 @@ async function startSession(user) {
     }
   }
 
-  state = { user, vocab, progressById, queue: [], dailyLog: { ...dailyLog }, current: null };
-
-  const newBudget = computeNewBudget(dailyLog);
+  const newBudget = computeNewBudget(state.dailyLog);
   const newItems = unseen.slice(0, newBudget);
   const reviewItems = due.slice(0, REVIEWS_PER_SESSION);
 
   state.queue = shuffle([...reviewItems, ...newItems]);
+  state.initialSetPending = true;
   renderLevelBadge();
-
-  if (state.queue.length === 0) {
-    renderContinuePrompt();
-  } else {
-    nextCard();
-  }
+  nextCard();
 }
+
+// Marks today's daily_log row as set_completed once the day's initial batch
+// (due reviews + new words, including anything requeued after a wrong
+// answer — see the `requeue` push in submitRating()) has been fully
+// drained. Extra "Keep practicing" rounds afterward don't re-trigger this —
+// initialSetPending is already false by the time that button exists.
+async function finishInitialSetIfPending() {
+  if (!state.initialSetPending) return;
+  state.initialSetPending = false;
+  if (state.dailyLog.set_completed) return;
+  state.dailyLog.set_completed = true;
+  await sb.from("daily_log").upsert({
+    user_id: state.user.id,
+    day: todayStr(),
+    set_completed: true,
+  });
+}
+
+$("#start-practice-btn").addEventListener("click", beginPractice);
+$("#continue-home-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  renderDashboard();
+});
+$("#done-home-btn").addEventListener("click", () => renderDashboard());
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -434,8 +503,9 @@ function pickWordDecoys(item, target, count) {
   return shuffle(pool).slice(0, count);
 }
 
-function nextCard() {
+async function nextCard() {
   if (state.queue.length === 0) {
+    await finishInitialSetIfPending();
     renderContinuePrompt();
     return;
   }
