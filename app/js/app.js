@@ -3,7 +3,9 @@
 
 const SUPABASE_URL = "https://gdwvycndaqxydluvqdia.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_PnGf7MRx1nBFcRKo0O4dPQ_L03B64vI";
-const REVIEWS_PER_SESSION = 30;
+// Total cards in a set (due reviews + new words) — the batch that has to be
+// finished for the day to "count" (see finishInitialSetIfPending()).
+const SET_SIZE = 10;
 
 // ---------- Level ----------
 //
@@ -83,26 +85,46 @@ function computeStreak() {
   return streak;
 }
 
-// New-word pace reacts to the same Hard/Good/Easy feedback that drives
-// scheduling: doing well (high average ease) opens the throttle, struggling
-// closes it — rather than a flat count regardless of how it's going.
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ---------- In-progress set persistence ----------
 //
-// TEMPORARY: the caps below are inflated while the level estimate is still
-// catching up to where the user actually places — book content has been
-// running far easier than their real level, so coverage needs to climb fast.
-// Once estimateLevel() stops lagging, drop these back down to roughly
-// { fast: 10, steady: 6, slow: 3 }.
-const NEW_WORD_PACE = { fast: 30, steady: 20, slow: 12 };
-function computeNewBudget(dailyLog) {
-  const graded = Object.values(state.progressById).filter((p) => p.repetitions >= 1);
-  const avgEase = graded.length
-    ? graded.reduce((sum, p) => sum + p.ease_factor, 0) / graded.length
-    : 2.5;
-  const base = avgEase >= 2.8 ? NEW_WORD_PACE.fast : avgEase >= 2.3 ? NEW_WORD_PACE.steady : NEW_WORD_PACE.slow;
-  return Math.max(0, base - dailyLog.new_items_count);
+// Lets closing and reopening the app mid-set pick back up on the same card
+// instead of rebuilding (and reshuffling) from scratch. Scoped by user +
+// day so a stale save never leaks into tomorrow's set.
+function queueStorageKey(userId) {
+  return `arabiska_queue_${userId}`;
 }
 
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+function saveQueueState() {
+  const itemIds = (state.current ? [state.current, ...state.queue] : state.queue).map((i) => i.id);
+  if (itemIds.length === 0) {
+    clearQueueState();
+    return;
+  }
+  localStorage.setItem(
+    queueStorageKey(state.user.id),
+    JSON.stringify({ day: todayStr(), itemIds, initialSetPending: state.initialSetPending })
+  );
+}
+
+function clearQueueState() {
+  localStorage.removeItem(queueStorageKey(state.user.id));
+}
+
+function loadQueueState() {
+  try {
+    const raw = localStorage.getItem(queueStorageKey(state.user.id));
+    if (!raw) return null;
+    const saved = JSON.parse(raw);
+    if (saved.day !== todayStr()) return null;
+    const byId = new Map(state.vocab.map((v) => [v.id, v]));
+    const queue = saved.itemIds.map((id) => byId.get(id)).filter(Boolean);
+    return queue.length ? { queue, initialSetPending: !!saved.initialSetPending } : null;
+  } catch {
+    return null;
+  }
+}
 
 const $ = (sel) => document.querySelector(sel);
 const screens = {
@@ -335,6 +357,15 @@ async function startSession(user) {
 
   state = { user, vocab, progressById, queue: [], dailyLog: { ...dailyLog }, logHistory, current: null };
 
+  const resume = loadQueueState();
+  if (resume) {
+    state.queue = resume.queue;
+    state.initialSetPending = resume.initialSetPending;
+    renderLevelBadge();
+    nextCard();
+    return;
+  }
+
   renderDashboard();
 }
 
@@ -360,9 +391,8 @@ function beginPractice() {
     }
   }
 
-  const newBudget = computeNewBudget(state.dailyLog);
-  const newItems = unseen.slice(0, newBudget);
-  const reviewItems = due.slice(0, REVIEWS_PER_SESSION);
+  const reviewItems = due.slice(0, SET_SIZE);
+  const newItems = unseen.slice(0, SET_SIZE - reviewItems.length);
 
   state.queue = shuffle([...reviewItems, ...newItems]);
   state.initialSetPending = true;
@@ -505,11 +535,14 @@ function pickWordDecoys(item, target, count) {
 
 async function nextCard() {
   if (state.queue.length === 0) {
+    state.current = null;
+    clearQueueState();
     await finishInitialSetIfPending();
     renderContinuePrompt();
     return;
   }
   state.current = state.queue.shift();
+  saveQueueState();
   exerciseDone = false;
   const item = state.current;
   const isNew = !state.progressById[item.id];
