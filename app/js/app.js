@@ -619,10 +619,20 @@ function renderMultipleChoice(item, isNew) {
       if (correct) {
         showRatingPrompt();
       } else {
-        setTimeout(() => submitRating("again"), 900);
+        showNextButton();
       }
     });
   });
+}
+
+// A wrong answer stays on screen — correct option highlighted, or correct
+// word order revealed — until the user taps Next, instead of auto-advancing,
+// so there's a moment to actually register the right answer.
+function showNextButton() {
+  const wrap = document.createElement("div");
+  wrap.innerHTML = `<button class="btn-primary" type="button" style="margin-top:14px;">Next</button>`;
+  root.appendChild(wrap);
+  wrap.querySelector("button").addEventListener("click", () => submitRating("again"), { once: true });
 }
 
 // Wrong answers are unambiguous — just reschedule soon and move on. A
@@ -717,7 +727,7 @@ function renderWordOrder(item) {
     if (correct) {
       setTimeout(() => showRatingPrompt(), 400);
     } else {
-      setTimeout(() => submitRating("again"), 1100);
+      showNextButton();
     }
   }
 
