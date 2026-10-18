@@ -86,7 +86,7 @@ async function checkAndNotify(env) {
   const message = {
     data: JSON.stringify({
       title: "Arabiska",
-      body: "You haven't done today's set yet — keep the streak alive!",
+      body: "Remember to do your daily Arabic",
     }),
     options: { ttl: 3600 },
   };
