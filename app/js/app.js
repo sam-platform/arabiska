@@ -663,8 +663,12 @@ function randomDecoyCount() {
 function renderWordOrder(item) {
   const target = item.ar.trim().split(/\s+/);
   const decoys = pickWordDecoys(item, target, randomDecoyCount());
-  let bank = shuffle([...target, ...decoys]);
-  const answer = [];
+  // `pool` keeps each word's position fixed for the whole exercise — only
+  // `picked` (which pool slots are already used) changes, so tapping a word
+  // never reshuffles the ones still left in the bank.
+  const pool = shuffle([...target, ...decoys]);
+  const picked = new Array(pool.length).fill(false);
+  const answer = []; // indices into `pool`, in the order they were tapped
 
   root.innerHTML = `
     <div class="en-answer">${cleanEn(item.en)}</div>
@@ -680,20 +684,23 @@ function renderWordOrder(item) {
   const checkBtn = root.querySelector("#order-check-btn");
 
   function renderChips() {
-    bankEl.innerHTML = bank
-      .map((w, i) => `<button class="word-chip" type="button" data-side="bank" data-idx="${i}">${w}</button>`)
+    bankEl.innerHTML = pool
+      .map((w, i) => {
+        const cls = picked[i] ? "word-chip picked" : "word-chip";
+        return `<button class="${cls}" type="button" data-idx="${i}" ${picked[i] ? "disabled" : ""}>${w}</button>`;
+      })
       .join("");
     answerEl.innerHTML = answer
-      .map((w, i) => `<button class="word-chip in-answer" type="button" data-side="answer" data-idx="${i}">${w}</button>`)
+      .map((poolIdx, i) => `<button class="word-chip in-answer" type="button" data-idx="${i}">${pool[poolIdx]}</button>`)
       .join("");
     checkBtn.disabled = answer.length === 0;
 
-    bankEl.querySelectorAll(".word-chip").forEach((chip) => {
+    bankEl.querySelectorAll(".word-chip:not(.picked)").forEach((chip) => {
       chip.addEventListener("click", () => {
         if (exerciseDone) return;
         const idx = Number(chip.dataset.idx);
-        answer.push(bank[idx]);
-        bank.splice(idx, 1);
+        picked[idx] = true;
+        answer.push(idx);
         renderChips();
       });
     });
@@ -701,7 +708,7 @@ function renderWordOrder(item) {
       chip.addEventListener("click", () => {
         if (exerciseDone) return;
         const idx = Number(chip.dataset.idx);
-        bank.push(answer[idx]);
+        picked[answer[idx]] = false;
         answer.splice(idx, 1);
         renderChips();
       });
@@ -716,7 +723,7 @@ function renderWordOrder(item) {
   function checkOrder() {
     exerciseDone = true;
     checkBtn.disabled = true;
-    const correct = answer.join(" ") === target.join(" ");
+    const correct = answer.map((i) => pool[i]).join(" ") === target.join(" ");
     answerEl.classList.add(correct ? "correct" : "wrong");
     if (!correct) {
       answerEl.innerHTML = target
