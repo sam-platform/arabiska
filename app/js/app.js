@@ -371,10 +371,12 @@ async function startSession(user) {
 
 function renderDashboard() {
   const streak = computeStreak();
-  $("#dash-streak").textContent = streak > 0 ? `🔥 ${streak}` : "0";
+  const doneToday = !!state.dailyLog.set_completed;
+  $("#dash-streak").textContent = streak;
+  $("#dash-fire").classList.toggle("lit", doneToday);
   $("#dash-mastered").textContent = masteredCount();
   $("#dash-level").textContent = estimateLevel() || "New";
-  mountMascot("slot-dashboard", streak > 0 ? "happy" : "idle");
+  mountMascot("slot-dashboard", doneToday ? "happy" : "idle");
   show("dashboard");
 }
 
