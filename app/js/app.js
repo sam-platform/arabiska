@@ -355,7 +355,7 @@ async function startSession(user) {
     set_completed: false,
   };
 
-  state = { user, vocab, progressById, queue: [], dailyLog: { ...dailyLog }, logHistory, current: null };
+  state = { user, vocab, progressById, queue: [], dailyLog: { ...dailyLog }, logHistory, current: null, forcedType: {} };
 
   const resume = loadQueueState();
   if (resume) {
@@ -447,6 +447,11 @@ function shuffle(arr) {
 
 const root = $("#exercise-root");
 let exerciseDone = false; // guards against double-submit while feedback is showing
+// Which exercise type the card currently on screen was rendered as — recorded
+// so a wrong answer can force the *same* type on its requeued reappearance
+// (see the forcedType stash in submitRating()). Otherwise a hard word-order
+// miss could resurface as easy multiple-choice recognition instead.
+let currentExerciseType = null;
 
 function isWordOrderEligible(item) {
   const words = item.ar.trim().split(/\s+/);
@@ -553,7 +558,12 @@ async function nextCard() {
   $("#card-progress").textContent = `${state.queue.length} left`;
   mountMascot("slot-session", "idle");
 
-  if (!isNew && isWordOrderEligible(item) && Math.random() < 0.5) {
+  const forced = state.forcedType[item.id];
+  delete state.forcedType[item.id];
+  const useWordOrder = forced ? forced === "wordOrder" : !isNew && isWordOrderEligible(item) && Math.random() < 0.5;
+  currentExerciseType = useWordOrder ? "wordOrder" : "multipleChoice";
+
+  if (useWordOrder) {
     renderWordOrder(item);
   } else {
     renderMultipleChoice(item, isNew);
@@ -787,7 +797,10 @@ async function submitRating(rating) {
       last_result: rating,
       last_reviewed_at: new Date().toISOString(),
     };
-    if (result.requeue) state.queue.push(item);
+    if (result.requeue) {
+      state.queue.push(item);
+      state.forcedType[item.id] = currentExerciseType;
+    }
   }
   state.progressById[item.id] = row;
 
