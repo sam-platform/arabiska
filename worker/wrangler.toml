@@ -1,0 +1,16 @@
+name = "arabiska-reminder"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+kv_namespaces = [
+  { binding = "SUBS", id = "d54b05be63524dafb22b0f43f0920d2a" }
+]
+
+[triggers]
+crons = ["0 * * * *"]
+
+[vars]
+VAPID_PUBLIC_KEY = "BOzsjyY0y_jXzY4OvVIDOu-GepDrxTBl-qrq5nJDe4g-hImfS9ZuqxV4auYCDRIrwMwqugK79R9_oJPq0REwUUM"
+VAPID_SUBJECT = "https://sam-platform.github.io/arabiska/app/"
+SUPABASE_URL = "https://gdwvycndaqxydluvqdia.supabase.co"
+ALLOWED_ORIGIN = "https://sam-platform.github.io"

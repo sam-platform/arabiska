@@ -3,6 +3,11 @@
 
 const SUPABASE_URL = "https://gdwvycndaqxydluvqdia.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_PnGf7MRx1nBFcRKo0O4dPQ_L03B64vI";
+// Daily 21:00 Stockholm reminder — see worker/src/index.js for the send side.
+const REMINDER_WORKER_URL = "https://arabiska-reminder.samfarkhooi.workers.dev";
+const REMINDER_VAPID_PUBLIC_KEY = "BOzsjyY0y_jXzY4OvVIDOu-GepDrxTBl-qrq5nJDe4g-hImfS9ZuqxV4auYCDRIrwMwqugK79R9_oJPq0REwUUM";
+const REMINDER_SUBSCRIBE_SECRET = "9cKHgeJdVvQpELiV2kqdIlRajQfOiwom";
+const REMINDERS_KEY = "arabiska-reminders-enabled";
 // Total cards in a set (due reviews + new words) — the batch that has to be
 // finished for the day to "count" (see finishInitialSetIfPending()).
 const SET_SIZE = 10;
@@ -169,6 +174,61 @@ themeToggleBtn.addEventListener("click", () => {
 });
 
 applyTheme(document.documentElement.dataset.theme === "light" ? "light" : "dark");
+
+// ---------- Push reminders ----------
+//
+// A Cloudflare Worker (worker/src/index.js) sends one push at 21:00
+// Stockholm time on any day the set isn't done yet. This is just the
+// subscribe side: register the service worker, get a PushSubscription, and
+// hand it to the worker along with the signed-in user's id.
+
+function urlBase64ToUint8Array(base64url) {
+  const padding = "=".repeat((4 - (base64url.length % 4)) % 4);
+  const base64 = (base64url + padding).replace(/-/g, "+").replace(/_/g, "/");
+  const raw = atob(base64);
+  return Uint8Array.from([...raw].map((c) => c.charCodeAt(0)));
+}
+
+const remindersBtn = $("#enable-reminders-btn");
+
+function updateRemindersBtn() {
+  const enabled = localStorage.getItem(REMINDERS_KEY) === "1";
+  remindersBtn.textContent = enabled ? "🔔 Reminders on" : "🔔 Remind me if I forget";
+  remindersBtn.disabled = enabled;
+}
+
+async function enableReminders() {
+  try {
+    const registration = await navigator.serviceWorker.register("sw.js");
+    const permission = await Notification.requestPermission();
+    if (permission !== "granted") return;
+
+    const subscription = await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(REMINDER_VAPID_PUBLIC_KEY),
+    });
+
+    await fetch(`${REMINDER_WORKER_URL}/subscribe`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Subscribe-Secret": REMINDER_SUBSCRIBE_SECRET,
+      },
+      body: JSON.stringify({ subscription, userId: state.user.id }),
+    });
+
+    localStorage.setItem(REMINDERS_KEY, "1");
+    updateRemindersBtn();
+  } catch (e) {
+    console.error("enableReminders failed", e);
+  }
+}
+
+if ("serviceWorker" in navigator && "PushManager" in window) {
+  remindersBtn.hidden = false;
+  updateRemindersBtn();
+  remindersBtn.addEventListener("click", enableReminders);
+}
 
 function todayStr() {
   // local calendar day, not UTC
