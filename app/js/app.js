@@ -65,6 +65,10 @@ function masteredCount() {
   return Object.values(state.progressById).filter((p) => p.mastered).length;
 }
 
+function remainingCount() {
+  return state.vocab.length - masteredCount();
+}
+
 // A day only "counts" once the whole set is finished (see
 // finishInitialSetIfPending()) — answering one card isn't enough. Counts
 // backward from today; if today isn't finished yet (the day isn't over),
@@ -435,6 +439,7 @@ function renderDashboard() {
   $("#dash-streak").textContent = streak;
   $("#dash-fire").classList.toggle("lit", doneToday);
   $("#dash-mastered").textContent = masteredCount();
+  $("#dash-remaining").textContent = remainingCount();
   $("#dash-level").textContent = estimateLevel() || "New";
   mountMascot("slot-dashboard", doneToday ? "happy" : "idle");
   show("dashboard");

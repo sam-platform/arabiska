@@ -181,7 +181,8 @@
   .rate-mastered { background: var(--ink); }
 
   /* ---- dashboard ---- */
-  .dash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 4px; }
+  .dash-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 4px; }
+  @media (max-width: 420px) { .dash-stats { grid-template-columns: repeat(2, 1fr); } }
   .stat-card { background: var(--paper); border: 1px solid var(--stone); border-radius: 14px; padding: 16px 6px; }
   .stat-value { font-size: 22px; font-weight: 700; color: var(--terra); }
   .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
@@ -285,6 +286,10 @@
         <div class="stat-card">
           <div class="stat-value" id="dash-mastered">0</div>
           <div class="stat-label">mastered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="dash-remaining">0</div>
+          <div class="stat-label">remaining</div>
         </div>
         <div class="stat-card">
           <div class="stat-value" id="dash-level">—</div>
