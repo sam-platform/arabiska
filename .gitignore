@@ -5,3 +5,9 @@
 
 worker/node_modules
 worker/.wrangler
+
+# Local dev tooling, not app source.
+.agents/
+.claude/
+skills-lock.json
+facelift-screenshots/
