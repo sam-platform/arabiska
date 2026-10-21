@@ -517,6 +517,12 @@ let exerciseDone = false; // guards against double-submit while feedback is show
 // (see the forcedType stash in submitRating()). Otherwise a hard word-order
 // miss could resurface as easy multiple-choice recognition instead.
 let currentExerciseType = null;
+// Which way a multiple-choice card is quizzing: "ar2en" shows the Arabic and
+// asks for the English meaning (the original direction), "en2ar" shows the
+// English and asks to pick the matching Arabic. Randomized per card so both
+// directions of recognition get practiced; irrelevant for word order, which
+// is already English-shown/Arabic-built in one fixed direction.
+let currentDirection = null;
 
 function isWordOrderEligible(item) {
   const words = item.ar.trim().split(/\s+/);
@@ -588,6 +594,31 @@ function pickDistractors(item, count) {
   return picked;
 }
 
+// Same bucketed-by-length approach as pickDistractors, but for the reverse
+// (English shown, pick the matching Arabic) direction — decoys come from
+// other items' ar_full text instead of their cleaned English.
+function pickArabicDistractors(item, count) {
+  const correct = item.ar_full;
+  const targetBucket = lengthBucket(correct);
+  const candidates = state.vocab
+    .filter((v) => v.id !== item.id)
+    .map((v) => v.ar_full)
+    .filter((text) => text !== correct);
+  const matched = candidates.filter((text) => lengthBucket(text) === targetBucket);
+  const rest = candidates.filter((text) => lengthBucket(text) !== targetBucket);
+
+  const picked = [];
+  const used = new Set();
+  for (const text of [...shuffle(matched), ...shuffle(rest)]) {
+    if (picked.length >= count) break;
+    if (!used.has(text)) {
+      used.add(text);
+      picked.push(text);
+    }
+  }
+  return picked;
+}
+
 // Single-word decoys drawn from other items' Arabic, for the word-order bank
 // — otherwise the bank holds exactly the right words and ordering is the
 // only thing being tested, rather than also recognizing which words belong.
@@ -625,13 +656,14 @@ async function nextCard() {
 
   const forced = state.forcedType[item.id];
   delete state.forcedType[item.id];
-  const useWordOrder = forced ? forced === "wordOrder" : !isNew && isWordOrderEligible(item) && Math.random() < 0.5;
+  const useWordOrder = forced ? forced.type === "wordOrder" : !isNew && isWordOrderEligible(item) && Math.random() < 0.5;
   currentExerciseType = useWordOrder ? "wordOrder" : "multipleChoice";
+  currentDirection = forced && forced.direction ? forced.direction : Math.random() < 0.5 ? "ar2en" : "en2ar";
 
   if (useWordOrder) {
     renderWordOrder(item);
   } else {
-    renderMultipleChoice(item, isNew);
+    renderMultipleChoice(item, isNew, currentDirection);
   }
 
   show("session");
@@ -668,16 +700,22 @@ if ("speechSynthesis" in window) {
   speechSynthesis.addEventListener("voiceschanged", () => speechSynthesis.getVoices());
 }
 
-function renderMultipleChoice(item, isNew) {
-  const correctText = cleanEn(item.en);
-  const options = shuffle([correctText, ...pickDistractors(item, 3)]);
+function renderMultipleChoice(item, isNew, direction) {
+  const isReverse = direction === "en2ar";
+  const correctText = isReverse ? item.ar_full : cleanEn(item.en);
+  const distractors = isReverse ? pickArabicDistractors(item, 3) : pickDistractors(item, 3);
+  const options = shuffle([correctText, ...distractors]);
+  const optionClass = isReverse ? "mc-option ar-option" : "mc-option";
+  const promptHtml = isReverse
+    ? `<div class="en-answer">${cleanEn(item.en)}</div>`
+    : `<div class="ar-word" dir="rtl">${item.ar_full}</div>`;
 
   root.innerHTML = `
     ${isNew ? '<span class="new-badge">NEW</span>' : ""}
-    <div class="ar-word" dir="rtl">${item.ar_full}</div>
+    ${promptHtml}
     <button class="speak-btn" type="button" data-action="speak">🔊</button>
     <div class="mc-options">
-      ${options.map((opt) => `<button class="mc-option" type="button" data-text="${escapeAttr(opt)}">${opt}</button>`).join("")}
+      ${options.map((opt) => `<button class="${optionClass}" type="button" data-text="${escapeAttr(opt)}" ${isReverse ? 'dir="rtl"' : ""}>${opt}</button>`).join("")}
     </div>
   `;
   root.querySelector('[data-action="speak"]').addEventListener("click", () => speak(item.ar_full));
@@ -864,7 +902,7 @@ async function submitRating(rating) {
     };
     if (result.requeue) {
       state.queue.push(item);
-      state.forcedType[item.id] = currentExerciseType;
+      state.forcedType[item.id] = { type: currentExerciseType, direction: currentDirection };
     }
   }
   state.progressById[item.id] = row;
