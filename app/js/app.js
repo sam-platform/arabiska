@@ -113,7 +113,17 @@ function saveQueueState() {
   }
   localStorage.setItem(
     queueStorageKey(state.user.id),
-    JSON.stringify({ day: todayStr(), itemIds, initialSetPending: state.initialSetPending })
+    JSON.stringify({
+      day: todayStr(),
+      itemIds,
+      initialSetPending: state.initialSetPending,
+      // The in-progress card's own type/direction, so reopening mid-card (the
+      // process got killed in the background) doesn't reroll en2ar vs ar2en —
+      // that would let the still-fresh memory of the other direction give the
+      // answer away.
+      currentType: state.current ? currentExerciseType : null,
+      currentDirection: state.current ? currentDirection : null,
+    })
   );
 }
 
@@ -129,7 +139,14 @@ function loadQueueState() {
     if (saved.day !== todayStr()) return null;
     const byId = new Map(state.vocab.map((v) => [v.id, v]));
     const queue = saved.itemIds.map((id) => byId.get(id)).filter(Boolean);
-    return queue.length ? { queue, initialSetPending: !!saved.initialSetPending } : null;
+    return queue.length
+      ? {
+          queue,
+          initialSetPending: !!saved.initialSetPending,
+          currentType: saved.currentType || null,
+          currentDirection: saved.currentDirection || null,
+        }
+      : null;
   } catch {
     return null;
   }
@@ -425,6 +442,9 @@ async function startSession(user) {
   if (resume) {
     state.queue = resume.queue;
     state.initialSetPending = resume.initialSetPending;
+    if (resume.currentType) {
+      state.forcedType[resume.queue[0].id] = { type: resume.currentType, direction: resume.currentDirection };
+    }
     renderLevelBadge();
     nextCard();
     return;
@@ -572,51 +592,49 @@ function lengthBucket(text) {
   return n <= 2 ? "short" : n <= 5 ? "medium" : "long";
 }
 
-function pickDistractors(item, count) {
-  const correct = cleanEn(item.en);
+// Ranks decoy candidates into four tiers — same part of speech & same
+// length bucket first, down to neither matching — so an item's grammatical
+// shape (visibly an adjective, say) doesn't give away the answer by being
+// the only one of its kind among the options, on top of the existing
+// length-shape guard.
+function pickDecoys(item, count, textOf) {
+  const correct = textOf(item);
   const targetBucket = lengthBucket(correct);
   const candidates = state.vocab
     .filter((v) => v.id !== item.id)
-    .map((v) => cleanEn(v.en))
-    .filter((text) => text !== correct);
-  const matched = candidates.filter((text) => lengthBucket(text) === targetBucket);
-  const rest = candidates.filter((text) => lengthBucket(text) !== targetBucket);
+    .map((v) => ({ text: textOf(v), pos: v.pos }))
+    .filter((c) => c.text !== correct);
+
+  const tiers = [
+    candidates.filter((c) => c.pos === item.pos && lengthBucket(c.text) === targetBucket),
+    candidates.filter((c) => c.pos === item.pos && lengthBucket(c.text) !== targetBucket),
+    candidates.filter((c) => c.pos !== item.pos && lengthBucket(c.text) === targetBucket),
+    candidates.filter((c) => c.pos !== item.pos && lengthBucket(c.text) !== targetBucket),
+  ];
 
   const picked = [];
   const used = new Set();
-  for (const text of [...shuffle(matched), ...shuffle(rest)]) {
-    if (picked.length >= count) break;
-    if (!used.has(text)) {
-      used.add(text);
-      picked.push(text);
+  for (const tier of tiers) {
+    for (const { text } of shuffle(tier)) {
+      if (picked.length >= count) break;
+      if (!used.has(text)) {
+        used.add(text);
+        picked.push(text);
+      }
     }
   }
   return picked;
 }
 
-// Same bucketed-by-length approach as pickDistractors, but for the reverse
-// (English shown, pick the matching Arabic) direction — decoys come from
-// other items' ar_full text instead of their cleaned English.
-function pickArabicDistractors(item, count) {
-  const correct = item.ar_full;
-  const targetBucket = lengthBucket(correct);
-  const candidates = state.vocab
-    .filter((v) => v.id !== item.id)
-    .map((v) => v.ar_full)
-    .filter((text) => text !== correct);
-  const matched = candidates.filter((text) => lengthBucket(text) === targetBucket);
-  const rest = candidates.filter((text) => lengthBucket(text) !== targetBucket);
+function pickDistractors(item, count) {
+  return pickDecoys(item, count, (v) => cleanEn(v.en));
+}
 
-  const picked = [];
-  const used = new Set();
-  for (const text of [...shuffle(matched), ...shuffle(rest)]) {
-    if (picked.length >= count) break;
-    if (!used.has(text)) {
-      used.add(text);
-      picked.push(text);
-    }
-  }
-  return picked;
+// Same approach as pickDistractors, but for the reverse (English shown,
+// pick the matching Arabic) direction — decoys come from other items'
+// ar_full text instead of their cleaned English.
+function pickArabicDistractors(item, count) {
+  return pickDecoys(item, count, (v) => v.ar_full);
 }
 
 // Single-word decoys drawn from other items' Arabic, for the word-order bank
@@ -645,7 +663,6 @@ async function nextCard() {
     return;
   }
   state.current = state.queue.shift();
-  saveQueueState();
   exerciseDone = false;
   const item = state.current;
   const isNew = !state.progressById[item.id];
@@ -659,6 +676,7 @@ async function nextCard() {
   const useWordOrder = forced ? forced.type === "wordOrder" : !isNew && isWordOrderEligible(item) && Math.random() < 0.5;
   currentExerciseType = useWordOrder ? "wordOrder" : "multipleChoice";
   currentDirection = forced && forced.direction ? forced.direction : Math.random() < 0.5 ? "ar2en" : "en2ar";
+  saveQueueState();
 
   if (useWordOrder) {
     renderWordOrder(item);

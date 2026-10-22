@@ -8,7 +8,8 @@
     "ar": "مرحبا",
     "ar_full": "مرحبا",
     "translit": "mar7aba",
-    "en": "hello"
+    "en": "hello",
+    "pos": "phrase"
   },
   {
     "id": "x-004",
@@ -19,7 +20,8 @@
     "ar": "أهلا وسهلا",
     "ar_full": "أهلا وسهلا",
     "translit": "ahlan wa sahla",
-    "en": "welcome"
+    "en": "welcome",
+    "pos": "phrase"
   },
   {
     "id": "x-005",
@@ -30,7 +32,8 @@
     "ar": "صباح الخير",
     "ar_full": "صباح الخير",
     "translit": "saba7 il-5eir",
-    "en": "good morning"
+    "en": "good morning",
+    "pos": "phrase"
   },
   {
     "id": "x-006",
@@ -41,7 +44,8 @@
     "ar": "مسا الخير",
     "ar_full": "مسا الخير",
     "translit": "masa il-5eir",
-    "en": "good evening"
+    "en": "good evening",
+    "pos": "phrase"
   },
   {
     "id": "x-007",
@@ -52,7 +56,8 @@
     "ar": "تصبح على خير",
     "ar_full": "تصبح على خير",
     "translit": "tisba7 3ala 5eir",
-    "en": "good night (said to one person, m.)"
+    "en": "good night (said to one person, m.)",
+    "pos": "phrase"
   },
   {
     "id": "x-008",
@@ -63,7 +68,8 @@
     "ar": "مع السلامة",
     "ar_full": "مع السلامة",
     "translit": "ma3 is-salaame",
-    "en": "goodbye, safe travels"
+    "en": "goodbye, safe travels",
+    "pos": "phrase"
   },
   {
     "id": "x-009",
@@ -74,7 +80,8 @@
     "ar": "الله معك",
     "ar_full": "الله معك",
     "translit": "alla ma3ak",
-    "en": "God be with you (said when someone's leaving)"
+    "en": "God be with you (said when someone's leaving)",
+    "pos": "phrase"
   },
   {
     "id": "x-010",
@@ -85,7 +92,8 @@
     "ar": "ما شاء الله",
     "ar_full": "ما شاء الله",
     "translit": "masha2alla",
-    "en": "wow! (admiring something — also said to ward off envy/the evil eye)"
+    "en": "wow! (admiring something — also said to ward off envy/the evil eye)",
+    "pos": "phrase"
   },
   {
     "id": "x-011",
@@ -96,7 +104,8 @@
     "ar": "الله يعطيك العافية",
     "ar_full": "الله يعطيك العافية",
     "translit": "alla y3tiik il-3afye",
-    "en": "thank you for your work/effort (said to someone who just did something for you)"
+    "en": "thank you for your work/effort (said to someone who just did something for you)",
+    "pos": "phrase"
   },
   {
     "id": "x-012",
@@ -107,7 +116,8 @@
     "ar": "صحتين",
     "ar_full": "صحتين",
     "translit": "sa7tein",
-    "en": "enjoy! (said to someone eating, or after a haircut/shower)"
+    "en": "enjoy! (said to someone eating, or after a haircut/shower)",
+    "pos": "phrase"
   },
   {
     "id": "x-013",
@@ -118,7 +128,8 @@
     "ar": "والله",
     "ar_full": "والله",
     "translit": "walla",
-    "en": "I swear, seriously (filler for emphasis)"
+    "en": "I swear, seriously (filler for emphasis)",
+    "pos": "phrase"
   },
   {
     "id": "x-014",
@@ -129,7 +140,8 @@
     "ar": "يعني",
     "ar_full": "يعني",
     "translit": "ya3ni",
-    "en": "I mean, like (filler word)"
+    "en": "I mean, like (filler word)",
+    "pos": "phrase"
   },
   {
     "id": "x-015",
@@ -140,7 +152,8 @@
     "ar": "خلص",
     "ar_full": "خلص",
     "translit": "5alas",
-    "en": "enough, that's it, done"
+    "en": "enough, that's it, done",
+    "pos": "phrase"
   },
   {
     "id": "x-016",
@@ -151,7 +164,8 @@
     "ar": "طيب",
     "ar_full": "طيب",
     "translit": "tayyib",
-    "en": "ok, alright"
+    "en": "ok, alright",
+    "pos": "phrase"
   },
   {
     "id": "x-017",
@@ -162,7 +176,8 @@
     "ar": "مش معقول",
     "ar_full": "مش معقول",
     "translit": "mish ma3ool",
-    "en": "no way! unbelievable"
+    "en": "no way! unbelievable",
+    "pos": "phrase"
   },
   {
     "id": "x-018",
@@ -173,7 +188,8 @@
     "ar": "الله يخليك",
     "ar_full": "الله يخليك",
     "translit": "alla ykhalliik",
-    "en": "please (polite request, lit. \"God keep you\")"
+    "en": "please (polite request, lit. \"God keep you\")",
+    "pos": "phrase"
   },
   {
     "id": "x-019",
@@ -184,7 +200,8 @@
     "ar": "هلأ",
     "ar_full": "هلأ",
     "translit": "hala2",
-    "en": "now"
+    "en": "now",
+    "pos": "adverb"
   },
   {
     "id": "x-020",
@@ -195,7 +212,8 @@
     "ar": "امبارح",
     "ar_full": "امبارح",
     "translit": "imbaare7",
-    "en": "yesterday"
+    "en": "yesterday",
+    "pos": "adverb"
   },
   {
     "id": "x-021",
@@ -206,7 +224,8 @@
     "ar": "دغري",
     "ar_full": "دغري",
     "translit": "dighri",
-    "en": "straight ahead, directly"
+    "en": "straight ahead, directly",
+    "pos": "adverb"
   },
   {
     "id": "x-022",
@@ -217,7 +236,8 @@
     "ar": "شو هالحكي؟",
     "ar_full": "شو هالحكي؟",
     "translit": "shu hal-7aki?",
-    "en": "what's with this talk? (expressing disbelief at what was just said)"
+    "en": "what's with this talk? (expressing disbelief at what was just said)",
+    "pos": "phrase"
   },
   {
     "id": "x-023",
@@ -228,7 +248,8 @@
     "ar": "ماشي الحال",
     "ar_full": "ماشي الحال",
     "translit": "maashi l-7aal",
-    "en": "so-so, getting by (response to \"how are you\")"
+    "en": "so-so, getting by (response to \"how are you\")",
+    "pos": "phrase"
   },
   {
     "id": "x-024",
@@ -239,7 +260,8 @@
     "ar": "الحمدلله",
     "ar_full": "الحمدلله",
     "translit": "il-7amdilla",
-    "en": "thank God (also just means \"I'm fine\" as a response to how-are-you)"
+    "en": "thank God (also just means \"I'm fine\" as a response to how-are-you)",
+    "pos": "phrase"
   },
   {
     "id": "x-025",
@@ -250,7 +272,8 @@
     "ar": "اللي فات مات",
     "ar_full": "اللي فات مات",
     "translit": "illi faat maat",
-    "en": "what's past is dead — let bygones be bygones, don't dwell on the past"
+    "en": "what's past is dead — let bygones be bygones, don't dwell on the past",
+    "pos": "phrase"
   },
   {
     "id": "x-026",
@@ -261,7 +284,8 @@
     "ar": "القرد بعين امه غزال",
     "ar_full": "القرد بعين امه غزال",
     "translit": "il-2ird b3ein immo ghazaal",
-    "en": "parents see their own kids as perfect (lit. \"to its mother, a monkey looks like a gazelle\")"
+    "en": "parents see their own kids as perfect (lit. \"to its mother, a monkey looks like a gazelle\")",
+    "pos": "phrase"
   },
   {
     "id": "x-027",
@@ -272,7 +296,8 @@
     "ar": "كل شي بوقته حلو",
     "ar_full": "كل شي بوقته حلو",
     "translit": "kill shi b-wa2to 7ilu",
-    "en": "everything is nice in its own time — a call for patience"
+    "en": "everything is nice in its own time — a call for patience",
+    "pos": "phrase"
   },
   {
     "id": "x-028",
@@ -283,7 +308,8 @@
     "ar": "تعبان",
     "ar_full": "تعبان · f. تعبانة",
     "translit": "ta3baan",
-    "en": "tired"
+    "en": "tired",
+    "pos": "adjective"
   },
   {
     "id": "x-029",
@@ -294,7 +320,8 @@
     "ar": "فرحان",
     "ar_full": "فرحان · f. فرحانة",
     "translit": "far7aan",
-    "en": "happy"
+    "en": "happy",
+    "pos": "adjective"
   },
   {
     "id": "x-030",
@@ -305,7 +332,8 @@
     "ar": "زعلان",
     "ar_full": "زعلان · f. زعلانة",
     "translit": "za3laan",
-    "en": "upset, sad"
+    "en": "upset, sad",
+    "pos": "adjective"
   },
   {
     "id": "x-031",
@@ -316,7 +344,8 @@
     "ar": "جوعان",
     "ar_full": "جوعان · f. جوعانة",
     "translit": "jaw3aan",
-    "en": "hungry"
+    "en": "hungry",
+    "pos": "adjective"
   },
   {
     "id": "x-032",
@@ -327,7 +356,8 @@
     "ar": "عطشان",
     "ar_full": "عطشان · f. عطشانة",
     "translit": "3atshaan",
-    "en": "thirsty"
+    "en": "thirsty",
+    "pos": "adjective"
   },
   {
     "id": "x-033",
@@ -338,7 +368,8 @@
     "ar": "متأكد",
     "ar_full": "متأكد · f. متأكدة",
     "translit": "mit2akkid",
-    "en": "sure, certain"
+    "en": "sure, certain",
+    "pos": "adjective"
   },
   {
     "id": "x-034",
@@ -349,7 +380,8 @@
     "ar": "صعب",
     "ar_full": "صعب",
     "translit": "sa3b",
-    "en": "hard, difficult"
+    "en": "hard, difficult",
+    "pos": "adjective"
   },
   {
     "id": "x-035",
@@ -360,7 +392,8 @@
     "ar": "سهل",
     "ar_full": "سهل",
     "translit": "sahil",
-    "en": "easy"
+    "en": "easy",
+    "pos": "adjective"
   },
   {
     "id": "x-036",
@@ -371,7 +404,8 @@
     "ar": "بعدين",
     "ar_full": "بعدين",
     "translit": "ba3dein",
-    "en": "afterwards, later"
+    "en": "afterwards, later",
+    "pos": "adverb"
   },
   {
     "id": "x-037",
@@ -382,7 +416,8 @@
     "ar": "قبل",
     "ar_full": "قبل",
     "translit": "2abl",
-    "en": "before"
+    "en": "before",
+    "pos": "function"
   },
   {
     "id": "x-038",
@@ -393,7 +428,8 @@
     "ar": "دايما",
     "ar_full": "دايما",
     "translit": "daayman",
-    "en": "always"
+    "en": "always",
+    "pos": "adverb"
   },
   {
     "id": "x-039",
@@ -404,7 +440,8 @@
     "ar": "أبدا",
     "ar_full": "أبدا",
     "translit": "abadan",
-    "en": "never"
+    "en": "never",
+    "pos": "adverb"
   },
   {
     "id": "x-040",
@@ -415,7 +452,8 @@
     "ar": "واحد",
     "ar_full": "واحد · f. وحدة",
     "translit": "wa7ad",
-    "en": "one"
+    "en": "one",
+    "pos": "function"
   },
   {
     "id": "x-041",
@@ -426,7 +464,8 @@
     "ar": "تنين",
     "ar_full": "تنين",
     "translit": "tnein",
-    "en": "two"
+    "en": "two",
+    "pos": "function"
   },
   {
     "id": "x-042",
@@ -437,7 +476,8 @@
     "ar": "تلاتة",
     "ar_full": "تلاتة",
     "translit": "tlaate",
-    "en": "three"
+    "en": "three",
+    "pos": "function"
   },
   {
     "id": "x-043",
@@ -448,7 +488,8 @@
     "ar": "عشرة",
     "ar_full": "عشرة",
     "translit": "3ashara",
-    "en": "ten"
+    "en": "ten",
+    "pos": "function"
   },
   {
     "id": "x-044",
@@ -459,7 +500,8 @@
     "ar": "بعرف",
     "ar_full": "بعرف",
     "translit": "ba3rif",
-    "en": "I know"
+    "en": "I know",
+    "pos": "verb"
   },
   {
     "id": "x-045",
@@ -470,7 +512,8 @@
     "ar": "بفهم",
     "ar_full": "بفهم",
     "translit": "bifham",
-    "en": "I understand"
+    "en": "I understand",
+    "pos": "verb"
   },
   {
     "id": "x-046",
@@ -481,7 +524,8 @@
     "ar": "بحب",
     "ar_full": "بحب",
     "translit": "bi7ibb",
-    "en": "I love, I like"
+    "en": "I love, I like",
+    "pos": "verb"
   },
   {
     "id": "x-047",
@@ -492,7 +536,8 @@
     "ar": "بكره",
     "ar_full": "بكره",
     "translit": "bikrah",
-    "en": "I hate"
+    "en": "I hate",
+    "pos": "verb"
   },
   {
     "id": "x-048",
@@ -503,7 +548,8 @@
     "ar": "بنسى",
     "ar_full": "بنسى",
     "translit": "binsa",
-    "en": "I forget"
+    "en": "I forget",
+    "pos": "verb"
   },
   {
     "id": "x-049",
@@ -514,7 +560,8 @@
     "ar": "يا ربي",
     "ar_full": "يا ربي",
     "translit": "ya rabbi",
-    "en": "oh my God, oh Lord (exclamation of worry, surprise, or exasperation)"
+    "en": "oh my God, oh Lord (exclamation of worry, surprise, or exasperation)",
+    "pos": "phrase"
   },
   {
     "id": "x-050",
@@ -525,7 +572,8 @@
     "ar": "الله يرحمه",
     "ar_full": "الله يرحمه",
     "translit": "alla yir7amo",
-    "en": "may God have mercy on him (said after mentioning someone who has died)"
+    "en": "may God have mercy on him (said after mentioning someone who has died)",
+    "pos": "phrase"
   },
   {
     "id": "x-051",
@@ -536,7 +584,8 @@
     "ar": "عقبالك",
     "ar_full": "عقبالك",
     "translit": "3u2baalak",
-    "en": "may it be your turn next (said to someone at a wedding or celebration)"
+    "en": "may it be your turn next (said to someone at a wedding or celebration)",
+    "pos": "phrase"
   },
   {
     "id": "x-052",
@@ -547,7 +596,8 @@
     "ar": "شو في؟",
     "ar_full": "شو في؟",
     "translit": "shu fi?",
-    "en": "what's up, what's going on"
+    "en": "what's up, what's going on",
+    "pos": "phrase"
   },
   {
     "id": "x-053",
@@ -558,7 +608,8 @@
     "ar": "ما في شي",
     "ar_full": "ما في شي",
     "translit": "maa fi shi",
-    "en": "it's nothing, nothing's wrong"
+    "en": "it's nothing, nothing's wrong",
+    "pos": "phrase"
   },
   {
     "id": "x-054",
@@ -569,7 +620,8 @@
     "ar": "خير ان شاء الله",
     "ar_full": "خير ان شاء الله",
     "translit": "5eir inshalla",
-    "en": "I hope it's good news (said when someone looks worried, or gets a sudden call)"
+    "en": "I hope it's good news (said when someone looks worried, or gets a sudden call)",
+    "pos": "phrase"
   },
   {
     "id": "x-055",
@@ -580,7 +632,8 @@
     "ar": "عادي",
     "ar_full": "عادي",
     "translit": "3aadi",
-    "en": "normal, no big deal"
+    "en": "normal, no big deal",
+    "pos": "adjective"
   },
   {
     "id": "x-056",
@@ -591,7 +644,8 @@
     "ar": "ولو",
     "ar_full": "ولو",
     "translit": "walaw",
-    "en": "don't mention it, no problem at all (dismissing thanks)"
+    "en": "don't mention it, no problem at all (dismissing thanks)",
+    "pos": "phrase"
   },
   {
     "id": "x-057",
@@ -602,7 +656,8 @@
     "ar": "الجار قبل الدار",
     "ar_full": "الجار قبل الدار",
     "translit": "ij-jaar 2abl id-daar",
-    "en": "good neighbors matter more than the house itself (lit. \"the neighbor before the house\")"
+    "en": "good neighbors matter more than the house itself (lit. \"the neighbor before the house\")",
+    "pos": "phrase"
   },
   {
     "id": "x-058",
@@ -613,7 +668,8 @@
     "ar": "الصبر مفتاح الفرج",
     "ar_full": "الصبر مفتاح الفرج",
     "translit": "is-sabr muftaa7 il-faraj",
-    "en": "patience is the key to relief"
+    "en": "patience is the key to relief",
+    "pos": "phrase"
   },
   {
     "id": "x-059",
@@ -624,7 +680,8 @@
     "ar": "حرقت دمي",
     "ar_full": "حرقت دمي",
     "translit": "7ara2it damee",
-    "en": "you really annoyed/frustrated me (lit. \"you burned my blood\")"
+    "en": "you really annoyed/frustrated me (lit. \"you burned my blood\")",
+    "pos": "phrase"
   },
   {
     "id": "x-060",
@@ -635,7 +692,8 @@
     "ar": "بدي موت",
     "ar_full": "بدي موت",
     "translit": "biddi moot",
-    "en": "I'm so done / so embarrassed / exhausted (lit. \"I want to die\", exaggerated for effect, not literal)"
+    "en": "I'm so done / so embarrassed / exhausted (lit. \"I want to die\", exaggerated for effect, not literal)",
+    "pos": "phrase"
   },
   {
     "id": "x-061",
@@ -646,7 +704,8 @@
     "ar": "قرفان",
     "ar_full": "قرفان · f. قرفانة",
     "translit": "2arfaan",
-    "en": "fed up, disgusted"
+    "en": "fed up, disgusted",
+    "pos": "adjective"
   },
   {
     "id": "x-062",
@@ -657,7 +716,8 @@
     "ar": "جبتلي دقة قلب",
     "ar_full": "جبتلي دقة قلب",
     "translit": "jibitli da22et 2alb",
-    "en": "you scared me (lit. \"you gave me a heart attack\")"
+    "en": "you scared me (lit. \"you gave me a heart attack\")",
+    "pos": "phrase"
   },
   {
     "id": "x-063",
@@ -668,7 +728,8 @@
     "ar": "يا نهاري الأسود",
     "ar_full": "يا نهاري الأسود",
     "translit": "ya nahaari il-iswad",
-    "en": "what a terrible day (lit. \"oh my black day\") — exclamation of distress or bad luck"
+    "en": "what a terrible day (lit. \"oh my black day\") — exclamation of distress or bad luck",
+    "pos": "phrase"
   },
   {
     "id": "x-064",
@@ -679,7 +740,8 @@
     "ar": "مش قادر",
     "ar_full": "مش قادر · f. مش قادرة",
     "translit": "mish 2aadir",
-    "en": "I can't take it anymore"
+    "en": "I can't take it anymore",
+    "pos": "phrase"
   },
   {
     "id": "x-065",
@@ -690,7 +752,8 @@
     "ar": "لسانك طويل",
     "ar_full": "لسانك طويل",
     "translit": "lsaanak taweel",
-    "en": "you talk too much / you're being disrespectful (lit. \"your tongue is long\")"
+    "en": "you talk too much / you're being disrespectful (lit. \"your tongue is long\")",
+    "pos": "phrase"
   },
   {
     "id": "x-066",
@@ -701,7 +764,8 @@
     "ar": "خلص فكي",
     "ar_full": "خلص فكي",
     "translit": "5alas fakki",
-    "en": "enough, stop talking (lit. \"enough, your jaw\")"
+    "en": "enough, stop talking (lit. \"enough, your jaw\")",
+    "pos": "phrase"
   },
   {
     "id": "x-067",
@@ -712,7 +776,8 @@
     "ar": "طفشان",
     "ar_full": "طفشان · f. طفشانة",
     "translit": "tafshaan",
-    "en": "bored out of my mind"
+    "en": "bored out of my mind",
+    "pos": "adjective"
   },
   {
     "id": "x-068",
@@ -723,7 +788,8 @@
     "ar": "مصيبة",
     "ar_full": "مصيبة",
     "translit": "museebe",
-    "en": "disaster! what a mess!"
+    "en": "disaster! what a mess!",
+    "pos": "phrase"
   },
   {
     "id": "x-069",
@@ -734,7 +800,8 @@
     "ar": "يا خرابي",
     "ar_full": "يا خرابي",
     "translit": "ya 5araabi",
-    "en": "oh no, I'm ruined (exclamation of distress or exasperation)"
+    "en": "oh no, I'm ruined (exclamation of distress or exasperation)",
+    "pos": "phrase"
   },
   {
     "id": "x-070",
@@ -745,7 +812,8 @@
     "ar": "دماغي راحت",
     "ar_full": "دماغي راحت",
     "translit": "dmaaghi raa7et",
-    "en": "I can't think straight, I'm losing it (lit. \"my mind is gone\")"
+    "en": "I can't think straight, I'm losing it (lit. \"my mind is gone\")",
+    "pos": "phrase"
   },
   {
     "id": "x-073",
@@ -756,7 +824,8 @@
     "ar": "يوم ديك ولا عشرة فرخة",
     "ar_full": "يوم ديك ولا عشرة فرخة",
     "translit": "yoom deek wala 3ashara farkha",
-    "en": "one day as a rooster beats ten as a hen — dignity and independence over a long life of submission"
+    "en": "one day as a rooster beats ten as a hen — dignity and independence over a long life of submission",
+    "pos": "phrase"
   },
   {
     "id": "x-074",
@@ -767,7 +836,8 @@
     "ar": "إيد لحالها ما بتصفق",
     "ar_full": "إيد لحالها ما بتصفق",
     "translit": "eed la-7aala ma btsaffe2",
-    "en": "one hand alone can't clap — you need others to get things done"
+    "en": "one hand alone can't clap — you need others to get things done",
+    "pos": "phrase"
   },
   {
     "id": "x-075",
@@ -778,7 +848,8 @@
     "ar": "الحمل إذا تفرق بنشال",
     "ar_full": "الحمل إذا تفرق بنشال",
     "translit": "il-7iml iza tfarra2 binshaal",
-    "en": "a burden shared is a burden carried (lit. \"a load, once split up, gets lifted\")"
+    "en": "a burden shared is a burden carried (lit. \"a load, once split up, gets lifted\")",
+    "pos": "phrase"
   },
   {
     "id": "x-076",
@@ -789,7 +860,8 @@
     "ar": "البعيد عن العين بعيد عن القلب",
     "ar_full": "البعيد عن العين بعيد عن القلب",
     "translit": "il-b3eed 3an il-3ein b3eed 3an il-2alb",
-    "en": "out of sight, out of mind"
+    "en": "out of sight, out of mind",
+    "pos": "phrase"
   },
   {
     "id": "x-077",
@@ -800,7 +872,8 @@
     "ar": "اضرب الحديد وهو حامي",
     "ar_full": "اضرب الحديد وهو حامي",
     "translit": "idrib il-7adeed w huwwe 7aami",
-    "en": "strike the iron while it's hot — seize the opportunity now"
+    "en": "strike the iron while it's hot — seize the opportunity now",
+    "pos": "phrase"
   },
   {
     "id": "x-078",
@@ -811,7 +884,8 @@
     "ar": "كثر العتاب بفرق الاحباب",
     "ar_full": "كثر العتاب بفرق الاحباب",
     "translit": "kutr il-3itaab bifarri2 il-a7baab",
-    "en": "too much nagging/blame drives loved ones apart"
+    "en": "too much nagging/blame drives loved ones apart",
+    "pos": "phrase"
   },
   {
     "id": "x-079",
@@ -822,7 +896,8 @@
     "ar": "الصلح سيد الاحكام",
     "ar_full": "الصلح سيد الاحكام",
     "translit": "is-sul7 sayyid il-a7kaam",
-    "en": "making peace beats any judgment — reconciliation is best"
+    "en": "making peace beats any judgment — reconciliation is best",
+    "pos": "phrase"
   },
   {
     "id": "x-080",
@@ -833,7 +908,8 @@
     "ar": "من هاب خاب",
     "ar_full": "من هاب خاب",
     "translit": "min haab 5aab",
-    "en": "whoever is too afraid, fails — fortune favors the bold"
+    "en": "whoever is too afraid, fails — fortune favors the bold",
+    "pos": "phrase"
   },
   {
     "id": "x-081",
@@ -844,7 +920,8 @@
     "ar": "كل طلعة ووراها نزلة",
     "ar_full": "كل طلعة ووراها نزلة",
     "translit": "kill tal3a w-waraaha nazle",
-    "en": "every rise is followed by a fall — things that go up must come down (said both as caution and as comfort during hard times)"
+    "en": "every rise is followed by a fall — things that go up must come down (said both as caution and as comfort during hard times)",
+    "pos": "phrase"
   },
   {
     "id": "x-082",
@@ -855,6 +932,7 @@
     "ar": "رغيف في رغيف ولا يبات جارك جعان",
     "ar_full": "رغيف في رغيف ولا يبات جارك جعان",
     "translit": "ra8eef fi ra8eef wala ybaat jaarak ja3aan",
-    "en": "don't let your neighbor go hungry (lit. \"share your bread\")"
+    "en": "don't let your neighbor go hungry (lit. \"share your bread\")",
+    "pos": "phrase"
   }
 ]
