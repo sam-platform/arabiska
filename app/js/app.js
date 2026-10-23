@@ -560,9 +560,22 @@ function cleanEn(en) {
   // wlaad"), usage asides ("· also 'for ages'"), and idiom explanations
   // ("— let bygones be bygones...") alike. Keeping those in would make the
   // multiple-choice option needlessly long and, for idioms especially, an
-  // obvious giveaway next to short single-word distractors.
-  const segments = clean.split(/ · | — /);
-  if (segments.length > 1) clean = segments[0];
+  // obvious giveaway next to short single-word distractors. Only split at
+  // depth 0 — a few asides use the same dash inside their own parens (e.g.
+  // "yoghurt (in the Levant — not milk)"), and splitting there would cut off
+  // mid-parenthesis and leave an unclosed "(".
+  const sepMatch = clean.match(/ · | — /);
+  if (sepMatch) {
+    let depth = 0;
+    for (let i = 0; i < clean.length; i++) {
+      if (clean[i] === "(") depth++;
+      else if (clean[i] === ")") depth = Math.max(0, depth - 1);
+      else if (depth === 0 && (clean.startsWith(" · ", i) || clean.startsWith(" — ", i))) {
+        clean = clean.slice(0, i);
+        break;
+      }
+    }
+  }
   // Parenthetical asides go — grammar markers, usage notes — except a
   // "lit. ..." literal-translation gloss, worth keeping on its own even when
   // the rest of the same parens is filler (e.g. "(polite request, lit. \"God
