@@ -592,6 +592,49 @@ function lengthBucket(text) {
   return n <= 2 ? "short" : n <= 5 ? "medium" : "long";
 }
 
+// Whether the correct answer is in definite ("the x" / "ال‑x") form is
+// otherwise a free tell: a decoy in the other form stands out by shape
+// alone, without needing to know any Arabic or English. Normalize every
+// decoy to match the correct answer's definiteness before it's offered.
+function hasDefiniteArticle(text) {
+  return /^ال/.test(text) || /^the\s+/i.test(text);
+}
+function withDefiniteArticle(text) {
+  if (hasDefiniteArticle(text)) return text;
+  return /[؀-ۿ]/.test(text) ? "ال" + text : "the " + text;
+}
+function withoutDefiniteArticle(text) {
+  if (/^ال/.test(text)) return text.slice(2);
+  if (/^the\s+/i.test(text)) return text.replace(/^the\s+/i, "");
+  return text;
+}
+function matchDefiniteness(text, correct) {
+  return hasDefiniteArticle(correct) ? withDefiniteArticle(text) : withoutDefiniteArticle(text);
+}
+
+// Same tell, different shape: a handful of items are imperatives ("get up!")
+// or questions ("what do you want?") and keep that trailing mark in their
+// option text, while almost everything else doesn't — so the mark alone
+// would single out the correct option. Normalize decoys to match.
+function stripTrailingMark(text) {
+  return text.replace(/[!؟?]+\s*$/, "").replace(/\s+$/, "");
+}
+function trailingMarkClass(text) {
+  if (/!\s*$/.test(text)) return "bang";
+  if (/[؟?]\s*$/.test(text)) return "question";
+  return null;
+}
+function matchTrailingMark(text, correct) {
+  const cls = trailingMarkClass(correct);
+  const base = stripTrailingMark(text);
+  if (!cls) return base;
+  if (cls === "bang") return base + "!";
+  return /[؀-ۿ]/.test(base) ? base + "؟" : base + "?";
+}
+function matchDecoyShape(text, correct) {
+  return matchTrailingMark(matchDefiniteness(text, correct), correct);
+}
+
 // Ranks decoy candidates into four tiers — same part of speech & same
 // length bucket first, down to neither matching — so an item's grammatical
 // shape (visibly an adjective, say) doesn't give away the answer by being
@@ -602,7 +645,7 @@ function pickDecoys(item, count, textOf) {
   const targetBucket = lengthBucket(correct);
   const candidates = state.vocab
     .filter((v) => v.id !== item.id)
-    .map((v) => ({ text: textOf(v), pos: v.pos }))
+    .map((v) => ({ text: matchDecoyShape(textOf(v), correct), pos: v.pos }))
     .filter((c) => c.text !== correct);
 
   const tiers = [
