@@ -526,7 +526,7 @@
     "ar": "وينك؟",
     "ar_full": "وينك؟",
     "translit": "weenek?",
-    "en": "where are you? (f.) · m. ⁦وينك⁩ weenak",
+    "en": "where are you? (f) · m. ⁦وينك⁩ weenak",
     "pos": "function"
   },
   {
@@ -606,7 +606,7 @@
     "ar": "شفتي؟",
     "ar_full": "شفتي؟",
     "translit": "shufti?",
-    "en": "did you see? (f.) · m. ⁦شفت⁩ shuft",
+    "en": "did you see? (f) · m. ⁦شفت⁩ shuft",
     "pos": "verb"
   },
   {
@@ -886,7 +886,7 @@
     "ar": "ـكم",
     "ar_full": "ـكم",
     "translit": "-kom",
-    "en": "your / you (pl.) — ⁦بيتكم⁩ beetkom your house",
+    "en": "your / you (p) — ⁦بيتكم⁩ beetkom your house",
     "pos": "function"
   },
   {
@@ -1116,7 +1116,7 @@
     "ar": "عملتلكم",
     "ar_full": "عملتلكم",
     "translit": "3amaltilkom",
-    "en": "I made for you (pl.)",
+    "en": "I made for you (p)",
     "pos": "verb"
   },
   {
@@ -1426,7 +1426,7 @@
     "ar": "تأخرتوا",
     "ar_full": "تأخرتوا",
     "translit": "t2a55artu",
-    "en": "you (pl.) are late",
+    "en": "you (p) are late",
     "pos": "verb"
   },
   {
@@ -1486,7 +1486,7 @@
     "ar": "لعبت",
     "ar_full": "لعبت",
     "translit": "li3ibt",
-    "en": "I played / you (m.) played",
+    "en": "I played / you played",
     "pos": "verb"
   },
   {
@@ -1496,7 +1496,7 @@
     "ar": "لعبتي",
     "ar_full": "لعبتي",
     "translit": "li3ibti",
-    "en": "you (f.) played",
+    "en": "you (f) played",
     "pos": "verb"
   },
   {
@@ -1526,7 +1526,7 @@
     "ar": "لعبتوا",
     "ar_full": "لعبتوا",
     "translit": "li3ibtu",
-    "en": "you (pl.) played",
+    "en": "you (p) played",
     "pos": "verb"
   },
   {
@@ -1836,7 +1836,7 @@
     "ar": "بدكم",
     "ar_full": "بدكم",
     "translit": "bidkom",
-    "en": "you (pl.) want",
+    "en": "you (p) want",
     "pos": "verb"
   },
   {

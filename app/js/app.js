@@ -579,8 +579,14 @@ function cleanEn(en) {
   // Parenthetical asides go — grammar markers, usage notes — except a
   // "lit. ..." literal-translation gloss, worth keeping on its own even when
   // the rest of the same parens is filler (e.g. "(polite request, lit. \"God
-  // keep you\")" keeps just the gloss).
+  // keep you\")" keeps just the gloss), and a bare "(f)"/"(p)" disambiguating
+  // which "you" is meant — English doesn't mark that distinction itself, so
+  // it has to survive into the option text rather than get discarded as a
+  // grammar note (unlike the period-bearing "(f.)"/"(pl.)" adjective-gender
+  // markers elsewhere, which stay filler).
   clean = clean.replace(/\s*\(([^()]*)\)/g, (_, inner) => {
+    const trimmed = inner.trim();
+    if (/^[fp]$/i.test(trimmed)) return ` (${trimmed.toLowerCase()})`;
     const lit = inner.match(/lit\.\s*("(?:[^"\\]|\\.)*"|[^,)]*)/i);
     return lit ? ` (lit. ${lit[1].trim()})` : "";
   });
@@ -612,17 +618,26 @@ function lengthBucket(text) {
 function hasDefiniteArticle(text) {
   return /^ال/.test(text) || /^the\s+/i.test(text);
 }
-function withDefiniteArticle(text) {
-  if (hasDefiniteArticle(text)) return text;
-  return /[؀-ۿ]/.test(text) ? "ال" + text : "the " + text;
+// Kinship nouns like "my dad" / "his mother" (Arabic: أبوي / إمه, a possessive
+// suffix baked into the noun itself) are already definite without "the"/ال —
+// forcing it on produces "the my dad" / "الأبوي". Exempt them instead.
+function isPossessiveForm(text) {
+  return /^(my|your|his|her|its|our|their)\b/i.test(text);
+}
+function withDefiniteArticle(text, exempt) {
+  if (exempt || hasDefiniteArticle(text)) return text;
+  // An indefinite "a"/"an" is the English counterpart of no article at all —
+  // swap it for "the" rather than stacking both ("the a courtyard").
+  const bare = text.replace(/^(a|an)\s+/i, "");
+  return /[؀-ۿ]/.test(bare) ? "ال" + bare : "the " + bare;
 }
 function withoutDefiniteArticle(text) {
   if (/^ال/.test(text)) return text.slice(2);
   if (/^the\s+/i.test(text)) return text.replace(/^the\s+/i, "");
   return text;
 }
-function matchDefiniteness(text, correct) {
-  return hasDefiniteArticle(correct) ? withDefiniteArticle(text) : withoutDefiniteArticle(text);
+function matchDefiniteness(text, correct, exempt) {
+  return hasDefiniteArticle(correct) ? withDefiniteArticle(text, exempt) : withoutDefiniteArticle(text);
 }
 
 // Same tell, different shape: a handful of items are imperatives ("get up!")
@@ -644,8 +659,8 @@ function matchTrailingMark(text, correct) {
   if (cls === "bang") return base + "!";
   return /[؀-ۿ]/.test(base) ? base + "؟" : base + "?";
 }
-function matchDecoyShape(text, correct) {
-  return matchTrailingMark(matchDefiniteness(text, correct), correct);
+function matchDecoyShape(text, correct, exempt) {
+  return matchTrailingMark(matchDefiniteness(text, correct, exempt), correct);
 }
 
 // Ranks decoy candidates into four tiers — same part of speech & same
@@ -658,7 +673,16 @@ function pickDecoys(item, count, textOf) {
   const targetBucket = lengthBucket(correct);
   const candidates = state.vocab
     .filter((v) => v.id !== item.id)
-    .map((v) => ({ text: matchDecoyShape(textOf(v), correct), pos: v.pos }))
+    // "the"/ال only ever belongs on a plain noun — forcing it onto a verb,
+    // adjective, adverb, phrase, or particle decoy (e.g. "the quickly",
+    // "اليلا") is ungrammatical regardless of the correct answer's shape.
+    // Possessiveness is a property of the underlying word, not of which
+    // language it's displayed in, so check the English gloss even when
+    // textOf() returns the Arabic form.
+    .map((v) => ({
+      text: matchDecoyShape(textOf(v), correct, v.pos !== "noun" || isPossessiveForm(cleanEn(v.en))),
+      pos: v.pos,
+    }))
     .filter((c) => c.text !== correct);
 
   const tiers = [
