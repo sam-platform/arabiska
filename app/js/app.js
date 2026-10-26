@@ -69,6 +69,13 @@ function remainingCount() {
   return state.vocab.length - masteredCount();
 }
 
+function masteredPool() {
+  return state.vocab.filter((v) => {
+    const p = state.progressById[v.id];
+    return !!p && p.mastered;
+  });
+}
+
 // A day only "counts" once the whole set is finished (see
 // finishInitialSetIfPending()) — answering one card isn't enough. Counts
 // backward from today; if today isn't finished yet (the day isn't over),
@@ -161,6 +168,7 @@ const screens = {
   session: $("#screen-session"),
   continue: $("#screen-continue"),
   done: $("#screen-done"),
+  rehearsalDone: $("#screen-rehearsal-done"),
 };
 
 function show(name) {
@@ -436,7 +444,7 @@ async function startSession(user) {
     set_completed: false,
   };
 
-  state = { user, vocab, progressById, queue: [], dailyLog: { ...dailyLog }, logHistory, current: null, forcedType: {} };
+  state = { user, vocab, progressById, queue: [], dailyLog: { ...dailyLog }, logHistory, current: null, forcedType: {}, rehearsalMode: false };
 
   const resume = loadQueueState();
   if (resume) {
@@ -461,6 +469,7 @@ function renderDashboard() {
   $("#dash-mastered").textContent = masteredCount();
   $("#dash-remaining").textContent = remainingCount();
   $("#dash-level").textContent = estimateLevel() || "New";
+  $("#rehearse-btn").hidden = masteredCount() === 0;
   mountMascot("slot-dashboard", doneToday ? "happy" : "idle");
   show("dashboard");
 }
@@ -483,6 +492,22 @@ function beginPractice() {
 
   state.queue = shuffle([...reviewItems, ...newItems]);
   state.initialSetPending = true;
+  state.rehearsalMode = false;
+  renderLevelBadge();
+  nextCard();
+}
+
+// Rehearsal: a look-back-only loop over words already marked "mastered" —
+// doesn't touch the SM-2 progress rows, the daily streak, or the day's
+// reviewed/new counts, since it's just a refresher and not part of the
+// paced daily set. See the state.rehearsalMode branches in nextCard(),
+// renderMultipleChoice(), and renderWordOrder() for how grading is skipped.
+const REHEARSAL_BATCH = 10;
+
+function beginRehearsal() {
+  state.queue = shuffle(masteredPool()).slice(0, REHEARSAL_BATCH);
+  state.initialSetPending = false;
+  state.rehearsalMode = true;
   renderLevelBadge();
   nextCard();
 }
@@ -505,11 +530,17 @@ async function finishInitialSetIfPending() {
 }
 
 $("#start-practice-btn").addEventListener("click", beginPractice);
+$("#rehearse-btn").addEventListener("click", beginRehearsal);
 $("#continue-home-btn").addEventListener("click", (e) => {
   e.preventDefault();
   renderDashboard();
 });
 $("#done-home-btn").addEventListener("click", () => renderDashboard());
+$("#rehearse-more-btn").addEventListener("click", beginRehearsal);
+$("#rehearse-done-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  renderDashboard();
+});
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -737,9 +768,13 @@ function pickWordDecoys(item, target, count) {
 async function nextCard() {
   if (state.queue.length === 0) {
     state.current = null;
-    clearQueueState();
-    await finishInitialSetIfPending();
-    renderContinuePrompt();
+    if (state.rehearsalMode) {
+      renderRehearsalDone();
+    } else {
+      clearQueueState();
+      await finishInitialSetIfPending();
+      renderContinuePrompt();
+    }
     return;
   }
   state.current = state.queue.shift();
@@ -747,7 +782,7 @@ async function nextCard() {
   const item = state.current;
   const isNew = !state.progressById[item.id];
 
-  $("#card-book").textContent = item.book_title;
+  $("#card-book").textContent = state.rehearsalMode ? `🎓 Rehearsal · ${item.book_title}` : item.book_title;
   $("#card-progress").textContent = `${state.queue.length} left`;
   mountMascot("slot-session", "idle");
 
@@ -756,7 +791,7 @@ async function nextCard() {
   const useWordOrder = forced ? forced.type === "wordOrder" : !isNew && isWordOrderEligible(item) && Math.random() < 0.5;
   currentExerciseType = useWordOrder ? "wordOrder" : "multipleChoice";
   currentDirection = forced && forced.direction ? forced.direction : Math.random() < 0.5 ? "ar2en" : "en2ar";
-  saveQueueState();
+  if (!state.rehearsalMode) saveQueueState();
 
   if (useWordOrder) {
     renderWordOrder(item);
@@ -829,7 +864,9 @@ function renderMultipleChoice(item, isNew, direction) {
         else if (b === btn) b.classList.add("wrong");
       });
       setMascotMood(correct ? "happy" : "sad", correct ? "happy" : "sad");
-      if (correct) {
+      if (state.rehearsalMode) {
+        showRehearsalNext();
+      } else if (correct) {
         showRatingPrompt();
       } else {
         showNextButton();
@@ -846,6 +883,15 @@ function showNextButton() {
   wrap.innerHTML = `<button class="btn-primary" type="button" style="margin-top:14px;">Next</button>`;
   root.appendChild(wrap);
   wrap.querySelector("button").addEventListener("click", () => submitRating("again"), { once: true });
+}
+
+// Rehearsal cards never touch the SM-2 schedule — right or wrong, this just
+// advances to the next card without grading (see state.rehearsalMode).
+function showRehearsalNext() {
+  const wrap = document.createElement("div");
+  wrap.innerHTML = `<button class="btn-primary" type="button" style="margin-top:14px;">Next</button>`;
+  root.appendChild(wrap);
+  wrap.querySelector("button").addEventListener("click", () => nextCard(), { once: true });
 }
 
 // Wrong answers are unambiguous — just reschedule soon and move on. A
@@ -944,7 +990,10 @@ function renderWordOrder(item) {
         .join("");
     }
     setMascotMood(correct ? "happy" : "sad", correct ? "happy" : "sad");
-    if (correct) {
+    if (state.rehearsalMode) {
+      if (correct) setTimeout(() => showRehearsalNext(), 400);
+      else showRehearsalNext();
+    } else if (correct) {
       setTimeout(() => showRatingPrompt(), 400);
     } else {
       showNextButton();
@@ -1053,6 +1102,13 @@ $("#continue-more-btn").addEventListener("click", () => {
   state.queue = pool.slice(0, EXTRA_REVIEW_BATCH);
   nextCard();
 });
+
+function renderRehearsalDone() {
+  state.rehearsalMode = false;
+  mountMascot("slot-rehearsal-done", "happy");
+  setMascotMood("happy", "happy");
+  show("rehearsalDone");
+}
 
 function renderDone() {
   $("#done-reviewed").textContent = state.dailyLog.reviewed_items_count;
