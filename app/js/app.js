@@ -498,9 +498,10 @@ function beginPractice() {
 }
 
 // Rehearsal: a look-back-only loop over words already marked "mastered" —
-// doesn't touch the SM-2 progress rows, the daily streak, or the day's
-// reviewed/new counts, since it's just a refresher and not part of the
-// paced daily set. See the state.rehearsalMode branches in nextCard(),
+// doesn't touch the SM-2 progress rows or the day's reviewed/new counts,
+// since it's just a refresher and not part of the paced daily set. It does
+// still count as a day's practice for the streak (see markStreakDay() in
+// nextCard()). See the state.rehearsalMode branches in nextCard(),
 // renderMultipleChoice(), and renderWordOrder() for how grading is skipped.
 const REHEARSAL_BATCH = 10;
 
@@ -512,6 +513,20 @@ function beginRehearsal() {
   nextCard();
 }
 
+// Marks today's daily_log row as set_completed — the thing computeStreak()
+// checks — without touching reviewed/new counts or SM-2 progress. Shared by
+// the daily set (via finishInitialSetIfPending) and by finishing a rehearsal
+// round, since either one is a real day of practice for streak purposes.
+async function markStreakDay() {
+  if (state.dailyLog.set_completed) return;
+  state.dailyLog.set_completed = true;
+  await sb.from("daily_log").upsert({
+    user_id: state.user.id,
+    day: todayStr(),
+    set_completed: true,
+  });
+}
+
 // Marks today's daily_log row as set_completed once the day's initial batch
 // (due reviews + new words, including anything requeued after a wrong
 // answer — see the `requeue` push in submitRating()) has been fully
@@ -520,13 +535,7 @@ function beginRehearsal() {
 async function finishInitialSetIfPending() {
   if (!state.initialSetPending) return;
   state.initialSetPending = false;
-  if (state.dailyLog.set_completed) return;
-  state.dailyLog.set_completed = true;
-  await sb.from("daily_log").upsert({
-    user_id: state.user.id,
-    day: todayStr(),
-    set_completed: true,
-  });
+  await markStreakDay();
 }
 
 $("#start-practice-btn").addEventListener("click", beginPractice);
@@ -769,6 +778,7 @@ async function nextCard() {
   if (state.queue.length === 0) {
     state.current = null;
     if (state.rehearsalMode) {
+      await markStreakDay();
       renderRehearsalDone();
     } else {
       clearQueueState();
