@@ -107,6 +107,8 @@ bdi {
 .illus svg { width: 100%; height: 100%; }
 
 .story-ar {
+  direction: rtl;
+  text-align: right;
   font-size: 17pt;
   color: var(--ink);
   flex: 0 0 auto;
