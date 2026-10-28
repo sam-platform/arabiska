@@ -11,3 +11,6 @@ worker/.wrangler
 .claude/
 skills-lock.json
 facelift-screenshots/
+
+# Scratch image-gen test output, not book content.
+worker/tools/test-out/

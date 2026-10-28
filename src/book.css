@@ -93,6 +93,7 @@ bdi {
 }
 .cover .cover-illus { flex: 1; display: flex; align-items: center; padding: 4mm 0; }
 .cover .cover-illus svg { width: 100%; height: auto; }
+.cover .cover-illus img { width: 100%; height: auto; border-radius: 2mm; }
 .cover .footnote {
   text-align: center; font-size: 8pt; color: var(--muted);
   border-top: .4mm solid var(--stone-dark); padding-top: 3mm; line-height: 1.7;
@@ -105,6 +106,7 @@ bdi {
   margin-bottom: 4mm;
 }
 .illus svg { width: 100%; height: 100%; }
+.illus img { width: 100%; height: 100%; object-fit: cover; border-radius: 2mm; display: block; }
 
 .story-ar {
   direction: rtl;
