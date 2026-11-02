@@ -223,10 +223,10 @@
     "id": "b1-023",
     "book": 1,
     "book_title": "كعك القدس",
-    "ar": "عم بتشتري",
-    "ar_full": "عم بتشتري",
-    "translit": "3am btishtiri",
-    "en": "she is buying (right now)",
+    "ar": "بتشتري",
+    "ar_full": "بتشتري",
+    "translit": "btishtiri",
+    "en": "she is buying",
     "pos": "verb"
   },
   {
@@ -793,9 +793,9 @@
     "id": "b2-080",
     "book": 2,
     "book_title": "وين راحت مشمش؟",
-    "ar": "عم تخرخر",
-    "ar_full": "عم تخرخر",
-    "translit": "3am t5ar5er",
+    "ar": "بتخرخر",
+    "ar_full": "بتخرخر",
+    "translit": "bt5ar5er",
     "en": "she's purring",
     "pos": "verb"
   },
