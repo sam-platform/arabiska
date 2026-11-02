@@ -69,6 +69,12 @@ function remainingCount() {
   return state.vocab.length - masteredCount();
 }
 
+// Words with no progress row at all — never shown yet, as opposed to shown
+// before but not yet mastered. "remaining" above lumps both together.
+function unseenCount() {
+  return state.vocab.filter((v) => !state.progressById[v.id]).length;
+}
+
 function masteredPool() {
   return state.vocab.filter((v) => {
     const p = state.progressById[v.id];
@@ -130,6 +136,9 @@ function saveQueueState() {
       // answer away.
       currentType: state.current ? currentExerciseType : null,
       currentDirection: state.current ? currentDirection : null,
+      // The actual rendered options/word-bank, so reopening mid-card shows the
+      // exact same distractors instead of rolling a fresh, different set.
+      currentOptions: state.current ? state.currentOptions || null : null,
     })
   );
 }
@@ -152,6 +161,7 @@ function loadQueueState() {
           initialSetPending: !!saved.initialSetPending,
           currentType: saved.currentType || null,
           currentDirection: saved.currentDirection || null,
+          currentOptions: Array.isArray(saved.currentOptions) ? saved.currentOptions : null,
         }
       : null;
   } catch {
@@ -405,15 +415,10 @@ function grade(progressRow, rating) {
   if (rating === "again") {
     return { repetitions: 0, ease_factor: Math.max(1.3, ease - 0.2), interval_days: 0, requeue: true };
   }
-  if (rating === "good") {
-    repetitions += 1;
-    interval = repetitions === 1 ? 1 : repetitions === 2 ? 6 : Math.round(interval * ease);
-    return { repetitions, ease_factor: ease, interval_days: interval, requeue: false };
-  }
-  // easy
+  // good
   repetitions += 1;
-  interval = repetitions === 1 ? 4 : Math.round(interval * ease * 1.3);
-  return { repetitions, ease_factor: ease + 0.15, interval_days: interval, requeue: false };
+  interval = repetitions === 1 ? 1 : repetitions === 2 ? 6 : Math.round(interval * ease);
+  return { repetitions, ease_factor: ease, interval_days: interval, requeue: false };
 }
 
 // ---------- Session building ----------
@@ -451,7 +456,11 @@ async function startSession(user) {
     state.queue = resume.queue;
     state.initialSetPending = resume.initialSetPending;
     if (resume.currentType) {
-      state.forcedType[resume.queue[0].id] = { type: resume.currentType, direction: resume.currentDirection };
+      state.forcedType[resume.queue[0].id] = {
+        type: resume.currentType,
+        direction: resume.currentDirection,
+        options: resume.currentOptions,
+      };
     }
     renderLevelBadge();
     nextCard();
@@ -469,6 +478,7 @@ function renderDashboard() {
   $("#dash-mastered").textContent = masteredCount();
   $("#dash-remaining").textContent = remainingCount();
   $("#dash-level").textContent = estimateLevel() || "New";
+  $("#dash-new-btn").textContent = `🆕 ${unseenCount()} words not introduced yet`;
   $("#rehearse-btn").hidden = masteredCount() === 0;
   mountMascot("slot-dashboard", doneToday ? "happy" : "idle");
   show("dashboard");
@@ -801,13 +811,16 @@ async function nextCard() {
   const useWordOrder = forced ? forced.type === "wordOrder" : !isNew && isWordOrderEligible(item) && Math.random() < 0.5;
   currentExerciseType = useWordOrder ? "wordOrder" : "multipleChoice";
   currentDirection = forced && forced.direction ? forced.direction : Math.random() < 0.5 ? "ar2en" : "en2ar";
-  if (!state.rehearsalMode) saveQueueState();
 
   if (useWordOrder) {
-    renderWordOrder(item);
+    renderWordOrder(item, forced && forced.options);
   } else {
-    renderMultipleChoice(item, isNew, currentDirection);
+    renderMultipleChoice(item, isNew, currentDirection, forced && forced.options);
   }
+  // Rendered after the exercise is built (not before) so state.currentOptions
+  // holds the actual materialized options/word-bank — the thing a resume
+  // needs to reproduce identically instead of rolling fresh ones.
+  if (!state.rehearsalMode) saveQueueState();
 
   show("session");
 }
@@ -843,11 +856,16 @@ if ("speechSynthesis" in window) {
   speechSynthesis.addEventListener("voiceschanged", () => speechSynthesis.getVoices());
 }
 
-function renderMultipleChoice(item, isNew, direction) {
+function renderMultipleChoice(item, isNew, direction, forcedOptions) {
   const isReverse = direction === "en2ar";
   const correctText = isReverse ? item.ar_full : cleanEn(item.en);
-  const distractors = isReverse ? pickArabicDistractors(item, 3) : pickDistractors(item, 3);
-  const options = shuffle([correctText, ...distractors]);
+  // Reuse the exact options saved before a resume rather than rolling fresh
+  // distractors, unless that saved set is missing or stale.
+  const options =
+    forcedOptions && forcedOptions.includes(correctText)
+      ? forcedOptions
+      : shuffle([correctText, ...(isReverse ? pickArabicDistractors(item, 3) : pickDistractors(item, 3))]);
+  state.currentOptions = options;
   const optionClass = isReverse ? "mc-option ar-option" : "mc-option";
   const promptHtml = isReverse
     ? `<div class="en-answer">${cleanEn(item.en)}</div>`
@@ -904,16 +922,14 @@ function showRehearsalNext() {
   wrap.querySelector("button").addEventListener("click", () => nextCard(), { once: true });
 }
 
-// Wrong answers are unambiguous — just reschedule soon and move on. A
-// correct answer is ambiguous (lucky guess vs. knew it cold), so that's
-// where self-rating actually adds information to the SM-2 schedule.
+// Wrong answers are unambiguous — just reschedule soon and move on. A correct
+// answer only needs one more bit of input: keep this in the normal SRS
+// rotation ("Next"), or retire it as permanently known ("Mastered").
 function showRatingPrompt() {
   const wrap = document.createElement("div");
   wrap.innerHTML = `
-    <p class="rate-prompt">How well did you know that?</p>
     <div class="rate-row">
-      <button class="rate-good" type="button" data-rate="good">Good</button>
-      <button class="rate-easy" type="button" data-rate="easy">Easy</button>
+      <button class="rate-next" type="button" data-rate="good">Next →</button>
       <button class="rate-mastered" type="button" data-rate="mastered">Mastered</button>
     </div>
   `;
@@ -929,13 +945,31 @@ function randomDecoyCount() {
   return 3 + Math.floor(Math.random() * 4);
 }
 
-function renderWordOrder(item) {
+// Whether `pool` still contains every word `target` needs — true for a
+// forced pool restored from a resume, unless the save predates a vocab
+// change and is missing a word the target now requires.
+function poolCoversTarget(pool, target) {
+  const remaining = pool.slice();
+  return target.every((w) => {
+    const i = remaining.indexOf(w);
+    if (i === -1) return false;
+    remaining.splice(i, 1);
+    return true;
+  });
+}
+
+function renderWordOrder(item, forcedPool) {
   const target = item.ar.trim().split(/\s+/);
-  const decoys = pickWordDecoys(item, target, randomDecoyCount());
-  // `pool` keeps each word's position fixed for the whole exercise — only
-  // `picked` (which pool slots are already used) changes, so tapping a word
-  // never reshuffles the ones still left in the bank.
-  const pool = shuffle([...target, ...decoys]);
+  // Reuse the exact word bank saved before a resume rather than rolling a
+  // fresh one, unless that saved bank is missing or stale.
+  const pool =
+    forcedPool && poolCoversTarget(forcedPool, target)
+      ? forcedPool
+      // `pool` keeps each word's position fixed for the whole exercise — only
+      // `picked` (which pool slots are already used) changes, so tapping a
+      // word never reshuffles the ones still left in the bank.
+      : shuffle([...target, ...pickWordDecoys(item, target, randomDecoyCount())]);
+  state.currentOptions = pool;
   const picked = new Array(pool.length).fill(false);
   const answer = []; // indices into `pool`, in the order they were tapped
 

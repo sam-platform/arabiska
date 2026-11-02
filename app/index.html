@@ -41,7 +41,6 @@
     --terra:  #E2935E;
     --ink:    #E8EEF1;
     --muted:  #93A7B2;
-    --easy:   #6B9A77;
     --wrong:  #E06B52;
 
     --font-ui: "Inter", "Segoe UI", "Helvetica Neue", sans-serif;
@@ -58,7 +57,6 @@
     --terra:  #C8713E;
     --ink:    #1E2A30;
     --muted:  #5C7384;
-    --easy:   #3C6349;
     --wrong:  #A8432B;
   }
   * { box-sizing: border-box; }
@@ -194,11 +192,9 @@
   .order-check-btn:disabled { opacity: 0.5; }
 
   /* self-rating, shown only after a correct answer */
-  .rate-prompt { font-size: 14px; color: var(--muted); margin: 16px 0 8px; }
-  .rate-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; max-width: 360px; }
+  .rate-row { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; width: 100%; max-width: 360px; margin-top: 14px; }
   .rate-row button { font-size: 14px; padding: 12px 6px; color: var(--cream); }
-  .rate-good { background: var(--olive); }
-  .rate-easy { background: var(--easy); }
+  .rate-next { background: var(--olive); font-size: 17px; padding: 15px 6px; }
   .rate-mastered { background: var(--ink); }
 
   /* ---- dashboard ---- */
@@ -321,6 +317,7 @@
           <div class="stat-label">level</div>
         </div>
       </div>
+      <button class="btn-secondary" type="button" id="dash-new-btn" style="margin-top:14px;"></button>
       <button class="btn-primary" type="button" id="start-practice-btn" style="margin-top:20px;">Start practicing</button>
       <button class="btn-secondary" type="button" id="rehearse-btn" style="margin-top:10px;" hidden>🎓 Rehearse mastered words</button>
       <button class="btn-secondary" type="button" id="enable-reminders-btn" style="margin-top:10px;" hidden>🔔 Remind me if I forget</button>
