@@ -8,9 +8,14 @@ const REMINDER_WORKER_URL = "https://arabiska-reminder.samfarkhooi.workers.dev";
 const REMINDER_VAPID_PUBLIC_KEY = "BOzsjyY0y_jXzY4OvVIDOu-GepDrxTBl-qrq5nJDe4g-hImfS9ZuqxV4auYCDRIrwMwqugK79R9_oJPq0REwUUM";
 const REMINDER_SUBSCRIBE_SECRET = "9cKHgeJdVvQpELiV2kqdIlRajQfOiwom";
 const REMINDERS_KEY = "arabiska-reminders-enabled";
-// Total cards in a set (due reviews + new words) — the batch that has to be
+// Total cards in a set (reviews + new words) — the batch that has to be
 // finished for the day to "count" (see finishInitialSetIfPending()).
 const SET_SIZE = 10;
+// How many of the longest-unreviewed non-mastered words make up the fixed
+// daily pool (see getDailyPool()) that every practice run that day draws its
+// SET_SIZE cards from — large enough that several runs in one day still
+// overlap, small enough to stay a "today" pool rather than the whole backlog.
+const POOL_SIZE = 40;
 
 // ---------- Level ----------
 //
@@ -108,6 +113,47 @@ function computeStreak() {
 }
 
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ---------- Daily review pool ----------
+//
+// Computed once per calendar day — the oldest POOL_SIZE non-mastered words by
+// last_reviewed_at, shuffled — then persisted so every practice run that day,
+// not just the first, draws its SET_SIZE cards from that same fixed pool.
+// That's what makes repeats across same-day runs expected rather than a bug:
+// with only POOL_SIZE candidates and SET_SIZE drawn each run, multiple runs
+// in a day are bound to overlap.
+function poolStorageKey(userId) {
+  return `arabiska_pool_${userId}`;
+}
+
+function getDailyPool() {
+  try {
+    const raw = localStorage.getItem(poolStorageKey(state.user.id));
+    if (raw) {
+      const saved = JSON.parse(raw);
+      if (saved.day === todayStr()) {
+        const byId = new Map(state.vocab.map((v) => [v.id, v]));
+        return saved.itemIds.map((id) => byId.get(id)).filter(Boolean);
+      }
+    }
+  } catch {}
+
+  const seen = state.vocab.filter((v) => {
+    const p = state.progressById[v.id];
+    return !!p && !p.mastered;
+  });
+  seen.sort((a, b) => {
+    const at = new Date(state.progressById[a.id].last_reviewed_at).getTime();
+    const bt = new Date(state.progressById[b.id].last_reviewed_at).getTime();
+    return at - bt;
+  });
+  const pool = shuffle(seen.slice(0, POOL_SIZE));
+  localStorage.setItem(
+    poolStorageKey(state.user.id),
+    JSON.stringify({ day: todayStr(), itemIds: pool.map((v) => v.id) })
+  );
+  return pool;
+}
 
 // ---------- In-progress set persistence ----------
 //
@@ -485,19 +531,14 @@ function renderDashboard() {
 }
 
 function beginPractice() {
-  const now = Date.now();
-  const due = [];
-  const unseen = [];
-  for (const item of state.vocab) {
-    const p = state.progressById[item.id];
-    if (!p) {
-      unseen.push(item);
-    } else if (!p.mastered && new Date(p.due_at).getTime() <= now) {
-      due.push(item);
-    }
-  }
+  const unseen = state.vocab.filter((v) => !state.progressById[v.id]);
+  // getDailyPool() is the same POOL_SIZE words all day — filtering mastered
+  // here (rather than baking it into the stored pool) means marking one
+  // mastered mid-day still pulls it out of a later run that same day.
+  const pool = getDailyPool().filter((item) => !state.progressById[item.id].mastered);
 
-  const reviewItems = due.slice(0, SET_SIZE);
+  const reviewCount = Math.min(pool.length, SET_SIZE);
+  const reviewItems = shuffle(pool).slice(0, reviewCount);
   const newItems = unseen.slice(0, SET_SIZE - reviewItems.length);
 
   state.queue = shuffle([...reviewItems, ...newItems]);
@@ -538,7 +579,7 @@ async function markStreakDay() {
 }
 
 // Marks today's daily_log row as set_completed once the day's initial batch
-// (due reviews + new words, including anything requeued after a wrong
+// (reviews + new words, including anything requeued after a wrong
 // answer — see the `requeue` push in submitRating()) has been fully
 // drained. Extra "Keep practicing" rounds afterward don't re-trigger this —
 // initialSetPending is already false by the time that button exists.
@@ -1123,10 +1164,9 @@ function isExtraPracticeCandidate(v) {
   return !!p && !p.mastered;
 }
 
-// Today's assigned new words + due reviews are a fixed, paced batch — but
-// once that's done, there's no reason to force a stop. Anything already
-// learned (regardless of whether it's actually due yet) is fair game for an
-// extra round, repeated for as long as the user wants.
+// Today's assigned new words + reviews are a fixed, paced batch — but once
+// that's done, there's no reason to force a stop. Anything already learned
+// is fair game for an extra round, repeated for as long as the user wants.
 function renderContinuePrompt() {
   const learnedPool = state.vocab.filter(isExtraPracticeCandidate);
   if (learnedPool.length === 0) {
