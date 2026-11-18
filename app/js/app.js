@@ -122,6 +122,14 @@ const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // That's what makes repeats across same-day runs expected rather than a bug:
 // with only POOL_SIZE candidates and SET_SIZE drawn each run, multiple runs
 // in a day are bound to overlap.
+//
+// "Oldest by last_reviewed_at" has to include never-reviewed (unseen) words,
+// not just previously-seen ones — an unseen word is the oldest case there is,
+// so it naturally sorts to the front and dominates the pool until it's been
+// shown. Excluding them here would silently lock new content out of ever
+// being introduced once the backlog of seen-but-due words alone fills
+// POOL_SIZE, which is exactly what happened right after 31 new words were
+// added with ~100 already in rotation.
 function poolStorageKey(userId) {
   return `arabiska_pool_${userId}`;
 }
@@ -138,16 +146,15 @@ function getDailyPool() {
     }
   } catch {}
 
-  const seen = state.vocab.filter((v) => {
-    const p = state.progressById[v.id];
-    return !!p && !p.mastered;
-  });
-  seen.sort((a, b) => {
-    const at = new Date(state.progressById[a.id].last_reviewed_at).getTime();
-    const bt = new Date(state.progressById[b.id].last_reviewed_at).getTime();
+  const eligible = state.vocab.filter((v) => !state.progressById[v.id]?.mastered);
+  eligible.sort((a, b) => {
+    const pa = state.progressById[a.id];
+    const pb = state.progressById[b.id];
+    const at = pa ? new Date(pa.last_reviewed_at).getTime() : -Infinity;
+    const bt = pb ? new Date(pb.last_reviewed_at).getTime() : -Infinity;
     return at - bt;
   });
-  const pool = shuffle(seen.slice(0, POOL_SIZE));
+  const pool = shuffle(eligible.slice(0, POOL_SIZE));
   localStorage.setItem(
     poolStorageKey(state.user.id),
     JSON.stringify({ day: todayStr(), itemIds: pool.map((v) => v.id) })
@@ -531,17 +538,14 @@ function renderDashboard() {
 }
 
 function beginPractice() {
-  const unseen = state.vocab.filter((v) => !state.progressById[v.id]);
-  // getDailyPool() is the same POOL_SIZE words all day — filtering mastered
-  // here (rather than baking it into the stored pool) means marking one
-  // mastered mid-day still pulls it out of a later run that same day.
-  const pool = getDailyPool().filter((item) => !state.progressById[item.id].mastered);
+  // getDailyPool() is the same POOL_SIZE words all day, unseen ones included
+  // (sorted first, as the oldest case there is) — filtering mastered here
+  // (rather than baking it into the stored pool) means marking one mastered
+  // mid-day still pulls it out of a later run that same day.
+  const pool = getDailyPool().filter((item) => !state.progressById[item.id]?.mastered);
 
-  const reviewCount = Math.min(pool.length, SET_SIZE);
-  const reviewItems = shuffle(pool).slice(0, reviewCount);
-  const newItems = unseen.slice(0, SET_SIZE - reviewItems.length);
-
-  state.queue = shuffle([...reviewItems, ...newItems]);
+  const count = Math.min(pool.length, SET_SIZE);
+  state.queue = shuffle(pool).slice(0, count);
   state.initialSetPending = true;
   state.rehearsalMode = false;
   renderLevelBadge();
