@@ -754,14 +754,29 @@ function matchDecoyShape(text, correct, exempt) {
   return matchTrailingMark(matchDefiniteness(text, correct, exempt), correct);
 }
 
-// Ranks decoy candidates into four tiers — same part of speech & same
-// length bucket first, down to neither matching — so an item's grammatical
-// shape (visibly an adjective, say) doesn't give away the answer by being
-// the only one of its kind among the options, on top of the existing
-// length-shape guard.
+// A handful of items carry a finer sub-shape within their part of speech
+// that would otherwise give the answer away on sight alone, without needing
+// to know any Arabic: verbs by person+tense (verb_form, e.g. "he did" next
+// to "I will" / "X!"), the ـي/ـك/ـه… possessive suffixes by their leading
+// tatweel (ـ) — visibly unlike any plain word — and the sg←pl / "noun(s)"
+// pair-teaching cards by their arrow/"(s)" marker. Group by this key before
+// falling back to any same-pos candidate.
+function shapeGroupOf(text, pos, verbForm) {
+  if (pos === "verb" && verbForm) return "verb:" + verbForm;
+  if (pos === "function" && (/^ـ/.test(text) || isPossessiveForm(text))) return "suffix";
+  if (pos === "noun" && (/←/.test(text) || /\(s\)/.test(text))) return "pair";
+  return null;
+}
+
+// Ranks decoy candidates into tiers — same shape group (see shapeGroupOf)
+// and same length bucket first, down to neither matching — so an item's
+// grammatical shape (visibly an adjective, say, or one of the finer groups
+// above) doesn't give away the answer by being the only one of its kind
+// among the options, on top of the existing length-shape guard.
 function pickDecoys(item, count, textOf) {
   const correct = textOf(item);
   const targetBucket = lengthBucket(correct);
+  const correctGroup = shapeGroupOf(correct, item.pos, item.verb_form);
   const candidates = state.vocab
     .filter((v) => v.id !== item.id)
     // "the"/ال only ever belongs on a plain noun — forcing it onto a verb,
@@ -773,12 +788,18 @@ function pickDecoys(item, count, textOf) {
     .map((v) => ({
       text: matchDecoyShape(textOf(v), correct, v.pos !== "noun" || isPossessiveForm(cleanEn(v.en))),
       pos: v.pos,
+      verbForm: v.verb_form,
     }))
+    .map((c) => ({ ...c, group: shapeGroupOf(c.text, c.pos, c.verbForm) }))
     .filter((c) => c.text !== correct);
 
+  const sameGroup = correctGroup ? (c) => c.group === correctGroup : () => false;
+
   const tiers = [
-    candidates.filter((c) => c.pos === item.pos && lengthBucket(c.text) === targetBucket),
-    candidates.filter((c) => c.pos === item.pos && lengthBucket(c.text) !== targetBucket),
+    candidates.filter((c) => sameGroup(c) && lengthBucket(c.text) === targetBucket),
+    candidates.filter((c) => sameGroup(c) && lengthBucket(c.text) !== targetBucket),
+    candidates.filter((c) => c.pos === item.pos && !sameGroup(c) && lengthBucket(c.text) === targetBucket),
+    candidates.filter((c) => c.pos === item.pos && !sameGroup(c) && lengthBucket(c.text) !== targetBucket),
     candidates.filter((c) => c.pos !== item.pos && lengthBucket(c.text) === targetBucket),
     candidates.filter((c) => c.pos !== item.pos && lengthBucket(c.text) !== targetBucket),
   ];

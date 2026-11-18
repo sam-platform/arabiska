@@ -77,7 +77,8 @@
     "ar_full": "بتقله",
     "translit": "bit2ello",
     "en": "she says to him (⁦قال⁩ + ⁦له⁩ run together)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b1-009",
@@ -97,7 +98,8 @@
     "ar_full": "قوم",
     "translit": "2oum",
     "en": "get up! · f. ⁦قومي⁩ 2oumi",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2sm"
   },
   {
     "id": "b1-011",
@@ -117,7 +119,8 @@
     "ar_full": "تتأخر",
     "translit": "tit2a55ar",
     "en": "you'll be late",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "fut-2s"
   },
   {
     "id": "b1-013",
@@ -167,7 +170,8 @@
     "ar_full": "عطته",
     "translit": "3atito",
     "en": "she gave him · ⁦عطى⁩ 3ata to give",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sf"
   },
   {
     "id": "b1-018",
@@ -177,7 +181,8 @@
     "ar_full": "جبلنا",
     "translit": "jiblna",
     "en": "bring us! · ⁦جاب⁩ jaab to bring",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2sm"
   },
   {
     "id": "b1-019",
@@ -197,7 +202,8 @@
     "ar_full": "نزل",
     "translit": "nizil",
     "en": "he went down · ⁦طلع⁩ tili3 he went up",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b1-021",
@@ -227,7 +233,8 @@
     "ar_full": "بتشتري",
     "translit": "btishtiri",
     "en": "she is buying",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b1-024",
@@ -247,7 +254,8 @@
     "ar_full": "بتحكي",
     "translit": "bti7ki",
     "en": "she talks · ⁦حكى⁩ 7aka to speak (not ⁦تكلم⁩)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b1-026",
@@ -267,7 +275,8 @@
     "ar_full": "ملت",
     "translit": "malat",
     "en": "it filled",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sf"
   },
   {
     "id": "b1-028",
@@ -297,7 +306,8 @@
     "ar_full": "خدهم",
     "translit": "5idhom",
     "en": "take them · ⁦خد⁩ 5od take",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2sm"
   },
   {
     "id": "b1-031",
@@ -317,7 +327,8 @@
     "ar_full": "فرح",
     "translit": "firi7",
     "en": "he was happy, he was glad",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b1-033",
@@ -347,7 +358,8 @@
     "ar_full": "شافته",
     "translit": "shaafto",
     "en": "she saw him · ⁦شاف⁩ shaaf to see (not ⁦رأى⁩)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sf"
   },
   {
     "id": "b1-036",
@@ -427,7 +439,8 @@
     "ar_full": "بتحب تنام",
     "translit": "bit7ibb tnaam",
     "en": "she likes to sleep (2nd verb with no ⁦أن⁩)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b2-044",
@@ -447,7 +460,8 @@
     "ar_full": "تتفرج على",
     "translit": "titfarraj 3ala",
     "en": "to watch, to look at",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "inf"
   },
   {
     "id": "b2-046",
@@ -477,7 +491,8 @@
     "ar_full": "قامت",
     "translit": "2aamat",
     "en": "she got up",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sf"
   },
   {
     "id": "b2-049",
@@ -487,7 +502,8 @@
     "ar_full": "مطت حالها",
     "translit": "mattat 7aalha",
     "en": "she stretched (lit. stretched herself)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sf"
   },
   {
     "id": "b2-050",
@@ -497,7 +513,8 @@
     "ar_full": "نطت",
     "translit": "nattat",
     "en": "she jumped · ⁦نط⁩ natt to jump",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sf"
   },
   {
     "id": "b2-051",
@@ -517,7 +534,8 @@
     "ar_full": "نادى",
     "translit": "naada",
     "en": "he called out",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b2-053",
@@ -537,7 +555,8 @@
     "ar_full": "دور",
     "translit": "dawwar",
     "en": "he searched · ⁦دور على⁩ dawwar 3ala look for",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b2-055",
@@ -607,7 +626,8 @@
     "ar_full": "شفتي؟",
     "translit": "shufti?",
     "en": "did you see? (f) · m. ⁦شفت⁩ shuft",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-2sf"
   },
   {
     "id": "b2-062",
@@ -657,7 +677,8 @@
     "ar_full": "جرب",
     "translit": "jarrib",
     "en": "try! · ⁦جرب⁩ jarrab he tried",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2sm"
   },
   {
     "id": "b2-067",
@@ -687,7 +708,8 @@
     "ar_full": "قله",
     "translit": "2allo",
     "en": "he said to him · ⁦قلها⁩ 2alha to her",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b2-070",
@@ -727,7 +749,8 @@
     "ar_full": "بتموء",
     "translit": "btmoo2",
     "en": "she meows",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b2-074",
@@ -767,7 +790,8 @@
     "ar_full": "ما تخافي",
     "translit": "maa t5aafi",
     "en": "don't be afraid (f.) · m. ⁦ما تخاف⁩ maa t5aaf",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2sf"
   },
   {
     "id": "b2-078",
@@ -787,7 +811,8 @@
     "ar_full": "حملها",
     "translit": "7amalha",
     "en": "he carried her",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b2-080",
@@ -797,7 +822,8 @@
     "ar_full": "بتخرخر",
     "translit": "bt5ar5er",
     "en": "she's purring",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b2-081",
@@ -817,7 +843,8 @@
     "ar_full": "بيسكر",
     "translit": "bisakker",
     "en": "he closes · ⁦بيفتح⁩ byifta7 he opens",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sm"
   },
   {
     "id": "b2-083",
@@ -1077,7 +1104,8 @@
     "ar_full": "تفضلوا",
     "translit": "tfaddalu",
     "en": "come in / help yourselves / after you",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2p"
   },
   {
     "id": "b3-109",
@@ -1087,7 +1115,8 @@
     "ar_full": "بتملا",
     "translit": "btimla",
     "en": "it fills · ⁦ملا⁩ mala to fill",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b3-110",
@@ -1117,7 +1146,8 @@
     "ar_full": "عملتلكم",
     "translit": "3amaltilkom",
     "en": "I made for you (p)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-1s"
   },
   {
     "id": "b3-113",
@@ -1177,7 +1207,8 @@
     "ar_full": "منقلبها",
     "translit": "mnu2libha",
     "en": "we flip it · ⁦قلب⁩ 2alab to turn over",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-1p"
   },
   {
     "id": "b3-119",
@@ -1237,7 +1268,8 @@
     "ar_full": "بيقعد",
     "translit": "byi23od",
     "en": "he sits (not ⁦يجلس⁩)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sm"
   },
   {
     "id": "b3-125",
@@ -1267,7 +1299,8 @@
     "ar_full": "خليني",
     "translit": "5alleeni",
     "en": "let me · ⁦خليك⁩ 5alleek stay / keep",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2sm"
   },
   {
     "id": "b3-128",
@@ -1277,7 +1310,8 @@
     "ar_full": "احكيلك",
     "translit": "a7keelak",
     "en": "I'll tell you",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "fut-1s"
   },
   {
     "id": "b3-129",
@@ -1337,7 +1371,8 @@
     "ar_full": "كنا نلعب",
     "translit": "kunna nil3ab",
     "en": "we used to play",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-1p"
   },
   {
     "id": "b3-135",
@@ -1367,7 +1402,8 @@
     "ar_full": "تصير",
     "translit": "tseer",
     "en": "it becomes · ⁦صار⁩ saar became, happened",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b3-138",
@@ -1417,7 +1453,8 @@
     "ar_full": "تنادي",
     "translit": "tnaadi",
     "en": "she calls out",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b3-143",
@@ -1427,7 +1464,8 @@
     "ar_full": "تأخرتوا",
     "translit": "t2a55artu",
     "en": "you (p) are late",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-2p"
   },
   {
     "id": "b3-144",
@@ -1477,7 +1515,8 @@
     "ar_full": "يوكل",
     "translit": "yokel",
     "en": "he eats · ⁦أكل⁩ akal he ate",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sm"
   },
   {
     "id": "b3-149",
@@ -1487,7 +1526,8 @@
     "ar_full": "لعبت",
     "translit": "li3ibt",
     "en": "I played / you played",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-1s"
   },
   {
     "id": "b3-150",
@@ -1497,7 +1537,8 @@
     "ar_full": "لعبتي",
     "translit": "li3ibti",
     "en": "you (f) played",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-2sf"
   },
   {
     "id": "b3-151",
@@ -1507,7 +1548,8 @@
     "ar_full": "لعب",
     "translit": "li3ib",
     "en": "he played",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b3-152",
@@ -1517,7 +1559,8 @@
     "ar_full": "لعبنا",
     "translit": "li3ibna",
     "en": "we played",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-1p"
   },
   {
     "id": "b3-153",
@@ -1527,7 +1570,8 @@
     "ar_full": "لعبتوا",
     "translit": "li3ibtu",
     "en": "you (p) played",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-2p"
   },
   {
     "id": "b3-154",
@@ -1537,7 +1581,8 @@
     "ar_full": "لعبوا",
     "translit": "li3bu",
     "en": "they played",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3p"
   },
   {
     "id": "b4-155",
@@ -1587,7 +1632,8 @@
     "ar_full": "قطف",
     "translit": "qataf",
     "en": "he picked (olives, fruit)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b4-160",
@@ -1647,7 +1693,8 @@
     "ar_full": "طاح / تطيح",
     "translit": "taa7 / titee7",
     "en": "to fall — not ⁦وقع⁩",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "inf"
   },
   {
     "id": "b4-166",
@@ -1677,7 +1724,8 @@
     "ar_full": "عطيني",
     "translit": "3atteeni",
     "en": "give me",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2sm"
   },
   {
     "id": "b4-169",
@@ -1687,7 +1735,8 @@
     "ar_full": "حطيلي",
     "translit": "7attili",
     "en": "put ... for me",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2sm"
   },
   {
     "id": "b4-170",
@@ -1737,7 +1786,8 @@
     "ar_full": "بتستاهل",
     "translit": "bitistaahal",
     "en": "it's worth it",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b4-175",
@@ -1757,7 +1807,8 @@
     "ar_full": "غمسوا",
     "translit": "8amsu",
     "en": "dip! (pl. imperative) · ⁦غمس⁩ 8amas to dip",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "imp-2p"
   },
   {
     "id": "b4-177",
@@ -1787,7 +1838,8 @@
     "ar_full": "بدي",
     "translit": "biddi",
     "en": "I want (to)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-1s"
   },
   {
     "id": "b4-180",
@@ -1797,7 +1849,8 @@
     "ar_full": "بدك",
     "translit": "biddak / biddik",
     "en": "you want (m. / f.)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-2s"
   },
   {
     "id": "b4-181",
@@ -1807,7 +1860,8 @@
     "ar_full": "بدو",
     "translit": "biddo",
     "en": "he wants",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sm"
   },
   {
     "id": "b4-182",
@@ -1817,7 +1871,8 @@
     "ar_full": "بدها",
     "translit": "bidha",
     "en": "she wants",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b4-183",
@@ -1827,7 +1882,8 @@
     "ar_full": "بدنا",
     "translit": "bidna",
     "en": "we want",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-1p"
   },
   {
     "id": "b4-184",
@@ -1837,7 +1893,8 @@
     "ar_full": "بدكم",
     "translit": "bidkom",
     "en": "you (p) want",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-2p"
   },
   {
     "id": "b4-185",
@@ -1847,7 +1904,8 @@
     "ar_full": "بدهم",
     "translit": "bidhom",
     "en": "they want",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3p"
   },
   {
     "id": "b4-186",
@@ -1857,7 +1915,8 @@
     "ar_full": "جبتلك",
     "translit": "jibtillak",
     "en": "I brought (it) for you",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-1s"
   },
   {
     "id": "b4-187",
@@ -1867,7 +1926,8 @@
     "ar_full": "قطفتها",
     "translit": "qataftha",
     "en": "I picked it (f.)",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-1s"
   },
   {
     "id": "b4-188",
@@ -1877,7 +1937,8 @@
     "ar_full": "عطته",
     "translit": "3atetto",
     "en": "she gave him/it",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sf"
   },
   {
     "id": "b5-189",
@@ -1927,7 +1988,8 @@
     "ar_full": "فاق",
     "translit": "faaq",
     "en": "he woke up · ⁦يفوق⁩ yfuuq to wake up",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b5-194",
@@ -1957,7 +2019,8 @@
     "ar_full": "مد ايده",
     "translit": "madd eedo",
     "en": "he held out his hand",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b5-197",
@@ -1967,7 +2030,8 @@
     "ar_full": "عد",
     "translit": "3add",
     "en": "he counted · ⁦يعد⁩ yi3idd to count",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b5-198",
@@ -1997,7 +2061,8 @@
     "ar_full": "هرب",
     "translit": "hirib",
     "en": "he ran off, fled",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b5-201",
@@ -2017,7 +2082,8 @@
     "ar_full": "وفر",
     "translit": "waffar",
     "en": "he saved (money) · ⁦يوفر⁩ ywaffir",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b5-203",
@@ -2037,7 +2103,8 @@
     "ar_full": "رفع صوته",
     "translit": "rafa3 sowto",
     "en": "he raised his voice",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b5-205",
@@ -2057,7 +2124,8 @@
     "ar_full": "حضن",
     "translit": "7adan",
     "en": "he hugged · ⁦يحضن⁩ y7adin",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b5-207",
@@ -2067,7 +2135,8 @@
     "ar_full": "فرح",
     "translit": "farra7",
     "en": "to make (someone) happy · ⁦تفرحني⁩ tfar7ini you make me happy",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "inf"
   },
   {
     "id": "b5-208",
@@ -2237,7 +2306,8 @@
     "ar_full": "بتزحم",
     "translit": "btiz7am",
     "en": "it gets crowded",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "pres-3sf"
   },
   {
     "id": "b6-225",
@@ -2257,7 +2327,8 @@
     "ar_full": "حكى ... إنه",
     "translit": "7aka ... inno",
     "en": "told ... that (he/it) — reporting speech",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "other"
   },
   {
     "id": "b6-227",
@@ -2267,7 +2338,8 @@
     "ar_full": "شم",
     "translit": "shamm",
     "en": "he smelled",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b6-228",
@@ -2287,7 +2359,8 @@
     "ar_full": "ضاع",
     "translit": "daa3",
     "en": "he got lost · ⁦يضيع⁩ ydii3",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b6-230",
@@ -2337,7 +2410,8 @@
     "ar_full": "صادف",
     "translit": "saadaf",
     "en": "he ran into (someone) by chance",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b6-235",
@@ -2357,7 +2431,8 @@
     "ar_full": "تسابق",
     "translit": "tsaabaq",
     "en": "to race each other",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "inf"
   },
   {
     "id": "b6-237",
@@ -2367,7 +2442,8 @@
     "ar_full": "فاز",
     "translit": "faaz",
     "en": "he won · ⁦يفوز⁩ yfouz",
-    "pos": "verb"
+    "pos": "verb",
+    "verb_form": "past-3sm"
   },
   {
     "id": "b6-238",
