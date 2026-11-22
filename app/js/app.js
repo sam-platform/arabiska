@@ -763,12 +763,17 @@ function matchDecoyShape(text, correct, exempt) {
 // to know any Arabic: verbs by person+tense (verb_form, e.g. "he did" next
 // to "I will" / "X!"), the ـي/ـك/ـه… possessive suffixes by their leading
 // tatweel (ـ) — visibly unlike any plain word — and the sg←pl / "noun(s)"
-// pair-teaching cards by their arrow/"(s)" marker. Group by this key before
-// falling back to any same-pos candidate.
+// pair-teaching cards by their arrow/"(s)" marker. Numerals are their own
+// giveaway too: a digit-string English gloss ("100") next to spelled-out
+// function-word options ("before", "also") is identifiable on sight alone —
+// the Arabic side doesn't have this problem since these numbers are spelled
+// out in Arabic script, not digits, same as every other function word.
+// Group by this key before falling back to any same-pos candidate.
 function shapeGroupOf(text, pos, verbForm) {
   if (pos === "verb" && verbForm) return "verb:" + verbForm;
   if (pos === "function" && (/^ـ/.test(text) || isPossessiveForm(text))) return "suffix";
   if (pos === "noun" && (/←/.test(text) || /\(s\)/.test(text))) return "pair";
+  if (pos === "function" && /^\d/.test(text)) return "number";
   return null;
 }
 
