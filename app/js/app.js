@@ -141,7 +141,28 @@ function getDailyPool() {
       const saved = JSON.parse(raw);
       if (saved.day === todayStr()) {
         const byId = new Map(state.vocab.map((v) => [v.id, v]));
-        return saved.itemIds.map((id) => byId.get(id)).filter(Boolean);
+        const pool = saved.itemIds.map((id) => byId.get(id)).filter(Boolean);
+        // The vocab bank can grow mid-day (new words added to the data
+        // files) — a same-day pool that hasn't filled POOL_SIZE yet
+        // shouldn't stay stuck at its original size until tomorrow, so top
+        // it up with newly-eligible words instead of trusting the cache
+        // blindly. Existing pool order/ids are left untouched so in-progress
+        // repeats across runs today still line up.
+        if (pool.length < POOL_SIZE) {
+          const inPool = new Set(pool.map((v) => v.id));
+          const more = state.vocab.filter(
+            (v) => !inPool.has(v.id) && !state.progressById[v.id]?.mastered
+          );
+          const topUp = shuffle(more).slice(0, POOL_SIZE - pool.length);
+          if (topUp.length) {
+            pool.push(...topUp);
+            localStorage.setItem(
+              poolStorageKey(state.user.id),
+              JSON.stringify({ day: todayStr(), itemIds: pool.map((v) => v.id) })
+            );
+          }
+        }
+        return pool;
       }
     }
   } catch {}
