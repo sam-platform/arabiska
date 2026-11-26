@@ -559,14 +559,13 @@ function renderDashboard() {
 }
 
 function beginPractice() {
-  // getDailyPool() is the same POOL_SIZE words all day, unseen ones included
-  // (sorted first, as the oldest case there is) — filtering mastered here
-  // (rather than baking it into the stored pool) means marking one mastered
-  // mid-day still pulls it out of a later run that same day.
-  const pool = getDailyPool().filter((item) => !state.progressById[item.id]?.mastered);
-
-  const count = Math.min(pool.length, SET_SIZE);
-  state.queue = shuffle(pool).slice(0, count);
+  // dailyPoolRemaining() is the same POOL_SIZE words all day, unseen ones
+  // included (sorted first, as the oldest case there is) — filtering
+  // mastered here (rather than baking it into the stored pool) means
+  // marking one mastered mid-day still pulls it out of a later run, initial
+  // set or extra round alike, that same day.
+  const pool = dailyPoolRemaining();
+  state.queue = shuffle(pool).slice(0, SET_SIZE);
   state.initialSetPending = true;
   state.rehearsalMode = false;
   renderLevelBadge();
@@ -1208,19 +1207,19 @@ async function submitRating(rating) {
 
 const EXTRA_REVIEW_BATCH = 10;
 
-// True for anything with progress that isn't permanently retired via
-// "Mastered" — the pool eligible for the voluntary extra-practice rounds.
-function isExtraPracticeCandidate(v) {
-  const p = state.progressById[v.id];
-  return !!p && !p.mastered;
+// Same day-pool as beginPractice() — so a word that's still unseen or due
+// keeps the same shot at showing up in an extra round as it did in the
+// initial set. If enough of the pool got mastered mid-day that fewer than
+// EXTRA_REVIEW_BATCH remain, the round is just shorter than usual.
+function dailyPoolRemaining() {
+  return getDailyPool().filter((item) => !state.progressById[item.id]?.mastered);
 }
 
 // Today's assigned new words + reviews are a fixed, paced batch — but once
-// that's done, there's no reason to force a stop. Anything already learned
-// is fair game for an extra round, repeated for as long as the user wants.
+// that's done, there's no reason to force a stop as long as the day's pool
+// still has anything left in it.
 function renderContinuePrompt() {
-  const learnedPool = state.vocab.filter(isExtraPracticeCandidate);
-  if (learnedPool.length === 0) {
+  if (dailyPoolRemaining().length === 0) {
     renderDone();
     return;
   }
@@ -1233,8 +1232,7 @@ function renderContinuePrompt() {
 }
 
 $("#continue-more-btn").addEventListener("click", () => {
-  const pool = shuffle(state.vocab.filter(isExtraPracticeCandidate));
-  state.queue = pool.slice(0, EXTRA_REVIEW_BATCH);
+  state.queue = shuffle(dailyPoolRemaining()).slice(0, EXTRA_REVIEW_BATCH);
   nextCard();
 });
 
